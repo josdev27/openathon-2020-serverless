@@ -1,7 +1,3 @@
-<p align="center">
-    <img src="../resources/header.png">
-</p>
-
 # Laboratorio 0
 Aunque existe la posibilidad de usar una cuenta de aws de formación para realizar los distintos laboratorios, vamos a informar como es posible crear una cuenta en aws y realizar los distintos pasos para tener una cuenta propia y configurada para realizar las prácticas y así poder continuar una vez haya finalizado el Openathon.
 
@@ -31,4 +27,51 @@ A continuación es necesario validar el número de teléfono. Se podrá hacer me
 Finalmente seleccionaremos un plan, el plan básico.
 <p align="center">
     <img src="resources/crear_cuenta_aws_6.PNG">
+</p>
+
+## Creación usuario de desarrollo.
+Lo primero que hay que hacer es logarnos con nuestra nueva cuenta de AWS.
+<p align="center">
+    <img src="resources/crear_usuario_aws_7.PNG">
+</p>
+A continuación, haremos clic en el menú services y teclearemos IAM, seleccionando el servicio Identity and Access Management (IAM).
+<p align="center">
+    <img src="resources/crear_usuario_aws_8.PNG">
+</p>
+Sobre el menú de la izquierda, haremos clic sobre Users. No debemos tener ningún usuario creado todavía, por lo que vamos a proceder a crear uno, para ello se hace clic sobre Add User.
+En la siguiente ventana informamos el nombre del usuario, marcamos las checks de Programmatic access y AWS Management Console access. También marcamos la opción de establecer nuestra password. Una vez se haya completado hacemos clic sobre Next:Permissions.
+<p align="center">
+    <img src="resources/crear_usuario_aws_9.PNG">
+</p>
+
+Lo siguiente será asignar a este nuevo usuario a un grupo. Como no existe ningún grupo creado previamente clicamos sobre Create Group.
+Como nombre de grupo introducimos developers. En las policies marcamos AdministratorAccess.
+<p align="center">
+    <img src="resources/crear_usuario_aws_10.PNG">
+</p>
+Con ello ya podemos hacer clic sobre Create group.
+<p align="center">
+    <img src="resources/crear_usuario_aws_11.PNG">
+</p>
+Podemos hacer clic sobre Next:Tags, donde podrán asignarsele etiquetas.
+<p align="center">
+    <img src="resources/crear_usuario_aws_12.PNG">
+</p>
+Y Next:Review donde se mostrará un resumen de nuestro nuevo usuario:
+<p align="center">
+    <img src="resources/crear_usuario_aws_13.PNG">
+</p>
+
+Finalmente el usuario se ha creado. Si queréis hacer uso del plugin de eclipse puede ser buena idea hacer clic sobre download.csv para configurar el usuario en eclipse.
+<p align="center">
+    <img src="resources/crear_usuario_aws_14.PNG">
+</p>
+
+Para poder logarnos ahora con nuestro nuevo usuario, podemos ir al usuario, en la pestaña Security Credentials tenemos una url con el acceso.
+<p align="center">
+    <img src="resources/crear_usuario_aws_15.PNG">
+</p>
+Al introducir esa url en el navegador, directamente tendremos nuestro id y username. Faltará introducir la password que seteamos la crear el usuario.
+<p align="center">
+    <img src="resources/crear_usuario_aws_16.PNG">
 </p>
