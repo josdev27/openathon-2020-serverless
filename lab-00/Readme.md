@@ -12,23 +12,23 @@ Aunque en la [web de ayuda amazon](https://aws.amazon.com/premiumsupport/knowled
 Para crear una cuenta, será necesario abrir la página principal de [amazon webservices](https://aws.amazon.com/). En ella se hará clic sobre el enlace 
 Create an AWS account.
 <p align="center">
-    <img src="resources/crear_cuenta_aws_1.png">
+    <img src="resources/crear_cuenta_aws_1.PNG">
 </p>
 Será necesario informar los siguientes valores de la nueva cuenta:
 <p align="center">
-    <img src="resources/crear_cuenta_aws_2.png">
+    <img src="resources/crear_cuenta_aws_2.PNG">
 </p>
 En la siguiente ventana se completaran los datos de contacto.
 <p align="center">
-    <img src="resources/crear_cuenta_aws_3.png">
+    <img src="resources/crear_cuenta_aws_3.PNG">
 </p>
 Lo siguiente será introducir los valores de pago. Hay que tener en cuenta que amazon puede realizar un cobro de 1$ para verificar la tarjeta.
 <p align="center">
-    <img src="resources/crear_cuenta_aws_4.png">
+    <img src="resources/crear_cuenta_aws_4.PNG">
 </p>
 A continuación es necesario validar el número de teléfono. Se podrá hacer mediante llamada telefónica o sms. Este paso nos permite verificar la identidad.
 
 Finalmente seleccionaremos un plan, el plan básico.
 <p align="center">
-    <img src="resources/crear_cuenta_aws_6.png">
+    <img src="resources/crear_cuenta_aws_6.PNG">
 </p>
