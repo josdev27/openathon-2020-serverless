@@ -75,3 +75,31 @@ Al introducir esa url en el navegador, directamente tendremos nuestro id y usern
 <p align="center">
     <img src="resources/crear_usuario_aws_16.PNG">
 </p>
+## Control de Gastos
+Todos los servicios de los que vamos a hacer uso en esta Openathon están cubiertos en su totalidad por el free tier con unos límites de recursos gratuitos muy por encima de los esperados de un ejercicio como este.
+
+Limites del Free Tier para los servicios usados:
+    •	Api Gateway:  1 Million api calls per month (only first 12 months on free tier)
+    •	Lambda: 1 Million free requests per month (up to 3.2 million  seconds of compute time per month)  (no time limit on free tier)
+    •	DynamoDB: 25 Gb storage and 25 WCU and 25 RCU Capacity units. (no time limit on free tier)
+    •	S3: 5 Gb storage, 20.000 get Requests 2.000 put requests (only first 12 months on free tier)
+
+Para conocer el gasto que tenemos pendiente en nuestra cuenta y permitir recibir alertas sobre los mismos. Para ello nos logaremos como root en AWS y en el menú services escribiremos Billing.
+<p align="center">
+    <img src="resources/gastos_usuario_aws_17.PNG">
+</p>
+Localizaremos las secciones “Spend summary” y "Month-to-Date" y validaremos que son cero.
+
+Adicionalmente, en el Menú Billing>Bills podemos ver un resumen de los servicios usados y su coste.
+<p align="center">
+    <img src="resources/gastos_usuario_aws_18.PNG">
+</p>
+
+Si tuviesemos algún coste, podemos localizarlo viendo el menú Cost Managment>Cost Explorer.
+En él podremos determinar que servicio está activo y generando costes y proceder como correponda(si no es necesario es posible eliminar).
+## Alarma de Gastos
+Adicionalmente, y para una mayor tranquilidad Amazon posibilita la generación de alarmas de gastos. En este [enlace](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) podemos encontrar detalle de como proceder.
+Básicamente es necesario: 
+•	Habilitar billing alerts.
+•	Crear billing alarm. 
+
