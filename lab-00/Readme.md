@@ -103,4 +103,52 @@ Adicionalmente, y para una mayor tranquilidad Amazon posibilita la generación d
 Básicamente es necesario: 
   -  Habilitar billing alerts.
   -  Crear billing alarm.
+## Herramientas adicionales
+### Postman
+A lo largo del ejercicio, se crearán servicios que pueden ser consumidos vía REST. Para realizar pruebas sobre los mismos será necesario el uso de alguna aplicación (PostMan, JaSON, etc). Si no tienes ninguna instalada aquí tienes una guía de como instalar Postman HTTP Client
+Lo primero es abrir el navegador y acceder a la web de [postman](https://www.postman.com/).
+<p align="center">
+    <img src="resources/instalacion_postman_19.PNG">
+</p>
 
+Se hace clic en el botón "Download the App" que nos abrirá una página con un enlace de descarga. Esta página detectará nuestro sistema operativo y nos proporcionará el enlace adecuado.
+
+<p align="center">
+    <img src="resources/instalacion_postman_20.PNG">
+</p>
+
+Una vez descargada e instalada la aplicación, la primera vez solicitará la creación de un usuario. Esto es gratuito. Una vez logado en la aplicación veremos lo siguiente: 
+<p align="center">
+    <img src="resources/instalacion_postman_21.PNG">
+</p>
+Aunque no es obligatorio, una buena práctica es comenzar creado una colección, para en ella crear todas las peticiones HTTP relacionadas con un proyecto.
+Para ello, hacemos clic sobre New Collection, establecemos un nombre y volvemos a hacer clic sobre Create.
+<p align="center">
+    <img src="resources/instalacion_postman_22.PNG">
+</p>
+Para crear una Request(necesario para probar nuestras funciones lambdas a traves de la API) se hará clic sobre ... y Add Request.
+<p align="center">
+    <img src="resources/instalacion_postman_23.PNG">
+</p>
+Será necesario establecer un nombre. Una vez hecho esto podremos determinar el tipo de petición, la url y los parámetros, autorización y cabeceras. Para ejecutar la petición habrá que pulsar sobre el botón Send.
+<p align="center">
+    <img src="resources/instalacion_postman_24.PNG">
+</p>
+
+### AWS Toolkit for Eclipse
+Es posible instalar el plugin de AWS Toolkit para eclipse. Para ello, desde el Marketplace de Eclipse escribiremos AWS.
+<p align="center">
+    <img src="resources/instalacion_eclipse_25.PNG">
+</p>
+Para instalarlo bastará con hacer clic sorbre Install. En la siguiente ventana confirmaremos todos los componentes adicionales y aceptaremos las licencias. Cuando haya finalizado la instalación nos pedirá reiniciar Eclipse.
+
+Al reinicar, se abrirá la ventana de configuración de AWS ToolKit, donde tendremos que configurar nuestra cuenta de AWS.
+<p align="center">
+    <img src="resources/instalacion_eclipse_26.PNG">
+</p>
+
+Si esta ventana no aparece, es posible abrirla desde el nuevo icono de AWS ToolKit for Eclipse, haciendo clic sobre el y seleccionando el menú Preferences.
+<p align="center">
+    <img src="resources/instalacion_eclipse_27.PNG">
+</p>
+Esta ventana se informará con los datos de nuestro usuario creado(no root). Los datos de clave y secret pueden obtenerse del fichero download.csv
