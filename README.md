@@ -1,5 +1,9 @@
 # Openathon VI - Serverless with AWS
 
+Bienvenido al Openathon VI, al final del mismo, tendrás la siguiente arquitectura serveless completamente funcional:
+
+![](diagram.png)
+
 El indice del contenido es el siguiente:
 
 1. Introduccion Serverless AWS & Visión General de la Aplicación.
