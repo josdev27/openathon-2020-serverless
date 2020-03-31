@@ -1,17 +1,29 @@
 # Laboratorio 2. Crear función lambda: listEvents
 
+## Prerequisito
+
+Si la función lambda la vas a desarrollar en Java, tienes que crear un bucket en S3 para subir tu código:
+1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “S3”.
+
+> Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
+
+2.	Creamos el “code bucket” que contendrá las funciones lamdba que despleguemos en AWS. Pulsamos “Create Bucket”, como nombre y en minúsculas estableceremos “events-web-xxxxxxx”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “events-code-xxxxxxx” por un identificador exclusivo, por ejemplo “events-code-john-smith1234”.
+3.	Pulsamos “create".
+
+## Introducción
+
 En esta sección crearemos y probaremos nuestra primera función lambda, “Events-List”, que nos permitirá acceder a los datos existentes en la tabla “events” que hemos creado en DynamoDB.
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “Lambda”.
 > Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
 2.	Pulsamos “Create Function”.
 En este punto podemos seleccionar como crear muestra función, será distinto según el lenguaje de programación que vayamos a usar. En los laboratorios vamos a trabajar con dos opciones: Python y Java. Según prefieras puedes utilizar una u otra.
 
-## Python version
+### Python version
 
 1. Dejamos seleccionado “Author from Scatch” y en la sección Basic Information introducimos:
-       * Function Name: Events-List.
-       * Runtime: Python 3.7.
-       * Pulsamos en “Choose or create an execution role” para expandirlo y marcamos “Use an existing role”, seleccionando el rol que hemos creado previamente “EventsRole” que permite a la función el acceso a la tabla events y al servicio de logs.
+      * Function Name: Events-List.
+      * Runtime: Python 3.7.
+      * Pulsamos en “Choose or create an execution role” para expandirlo y marcamos “Use an existing role”, seleccionando el rol que hemos creado previamente “EventsRole” que permite a la función el acceso a la tabla events y al servicio de logs.
 2. Pulsamos “Create Function”.
 3. Con la función creada, en la ventana de detalle de la función nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
 
@@ -50,33 +62,45 @@ En este punto podemos seleccionar como crear muestra función, será distinto se
 
 4.	Pulsamos “Save”.
 5.	A continuación, vamos a probar el funcionamiento de la función, para hacerlo debemos crear el evento de prueba:
-          * Pulsamos “Test” en la parte superior de la ventana.
-          * En “Event template” dejamos seleccionado “hello world”.
-            * En “Event name” introducimos “ListTest”.
-            * Como los datos de entrada no son relevantes para la función podemos dejar los que vienen por defecto.
-            * Pulsamos “Create".
-    1. Una vez creado el evento, podemos pulsar “Test” y comprobar el resultado del funcionamiento de la función:
-    ![](resources/Picture1.png)
- 
-    2. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
-    ![](resources/Picture2.png)
+      * Pulsamos “Test” en la parte superior de la ventana.
+      * En “Event template” dejamos seleccionado “hello world”.
+      * En “Event name” introducimos “ListTest”.
+      * Como los datos de entrada no son relevantes para la función podemos dejar los que vienen por defecto.
+      * Pulsamos “Create".
+6. Una vez creado el evento, podemos pulsar “Test” y comprobar el resultado del funcionamiento de la función:
 
-## Java version
+<p align="center">
+    <img src="resources/Picture1.png">
+</p>
+ 
+7. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
+    
+<p align="center">
+    <img src="resources/Picture2.png">
+</p>
+
+### Java version
 En eclipse, con el workspace configurado para trabajar con nuestra cuenta de desarrollo de AWS:
 
 1. Creamos un nuevo proyecto de tipo “AWS Lambda Java Project”. Para hacerlo utilizaremos el botón que se ha añadido a la botonera de eclipse al añadir AWS Toolkit y que permite acceder a las funciones que el plugin provee para el desarrollo, despliegue y ejecución de código en AWS.  
-    ![](resources/Picture3.png)
- 
-        De las funciones desplegadas al pulsarlo utilizaremos “New AWS Lambda Java Project”.
-        ![](resources/Picture4.png)
 
-    2. Y especificaremos en el dialogo de opciones:
-       * Project Name: EventsAWS.
-       * Group ID: com.accenture.cse
-       * Artifact ID: functions
-       * Class Name: ListEvents
-       * Type: Custom. El tipo de función está determinada por la información que recibe. En nuestro proyecto solo se procesarán peticiones desde el API Gateway, que es el encargado de recibir las peticiones http enviadas desde la aplicación angular. Para estos casos se utiliza el tipo “Custom”.
-    3. Pulsamos “Finish”. Eclipse generará el proyecto, incluyendo una implementación de ejemplo para nuestra función.
+<p align="center">
+    <img src="resources/Picture3.png">
+</p>
+
+  De las funciones desplegadas al pulsarlo utilizaremos “New AWS Lambda Java Project”.
+ 
+<p align="center">
+    <img src="resources/Picture4.png">
+</p>
+
+2. Y especificaremos en el dialogo de opciones:
+      * Project Name: EventsAWS.    
+      * Group ID: com.accenture.cse
+      * Artifact ID: functions
+      * Class Name: ListEvents
+      * Type: Custom. El tipo de función está determinada por la información que recibe. En nuestro proyecto solo se procesarán peticiones desde el API Gateway, que es el encargado de recibir las peticiones http enviadas desde la aplicación angular. Para estos casos se utiliza el tipo “Custom”.
+3. Pulsamos “Finish”. Eclipse generará el proyecto, incluyendo una implementación de ejemplo para nuestra función.
 
 PDTE
 
