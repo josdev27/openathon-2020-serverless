@@ -66,3 +66,5 @@ Una vez creado el recurso debemos crear los métodos http para el recurso creado
 31.	Seleccionamos INFO como log level.
 32.	Marcamos “Log full requests/responses data”
 33.	Pulsamos “Save changes”.
+
+## Probar la API
