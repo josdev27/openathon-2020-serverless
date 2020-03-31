@@ -3,7 +3,7 @@
 Una vez creada la función deberemos crear un método para hacerla accesible a nuestra aplicación front. Para hacerlo utilizaremos el servicio API GATEWAY. Con él podemos crear API RESTful y API WebSocket que permiten aplicaciones de comunicación bidireccional en tiempo real. 
 En este laboratorio por tanto crearemos un API Restful para publicar las funciones lambda que vayamos creando. Esta API utilizará Cognito para la autenticación, de forma que la proveeremos de la capa de seguridad.
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “API Gateway”.
-IMPORTANTE. Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
+:exclamation::exclamation: Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
 2.	Pulsamos “Create API” (esta sección puede no aparecer la primera vez y mostrarse directamente la opción “choose an API type”.
 3.	En la ventana resultado, bajo la sección “Choose an API type”, seleccionamos “Rest API” y pulsamos “Build”.
 
