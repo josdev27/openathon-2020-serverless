@@ -2,7 +2,9 @@
 
 Bienvenido al Openathon VI, al final del mismo, tendrás la siguiente arquitectura serveless completamente funcional:
 
-![](diagram.png)
+<p align="center">
+    <img src="resources/diagram.png">
+</p>
 
 El indice del contenido es el siguiente:
 
