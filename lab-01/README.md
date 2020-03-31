@@ -4,7 +4,9 @@ En esta sección crearemos una tabla en DynamoDB llamada eventos. Esta tabla ser
 
 1. En la consola de AWS, en el menú Services buscaremos y seleccionaremos “DynamoDB”.
 
-![](resources/Picture1.png)
+<p align="center">
+    <img src="resources/Picture1.png"/>
+</p>
 
 > <mark>IMPORTANTE</mark>. Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región. Para tener más información acerca de las regiones puedes acceder a este enlace.
 
@@ -27,7 +29,9 @@ En esta sección crearemos una tabla en DynamoDB llamada eventos. Esta tabla ser
 5. En el panel de control de la tabla pulsamos la pestaña “ítems” y a continuación “create ítem” para crear nuestro primer evento.
 6. En el dialogo introduciremos los datos de nuestro primer evento:
 
-![](resources/Picture2.png)
+<p align="center">
+    <img src="resources/Picture2.png"/>
+</p>
 
 7. A continuación, introduciremos el resto de los datos. Pulsando el “+” adyacente a “date” seleccionaremos “Append” y “String” indicando que queremos introducir en el ítem un dato de tipo cadena. Los ítems en las tablas de DynamoDB no tienen que cumplir una estructura obligatoria más allá de los que forman la primary key. De esta manera incorporaremos:
    * Key: location – Value: Málaga.
