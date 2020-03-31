@@ -5,13 +5,15 @@ En esta sección crearemos y probaremos nuestra primera función lambda, “Even
 > Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
 2.	Pulsamos “Create Function”.
 En este punto podemos seleccionar como crear muestra función, será distinto según el lenguaje de programación que vayamos a usar. En los laboratorios vamos a trabajar con dos opciones: Python y Java. Según prefieras puedes utilizar una u otra.
-3.	Si elegimos Python:
-    1. Dejamos seleccionado “Author from Scatch” y en la sección Basic Information introducimos:
+
+## Python version
+
+1. Dejamos seleccionado “Author from Scatch” y en la sección Basic Information introducimos:
        * Function Name: Events-List.
        * Runtime: Python 3.7.
        * Pulsamos en “Choose or create an execution role” para expandirlo y marcamos “Use an existing role”, seleccionando el rol que hemos creado previamente “EventsRole” que permite a la función el acceso a la tabla events y al servicio de logs.
-    2. Pulsamos “Create Function”.
-    3. Con la función creada, en la ventana de detalle de la función nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
+2. Pulsamos “Create Function”.
+3. Con la función creada, en la ventana de detalle de la función nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
 
     ```python
     # Events-List
@@ -46,8 +48,8 @@ En este punto podemos seleccionar como crear muestra función, será distinto se
             return response["Items"]
     ```
 
-    4.	Pulsamos “Save”.
-    5.	A continuación, vamos a probar el funcionamiento de la función, para hacerlo debemos crear el evento de prueba:
+4.	Pulsamos “Save”.
+5.	A continuación, vamos a probar el funcionamiento de la función, para hacerlo debemos crear el evento de prueba:
           * Pulsamos “Test” en la parte superior de la ventana.
           * En “Event template” dejamos seleccionado “hello world”.
             * En “Event name” introducimos “ListTest”.
@@ -59,9 +61,10 @@ En este punto podemos seleccionar como crear muestra función, será distinto se
     2. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
     ![](resources/Picture2.png)
 
-4.	Si elegimos Java:
+## Java version
 En eclipse, con el workspace configurado para trabajar con nuestra cuenta de desarrollo de AWS:
-    1. Creamos un nuevo proyecto de tipo “AWS Lambda Java Project”. Para hacerlo utilizaremos el botón que se ha añadido a la botonera de eclipse al añadir AWS Toolkit y que permite acceder a las funciones que el plugin provee para el desarrollo, despliegue y ejecución de código en AWS.  
+
+1. Creamos un nuevo proyecto de tipo “AWS Lambda Java Project”. Para hacerlo utilizaremos el botón que se ha añadido a la botonera de eclipse al añadir AWS Toolkit y que permite acceder a las funciones que el plugin provee para el desarrollo, despliegue y ejecución de código en AWS.  
     ![](resources/Picture3.png)
  
         De las funciones desplegadas al pulsarlo utilizaremos “New AWS Lambda Java Project”.
