@@ -72,3 +72,22 @@ También podemos pulsar la opción “expand all” para seleccionar manualmente
 
 Podemos ahora comprobar que hemos generado nuestras políticas volviendo a la sección “Policies” del servicio IAM e introduciendo en el filtro de consulta “event_”, lo que debería resultar en:
 ![](img)
+
+
+## Rol IAM
+La manera de asignar a una función lamdba una policy es a través de un Rol IAM, por lo que debemos crear uno para nuestra aplicación.
+1.	Accedemos a la sección “Roles” del servicio IAM y pulsamos “Create Role”.
+2.	En la ventana resultante:
+a.	En el área “Select type of trusted entity” dejamos seleccionado “AWS service”.
+b.	En “Choose a use case” seleccionamos “Lambda”.
+![](img)
+3.	Pulsamos “next:permissions”.
+4.	En la sección “Attach permissions policies”, introducimos como filtro “event_” y de los resultados seleccionamos:
+    * event_ddb_policy
+    * event_logs_policy
+5.	Pulsamos “Next: Tags”. 
+6.	Pulsamos “Next: Review”.
+7.	Introducimos como nombre del Rol “EventsRole”.
+8.	Pulsamos “Create Role”.
+
+Con ello nuestro rol estará creado y deberá ser accesible en la sección “Roles” del servicio IAM.
