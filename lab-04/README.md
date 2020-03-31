@@ -51,7 +51,7 @@ Una vez creado el recurso debemos crear los métodos http para el recurso creado
     <img src="resources/api_3.png">
 </p>
 
-19.	Y pulsaremos el icono   para validarlo.
+19.	Y pulsaremos el icono ![](resources/icon.png) para validarlo.
 
 <p align="center">
     <img src="resources/api_4.png">
@@ -65,7 +65,7 @@ Una vez creado el recurso debemos crear los métodos http para el recurso creado
 22.	En el dialogo resultante “Add Permission to Lambda Function”, confirmaremos la creación pulsando “OK”.
 23.	Pulsamos “Method Request”.
 24.	En la sección “Settings”, pulsamos en el icono de lápiz a continuación de “Authorization”.
-25.	Seleccionamos el Authorizers que hemos creado (“EventAppPoolAuth”) y pulsamos el icono  .
+25.	Seleccionamos el Authorizers que hemos creado (“EventAppPoolAuth”) y pulsamos el icono ![](resources/icon.png).
 26.	Pulsamos en el resource “/events”.
 27.	Desplegamos “Actions” y seleccionamos “enable CORS”.
 28.	Pulsamos “Enable CORS and replace existing CORS headers”.
