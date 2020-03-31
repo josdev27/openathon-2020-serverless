@@ -1,4 +1,6 @@
-# Laboratorio 3. IAM :warning: Sólo con cuenta privada :warning:
+# Laboratorio 3. IAM
+
+:warning: Sólo con cuenta privada. En el caso de las cuentas de formación, estára precreado :warning:
 
 En esta sección crearemos las políticas y los roles IAM necesarios para la ejecución de las funciones lambda. Necesitaremos otorgarles permisos para:
 -	Realizar operaciones CRUD en DynamoDB.
