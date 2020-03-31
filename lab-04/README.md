@@ -3,11 +3,13 @@
 Una vez creada la función deberemos crear un método para hacerla accesible a nuestra aplicación front. Para hacerlo utilizaremos el servicio API GATEWAY. Con él podemos crear API RESTful y API WebSocket que permiten aplicaciones de comunicación bidireccional en tiempo real. 
 En este laboratorio por tanto crearemos un API Restful para publicar las funciones lambda que vayamos creando. Esta API utilizará Cognito para la autenticación, de forma que la proveeremos de la capa de seguridad.
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “API Gateway”.
-IMPORTANTE. Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
+:exclamation::exclamation: Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
 2.	Pulsamos “Create API” (esta sección puede no aparecer la primera vez y mostrarse directamente la opción “choose an API type”.
 3.	En la ventana resultado, bajo la sección “Choose an API type”, seleccionamos “Rest API” y pulsamos “Build”.
 
-![](img)
+<p align="center">
+    <img src="resources/api_1.png">
+</p>
 
 4.	En “Create your first API” pulsamos “OK”.
 5.	Debajo de “Create new API” seleccionamos “NEW API”.
@@ -19,7 +21,9 @@ IMPORTANTE. Hay que verificar que te encuentras en la región correcta. Cada uno
 
 A continuación, tenemos que crear un autorizador Cognito para controlar el acceso a la API. 
 
-![](img)
+<p align="center">
+    <img src="resources/api_2.png">
+</p>
 
 8.	Pulsamos “Authorizers” en el menú de la izquierda
 9.	Pulsamos “Create new Authorizer”.
@@ -43,11 +47,16 @@ Una vez creado el recurso debemos crear los métodos http para el recurso creado
 17.	Pulsamos “Actions” y seleccionamos “Create Method”.
 18.	Debajo del root de nuestro recurso se habrá creado un desplegable en el que seleccionaremos “GET”.
 
-![](img)
+<p align="center">
+    <img src="resources/api_3.png">
+</p>
 
 19.	Y pulsaremos el icono   para validarlo.
 
-![](img)
+<p align="center">
+    <img src="resources/api_4.png">
+</p>
+
 
 20.	Dentro de “/events - GET – Setup”:
     * Seleccionaremos “Lambda Function”.
@@ -64,7 +73,10 @@ Una vez creado el recurso debemos crear los métodos http para el recurso creado
     *	Deployment stage: [New Stage]
     * Stage name: prod
 
-![](img)
+<p align="center">
+    <img src="resources/api_5.png">
+</p>
+
 
 30.	Pulsamos deploy.
 31.	Copiamos el valor de “Invoke URL”, lo necesitaremos después.
