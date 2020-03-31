@@ -9,8 +9,6 @@ En esta sección crearemos un bucket para almacenar nuestro front-end angular (w
 2.	Creamos el “web bucket” que contendrá el front-end. Pulsamos “Create Bucket”, como nombre y en minúsculas estableceremos 
 “events-web-xxxxxxx”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “xxxxxxx” por un identificador exclusivo, por ejemplo “evento-web-john-smith1234”.
 3.	Pulsamos “create".
-4.	De la misma manera creamos el “code bucket” que contendrá las funciones lamdba que despleguemos en AWS. Como nombre pondremos “events-code- xxxxxxx”.
-5.	Pulsamos “create".
 
 Con ello ya tendremos creados los contenedores para nuestra aplicación.
 
@@ -19,7 +17,9 @@ Ahora publicaremos la aplicación angular Events-ui para que pueda ser consumida
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “S3”.
 2.	Seleccionamos el bucket que creamos en un paso anterior para el almacenamiento y acceso de los recursos front de la aplicación (events-web-xxxxxx), “xxxxxx” es el nombre exclusivo que le asignamos cada uno de manera individual.
 
-![](img)
+<p align="center">
+    <img src="resources/img_1.png">
+</p>
 
 3.	En la ventana resultado pulsamos “Upload”.
 4.	Seleccionamos los ficheros que componen la aplicación angular. El fichero index.html tiene que quedar situado en la raíz de bucket.
@@ -46,7 +46,9 @@ Ahora publicaremos la aplicación angular Events-ui para que pueda ser consumida
 ```
 Nuestro bucket ahora aparecerá como de “Public Access”.
 
-![](img)
+<p align="center">
+    <img src="resources/img_2.png">
+</p>
 
 12.	Pulsamos en la pestaña de propiedades.
 13.	Pulsamos “Static website hosting”.
