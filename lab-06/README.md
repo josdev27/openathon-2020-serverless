@@ -164,7 +164,211 @@ Para crear el endpoint en nuestro API Gateway:
 
 ## GET /events/{eventsId} endpoint
 
+Este endpoint nos permitirá obtener los eventos del usuario logueado.
+
+### Crear función lambda
+
+Primero tenemos que crear la funcion lambda, de la misma forma que en lab-02, pero el código fuente es el siguiente:
+
+```python
+# This lambda function is integrated with the following API methods:
+# /events GET (list operation)
+#
+# Its purpose is to get events from our DynamoDB table
+
+from __future__ import print_function
+import boto3
+import json
+from boto3.dynamodb.conditions import Key
+from botocore.exceptions import ClientError
+
+def lambda_handler(event, context):
+
+    print('Initiating Events-ListFunction...')
+    print("Received event from API Gateway: " + json.dumps(event, indent=2))
+    
+    # Create our DynamoDB resource using our Environment Variable for table name
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('events')
+
+    try:
+        response_event = table.get_item(Key={'id': event["id"]})
+        item = response_event["Item"]
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+        print('Check your DynamoDB table...')
+    else:
+        print("GetItem succeeded:")
+        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
+        # Return only the Items and not the whole response from DynamoDB
+        return item
+
+```
+
+### Crear endpoint
+
+Para crear el endpoint en nuestro API Gateway:
+
+1. Pinchamos en /events
+2. Hacemos click en Actions y luego en Create Resource:
+   * En Resource Name: Eventos por id
+   * Resource Path: {eventid}
+3. Hacemos click en Create Resource.
+4. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elejimos GET.
+4. Hacemos click en method request.
+5. En la sección de settings:
+ * En Authorization, elejimos la pool creada.
+ * En OAuth Scopes, lo dejamos a None.
+ * En Request Validator, lo dejamos a None.
+ * En API Key Required, lo dejamos a True.
+6. Volvemos atrás, y hacemos click en Integration Request:
+ * En Mappings Template:
+   * Hacemos click en When there are no templates defined (recommended)
+   * Hacemos click en Add Mapping Template y escribimos application/json
+   * En el editor que se nos ha abierto ponemos:
+   ```json
+   {
+   "id": "$input.params('eventid')"
+   }
+   ```
+   * Hacemos click en Save
+
 ## PUT /events/{eventsId} endpoint
+
+Este endpoint nos permitirá editar un evento.
+
+### Crear función lambda
+
+Primero tenemos que crear la funcion lambda, de la misma forma que en lab-02, pero el código fuente es el siguiente:
+
+```python
+# This lambda function is integrated with the following API methods:
+# /events GET (list operation)
+#
+# Its purpose is to get events from our DynamoDB table
+
+from __future__ import print_function
+import boto3
+import json
+from boto3.dynamodb.conditions import Key
+from botocore.exceptions import ClientError
+
+def lambda_handler(event, context):
+
+    print('Initiating Events-ListFunction...')
+    print("Received event from API Gateway: " + json.dumps(event, indent=2))
+    
+    # Create our DynamoDB resource using our Environment Variable for table name
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('events')
+
+    try:
+        response_event = table.get_item(Key={'id': event["id"]})
+        item = response_event["Item"]
+        if item["addedBy"] == event["addedBy"]:
+            response = table.delete_item(Key={"id":event["id"]})
+        
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+        print('Check your DynamoDB table...')
+    else:
+        print("DeleteItem succeeded:")
+        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
+        # Return only the Items and not the whole response from DynamoDB
+        return
+
+```
+
+### Crear endpoint
+
+Para crear el endpoint en nuestro API Gateway:
+
+1. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elejimos GET.
+2. Hacemos click en method request.
+3. En la sección de settings:
+ * En Authorization, elejimos la pool creada.
+ * En OAuth Scopes, lo dejamos a None.
+ * En Request Validator, lo dejamos a None.
+ * En API Key Required, lo dejamos a True.
+4. Volvemos atrás, y hacemos click en Integration Request:
+ * En Mappings Template:
+   * Hacemos click en When there are no templates defined (recommended)
+   * Hacemos click en Add Mapping Template y escribimos application/json
+   * En el editor que se nos ha abierto ponemos:
+   ```json
+   {
+   "id": "$input.params('eventid')",
+   "addedBy" : "$context.authorizer.claims.email"
+   }
+   ```
+   * Hacemos click en Save
 
 ## DELETE /events/{eventsId} endpoint
 
+Este endpoint nos permitirá borrar un evento.
+
+### Crear función lambda
+
+Primero tenemos que crear la funcion lambda, de la misma forma que en lab-02, pero el código fuente es el siguiente:
+
+```python
+# This lambda function is integrated with the following API methods:
+# /events GET (list operation)
+#
+# Its purpose is to get events from our DynamoDB table
+
+from __future__ import print_function
+import boto3
+import json
+from boto3.dynamodb.conditions import Key
+from botocore.exceptions import ClientError
+
+def lambda_handler(event, context):
+
+    print('Initiating Events-ListFunction...')
+    print("Received event from API Gateway: " + json.dumps(event, indent=2))
+    
+    # Create our DynamoDB resource using our Environment Variable for table name
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('events')
+
+    try:
+        response_event = table.get_item(Key={'id': event["id"]})
+        item = response_event["Item"]
+        if item["addedBy"] == event["addedBy"]:
+            response = table.delete_item(Key={"id":event["id"]})
+        
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+        print('Check your DynamoDB table...')
+    else:
+        print("DeleteItem succeeded:")
+        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
+        # Return only the Items and not the whole response from DynamoDB
+        return
+
+```
+
+### Crear endpoint
+
+Para crear el endpoint en nuestro API Gateway:
+
+1. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elejimos GET.
+2. Hacemos click en method request.
+3. En la sección de settings:
+ * En Authorization, elejimos la pool creada.
+ * En OAuth Scopes, lo dejamos a None.
+ * En Request Validator, lo dejamos a None.
+ * En API Key Required, lo dejamos a True.
+4. Volvemos atrás, y hacemos click en Integration Request:
+ * En Mappings Template:
+   * Hacemos click en When there are no templates defined (recommended)
+   * Hacemos click en Add Mapping Template y escribimos application/json
+   * En el editor que se nos ha abierto ponemos:
+   ```json
+   {
+   "id": "$input.params('eventid')",
+   "addedBy" : "$context.authorizer.claims.email"
+   }
+   ```
+   * Hacemos click en Save
