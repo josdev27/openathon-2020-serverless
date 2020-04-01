@@ -54,7 +54,113 @@ De esta forma, para usar el endpoint GET /events, se va a necesitar el Api key y
 
 ## POST /events endpoint
 
+A través de este endpoint se podrán crear nuevos eventos.
+
+### Crear función lambda
+
+Primero tenemos que crear la funcion lambda, de la misma forma que en lab-02, pero el código fuente es el siguiente:
+
+```python
+# This lambda function is integrated with the following API methods:
+# /events POST
+#
+# Its purpose is to post events from our DynamoDB table
+
+from __future__ import print_function
+import boto3
+import json
+from boto3.dynamodb.conditions import Key
+from botocore.exceptions import ClientError
+import uuid
+
+def lambda_handler(event, context):
+
+    print('Initiating Events-ListFunction...')
+    print("Received event from API Gateway: " + json.dumps(event, indent=2))
+    
+    # Create our DynamoDB resource using our Environment Variable for table name
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('events')
+    try:
+        event["id"] = str(uuid.uuid4())
+        response = table.put_item(
+            Item=event)
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+        print('Check your DynamoDB table...')
+    else:
+        print("PutItem succeeded:")
+        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
+        return event
+
+```
+
+### Crear endpoint
+
+Para crear el endpoint en nuestro API Gateway:
+
+1. Pinchamos en /events
+2. Hacemos click en Actions y luego en Create Method. Elejimos POST.
+2. Hacemos click en method request.
+3. En la sección de settings:
+ * En Authorization, elejimos la pool creada.
+ * En OAuth Scopes, lo dejamos a None.
+ * En Request Validator, lo dejamos a None.
+ * En API Key Required, lo dejamos a True.
+4. Volvemos atrás, y hacemos click en Integration Request:
+ * En Integration type, elejimos Lambda Function.
+ * En Lambda Region, la region correspondiente.
+ * En Lambda Function, la funcion lambda para crear eventos.
+
+
 ## GET /events/me endpoint
+
+Este endpoint nos permitirá obtener los eventos del usuario logueado.
+
+### Crear función lambda
+
+En este caso no es necesario, ya que la función para obtener eventos ya tiene la lógica para obtener los eventos añadidos por un usuario.
+
+```python
+if "addedBy" in event:
+  response = table.query(
+      IndexName="addedBy-index",
+      KeyConditionExpression=Key('addedBy').eq(event["addedBy"])
+      )
+else:
+  response = table.scan()
+```
+
+### Crear endpoint
+
+Para crear el endpoint en nuestro API Gateway:
+
+1. Pinchamos en /events
+2. Hacemos click en Actions y luego en Create Resource:
+   * En Resource Name: Mis eventos
+   * Resource Path: me
+3. Hacemos click en Create Reosurce.
+4. Hacemos click en /me. Luego En Actions y en Create Method. Elejimos GET.
+4. Hacemos click en method request.
+5. En la sección de settings:
+ * En Authorization, elejimos la pool creada.
+ * En OAuth Scopes, lo dejamos a None.
+ * En Request Validator, lo dejamos a None.
+ * En API Key Required, lo dejamos a True.
+6. Volvemos atrás, y hacemos click en Integration Request:
+ * En Integration type, elejimos Lambda Function.
+ * En Lambda Region, la region correspondiente.
+ * En Lambda Function, la funcion lambda para listar eventos.
+ * En Mappings Template:
+   * Hacemos click en When there are no templates defined (recommended)
+   * Hacemos click en Add Mapping Template y escribimos application/json
+   * En el editor que se nos ha abierto ponemos:
+   ```json
+   {
+   "addedBy" : "$context.authorizer.claims.email"
+   }
+   ```
+   * Hacemos click en Save
 
 ## GET /events/{eventsId} endpoint
 
