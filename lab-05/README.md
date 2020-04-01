@@ -29,10 +29,11 @@ Para crearlo seguiremos los siguientes pasos:
 </p>
 
 3.	Introduce un nombre para el pool: “EventAppPool” y pulsa “Step through settings”.
-4.	En la sección “Which standard attributes do you want to require”, deberemos deseleccionar el check asociado a “email” (este paso es muy importante ya que no podrá ser modificado después de crear el pool). Pulsaremos luego “next step”.
+4.  En la sección How do you want your end users to sign in?, elejimos Email address or phone number.
+4.	En la sección “Which standard attributes do you want to require”, debemos dejar todo vacio. Pulsaremos luego “next step”.
 5.	En la siguiente sección “What password strength do you want to require”, estableceremos las limitaciones para las password, puedes cambiar
-    *	La longitud mínima de la password.
-    *	Obligatoriedad de caracteres especiales, mayúsculas...
+    *	La longitud mínima de la password: la dejamos en 6
+    *	Obligatoriedad de caracteres especiales, mayúsculas...: por comodidad, quitamos todas.
 El resto de las opciones las dejaremos por defecto y pulsaremos “next step”.
 6.	Para establecer las propiedades del pool, en el menú de la derecha veremos cada una de las secciones necesarias. Podemos ahora saltar hasta el paso “App clients”, pulsando sobre la sección, dejando las secciones intermedias con los valores por defecto.
 7.	En la sección “App clients” pulsamos “Add an app client” y en el formulario resultante establecemos las propiedades del cliente:
