@@ -397,3 +397,13 @@ Para crear el endpoint en nuestro API Gateway:
    }
    ```
    * Hacemos click en Save
+
+## Deploy API
+
+Finalmente, para desplegar la API tenemos que llevar a cabo dos pasos más:
+1. Click en Actions.
+2. Click en Enable CORS
+3. Click en Enable CORS and replace existing CORS headers
+4. Volvemos atrás y hacemos click en Actions.
+5. Click en Deploy API.
+6. Elegimos el stage y damos a Deploy
