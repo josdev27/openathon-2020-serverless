@@ -40,6 +40,18 @@ De esta forma, ya tenemos un plan de uso asociado al stage de nuestra API.
 
 ## GET /events endpoint
 
+Vamos a añadirle la capa de seguridad al endpoint GET /events:
+
+1. Con la API abierta, pinchamos en /events > GET
+2. Hacemos click en method request.
+3. En la sección de settings:
+ * En Authorization, elejimos la pool creada.
+ * En OAuth Scopes, lo dejamos a None.
+ * En Request Validator, lo dejamos a None.
+ * En API Key Required, lo dejamos a True.
+ 
+De esta forma, para usar el endpoint GET /events, se va a necesitar el Api key y un token de usuario.
+
 ## POST /events endpoint
 
 ## GET /events/me endpoint
