@@ -1,106 +1,121 @@
-# Laboratorio 2. Crear función lambda: listEvents
+# Laboratorio 2. IAM
 
-## Prerequisito
+:warning: **Sólo con cuenta privada. En el caso de las cuentas de formación, estára precreado** :warning:
 
-Si la función lambda la vas a desarrollar en Java, tienes que crear un bucket en S3 para subir tu código:
-1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “S3”.
+En esta sección crearemos las políticas y los roles IAM necesarios para la ejecución de las funciones lambda. Necesitaremos otorgarles permisos para:
+-	Realizar operaciones CRUD en DynamoDB.
+-	Dejar trazas en el servicio de log de AWS (Cloudwatch).
 
-> Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
+## Políticas IAM
 
-2.	Creamos el “code bucket” que contendrá las funciones lamdba que despleguemos en AWS. Pulsamos “Create Bucket”, como nombre y en minúsculas estableceremos “events-web-xxxxxxx”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “events-code-xxxxxxx” por un identificador exclusivo, por ejemplo “events-code-john-smith1234”.
-3.	Pulsamos “create".
-
-## Introducción
-
-En esta sección crearemos y probaremos nuestra primera función lambda, “Events-List”, que nos permitirá acceder a los datos existentes en la tabla “events” que hemos creado en DynamoDB.
-1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “Lambda”.
-> Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
-2.	Pulsamos “Create Function”.
-En este punto podemos seleccionar como crear muestra función, será distinto según el lenguaje de programación que vayamos a usar. En los laboratorios vamos a trabajar con dos opciones: Python y Java. Según prefieras puedes utilizar una u otra.
-
-### Python version
-
-1. Dejamos seleccionado “Author from Scatch” y en la sección Basic Information introducimos:
-      * Function Name: Events-List.
-      * Runtime: Python 3.7.
-      * Pulsamos en “Choose or create an execution role” para expandirlo y marcamos “Use an existing role”, seleccionando el rol que hemos creado previamente “EventsRole” que permite a la función el acceso a la tabla events y al servicio de logs.
-2. Pulsamos “Create Function”.
-3. Con la función creada, en la ventana de detalle de la función nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
-
-    ```python
-    # Events-List
-    # Esta función lambda se integra con el siguiente API method:
-    # /events GET (list operation)
-    # Su proposito es obtener los eventos existentes en la table Events
-
-    from __future__ import print_function
-    import boto3
-    import json
-    from boto3.dynamodb.conditions import Key
-    from botocore.exceptions import ClientError
-
-    def lambda_handler(event, context):
-
-        print('Initiating Events-List...')
-        print("Received event from API Gateway: " + json.dumps(event, indent=2))
-        
-        # Creamos el acceso a la tabla DynamoDB por el nombre
-        dynamodb = boto3.resource('dynamodb')
-        table = dynamodb.Table('events')
-
-        # Obtenemos todos los eventos existentes en la tabla
-        try:
-            response = table.scan()
-        except ClientError as e:
-            print(e.response['Error']['Message'])
-        else:
-            print("scan succeeded:")
-
-            # De la respuesta obtenida de DynamoDB devolvemos los items
-            return response["Items"]
-    ```
-
-4.	Pulsamos “Save”.
-5.	A continuación, vamos a probar el funcionamiento de la función, para hacerlo debemos crear el evento de prueba:
-      * Pulsamos “Test” en la parte superior de la ventana.
-      * En “Event template” dejamos seleccionado “hello world”.
-      * En “Event name” introducimos “ListTest”.
-      * Como los datos de entrada no son relevantes para la función podemos dejar los que vienen por defecto.
-      * Pulsamos “Create".
-6. Una vez creado el evento, podemos pulsar “Test” y comprobar el resultado del funcionamiento de la función:
+Las políticas IAM permiten establecer las condiciones de seguridad para el acceso a recursos o funciones dentro de AWS. Las políticas pueden seleccionarse dentro de un conjunto de predefinidas por Amazon o crearse de manera específica. 
+1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “IAM”.:exclamation::exclamation: IAM es un servicio global, por lo que no veras ninguna región seleccionada (aparecerá GLOBAL).
 
 <p align="center">
-    <img src="resources/Picture1.png">
-</p>
- 
-7. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
-    
-<p align="center">
-    <img src="resources/Picture2.png">
+    <img src="resources/policy_1.png"/>
 </p>
 
-### Java version
-En eclipse, con el workspace configurado para trabajar con nuestra cuenta de desarrollo de AWS:
-
-1. Creamos un nuevo proyecto de tipo “AWS Lambda Java Project”. Para hacerlo utilizaremos el botón que se ha añadido a la botonera de eclipse al añadir AWS Toolkit y que permite acceder a las funciones que el plugin provee para el desarrollo, despliegue y ejecución de código en AWS.  
+2.	Primero vamos a crear la policy para dar privilegios a nuestras funciones lambda para el acceso a la tabla creada en DynamoDB. En el menú de navegación del servicio, en la parte izquierda de la pantalla, pulsamos “Policies” y en la ventana resultante el control “Create Policy”.
+3.	En la ventana de creación de la policy, seleccionaremos “choose a service” y en el nombre del servicio buscaremos y seleccionaremos “DynamoDB”.
 
 <p align="center">
-    <img src="resources/Picture3.png">
+    <img src="resources/policy_2.png"/>
 </p>
 
-  De las funciones desplegadas al pulsarlo utilizaremos “New AWS Lambda Java Project”.
- 
+4.	Una vez seleccionado el servicio, es necesario introducir las acciones que queremos permitir en el mismo. Para hacerlo introduciremos los nombres de las siguientes acciones para luego irlas seleccionando una a una:
+a.	DeleteItem
+b.	GetItem
+c.	PutItem
+d.	Query
+e.	Scan
+f.	UpdateItem
+g.	DescribeTable
+
 <p align="center">
-    <img src="resources/Picture4.png">
+    <img src="resources/policy_3.png"/>
 </p>
 
-2. Y especificaremos en el dialogo de opciones:
-      * Project Name: EventsAWS.    
-      * Group ID: com.accenture.cse
-      * Artifact ID: functions
-      * Class Name: ListEvents
-      * Type: Custom. El tipo de función está determinada por la información que recibe. En nuestro proyecto solo se procesarán peticiones desde el API Gateway, que es el encargado de recibir las peticiones http enviadas desde la aplicación angular. Para estos casos se utiliza el tipo “Custom”.
-3. Pulsamos “Finish”. Eclipse generará el proyecto, incluyendo una implementación de ejemplo para nuestra función.
+También podemos pulsar la opción “expand all” para seleccionar manualmente las acciones o comprobar que las hemos seleccionado correctamente.
+5.	A continuación, especificaremos el recurso sobre el que queremos aplicar estas acciones, pulsando  sobre “resources”:
 
-PDTE
+<p align="center">
+    <img src="resources/policy_4.png"/>
+</p>
 
+6.	En el área desplegada podremos especificar el ARN de la tabla o index al que queremos aplicar las acciones. En nuestro caso, como solo existe una tabla podemos seleccionar la opción “Any”.
+
+<p align="center">
+    <img src="resources/policy_5.png"/>
+</p>
+
+7.	Si pulsamos la pestaña “JSON” podremos visualizar en formato json la política que estamos creando:
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:PutItem",
+                "dynamodb:DescribeTable",
+                "dynamodb:DeleteItem",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:UpdateItem"
+            ],
+            "Resource": "arn:aws:dynamodb:*:*:table/*"
+        }
+    ]
+}
+```
+8.	Pulsando “review policy” podremos acceder al resumen de la política creada, le ponemos un nombre “event_ddb_policy” y pulsamos “create policy”.
+9.	Ahora crearemos una segunda policy para que las funciones lambda puedan acceder al servicio de logs de AWS. Para crearla utilizaremos esta vez directamente json. Volvemos a pulsar “Create Policy”.
+10.	En ventana pulsaremos la pestaña json y allí copiaremos:
+```json
+{
+"Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+       "logs:CreateLogGroup",
+       "logs:CreateLogStream",
+       "logs:PutLogEvents"
+],
+            "Resource": ["*"]
+        }
+    ]
+}
+```
+11.	De nuevo, pulsando “review policy” podremos acceder al resumen de la política creada, le ponemos un nombre “event_logs_policy” y pulsamos “create policy”.
+
+Podemos ahora comprobar que hemos generado nuestras políticas volviendo a la sección “Policies” del servicio IAM e introduciendo en el filtro de consulta “event_”, lo que debería resultar en:
+
+<p align="center">
+    <img src="resources/policy_6.png"/>
+</p>
+
+
+## Rol IAM
+La manera de asignar a una función lamdba una policy es a través de un Rol IAM, por lo que debemos crear uno para nuestra aplicación.
+1.	Accedemos a la sección “Roles” del servicio IAM y pulsamos “Create Role”.
+2.	En la ventana resultante:
+a.	En el área “Select type of trusted entity” dejamos seleccionado “AWS service”.
+b.	En “Choose a use case” seleccionamos “Lambda”.
+
+<p align="center">
+    <img src="resources/rol_1.png"/>
+</p>
+
+3.	Pulsamos “next:permissions”.
+4.	En la sección “Attach permissions policies”, introducimos como filtro “event_” y de los resultados seleccionamos:
+    * event_ddb_policy
+    * event_logs_policy
+5.	Pulsamos “Next: Tags”. 
+6.	Pulsamos “Next: Review”.
+7.	Introducimos como nombre del Rol “EventsRole”.
+8.	Pulsamos “Create Role”.
+
+Con ello nuestro rol estará creado y deberá ser accesible en la sección “Roles” del servicio IAM.
