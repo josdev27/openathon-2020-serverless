@@ -23,6 +23,7 @@ Ahora publicaremos la aplicación angular Events-ui para que pueda ser consumida
 
 3.	En la ventana resultado pulsamos “Upload”.
 4.	Seleccionamos los ficheros que componen la aplicación angular. El fichero index.html tiene que quedar situado en la raíz de bucket.
+> La app ya compilada se encuentra en https://github.com/josdev27/openathon-2020-serverless/tree/master/app. Teneis que descargaros el repositio e ir a la carpeta app. Dentro ella está la carpeta assets/config. Dentro está el fichero con la configuración de la app, llamado config.json.
 5.	Pulsamos “Upload”.
 6.	Pulsamos la pestaña “Permissions” y accedemos a ella.
 7.	Pulsamos en “Block public Access”.
@@ -53,8 +54,8 @@ Nuestro bucket ahora aparecerá como de “Public Access”.
 12.	Pulsamos en la pestaña de propiedades.
 13.	Pulsamos “Static website hosting”.
 14.	Activamos el hosting web:
-a.	Seleccionamos “Use this bucket to host a website”.
-b.	En “Index document” introducimos: “index.html”.
-c.	Anotamos la Endpoint URL.
+    * Seleccionamos “Use this bucket to host a website”.
+    * En “Index document” introducimos: “index.html”.
+    * Anotamos la Endpoint URL.
 15.	Pulsamos “save".
 
