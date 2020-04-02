@@ -79,28 +79,3 @@ En este punto podemos seleccionar como crear muestra función, será distinto se
     <img src="resources/Picture2.png">
 </p>
 
-### Java version
-En eclipse, con el workspace configurado para trabajar con nuestra cuenta de desarrollo de AWS:
-
-1. Creamos un nuevo proyecto de tipo “AWS Lambda Java Project”. Para hacerlo utilizaremos el botón que se ha añadido a la botonera de eclipse al añadir AWS Toolkit y que permite acceder a las funciones que el plugin provee para el desarrollo, despliegue y ejecución de código en AWS.  
-
-<p align="center">
-    <img src="resources/Picture3.png">
-</p>
-
-  De las funciones desplegadas al pulsarlo utilizaremos “New AWS Lambda Java Project”.
- 
-<p align="center">
-    <img src="resources/Picture4.png">
-</p>
-
-2. Y especificaremos en el dialogo de opciones:
-      * Project Name: EventsAWS.    
-      * Group ID: com.accenture.cse
-      * Artifact ID: functions
-      * Class Name: ListEvents
-      * Type: Custom. El tipo de función está determinada por la información que recibe. En nuestro proyecto solo se procesarán peticiones desde el API Gateway, que es el encargado de recibir las peticiones http enviadas desde la aplicación angular. Para estos casos se utiliza el tipo “Custom”.
-3. Pulsamos “Finish”. Eclipse generará el proyecto, incluyendo una implementación de ejemplo para nuestra función.
-
-PDTE
-
