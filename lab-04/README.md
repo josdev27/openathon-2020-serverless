@@ -68,3 +68,5 @@ Una vez creado el recurso debemos crear los métodos http para el recurso creado
 33.	Pulsamos “Save changes”.
 
 ## Probar la API
+
+Para probar la API podemos hacer click en Test en el menu del API Gateway.
