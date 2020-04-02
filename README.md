@@ -8,6 +8,7 @@ Bienvenido al Openathon VI, al final del mismo, tendrás la siguiente arquitectu
 
 El indice del contenido es el siguiente:
 
+
 1. Introduccion Serverless AWS & Visión General de la Aplicación.
 2. LAB 0. Pasos iniciales.
 3. LAB 1. DynamoDB
