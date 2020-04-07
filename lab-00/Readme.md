@@ -1,7 +1,36 @@
-# Laboratorio 0
-Aunque existe la posibilidad de usar una cuenta de aws de formación para realizar los distintos laboratorios, vamos a informar cómo es posible crear una cuenta en aws y realizar los distintos pasos para tener una cuenta propia y configurada para realizar las prácticas y así poder continuar una vez haya finalizado el Openathon.
+# Laboratorio 0 - Seguidad y Utilidades
 
-## ¿Cómo se crea una cuenta en AWS?
+## Contenido
+
+En este capítulo trataremos dos prerequisitos para poder realizar el resto de los laboratorios:
+- El usuario de acceso para crear los servicios.
+- Las herramientas utilizadas en las actividades.
+
+
+## Usuarios AWS
+
+Para poder utilizar AWS es necesario disponer de un usuario con las autorizaciones necesarias para hacerlo. A los asistentes a este Openathon se les proveerá de un usuario en la cuenta de formación de Accenture, que dispondrá de dichas autorizaciones. Si te has inscrito, deberías haber recibido un correo con las creedenciales de dicho usuario, si no es así por favor contacta con los organizadores para que te lo hagan llegar.
+
+Este usuario será eliminado al finalizar las actividades y por razones de seguridad realizará de manera limitada alguno de los laboratorios. 
+
+Aunque es perfectamente posible realizar y comprender todas las actividades con el usuario de formación, si los asistentes lo desean pueden darse de alta en AWS, lo que les permitirá el uso de la [capa gratuita de AWS](https://aws.amazon.com/es/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc), y por tanto el acceso completo y permanente a todos los servicios utilizados en este Openathon.
+
+Utilizar un usuario propio de AWS supone asumir el control y administración de una cuenta REAL que puede incurrir en gastos REALES. Por ello es imprescindible establecer una serie de controles y limitaciones que lo impidan.
+
+Para utilizar nuestra propia cuenta, por razones de seguridad crearemos dos usuarios:
+
+- Usuario raiz. Usuario nominal con el que creamos la cuenta AWS, tiene acceso a todos los servicios sin limitación.
+- Usuario IAM. Usuario creado desde el usuario raiz con un conjunto de permisos administrativos para acceder de manera limitada a los servicios de AWS. Como práctica recomendada, un usaurio solo debe acceder a aquellos servicios imprescindibles para realizar el trabajo que le es asignado.
+
+Así, una vez creado el usuario raiz y que este halla creado el usuario IAM, todos las actividades del Openathon las realizaremos con este último.
+
+A continuación explicamos paso a paso como:
+1. Crear una cuenta raiz en AWS.
+2. Control de gastos de la cuenta raiz.
+3. Creación del usuario IAM.
+
+
+### ¿Cómo se crea una cuenta raiz en AWS?
 
 Aunque en la [web de ayuda amazon](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) podemos encontrar información sobre los pasos a seguir para crear una cuenta, vamos a dar detalle sobre los mismos e intentar ampliar esa información.
 
@@ -29,7 +58,37 @@ Finalmente seleccionaremos un plan, el plan básico.
     <img src="resources/crear_cuenta_aws_6.PNG">
 </p>
 
-## Creación usuario de desarrollo.
+### Control de Gastos
+Todos los servicios de los que vamos a hacer uso en esta Openathon están cubiertos en su totalidad por el free tier con unos límites de recursos gratuitos muy por encima de los esperados de un ejercicio como este.
+
+Limites del Free Tier para los servicios usados:
+  - Api Gateway:  1 Million api calls per month (only first 12 months on free tier)
+  - Lambda: 1 Million free requests per month (up to 3.2 million  seconds of compute time per month)  (no time limit on free tier)
+  - DynamoDB: 25 Gb storage and 25 WCU and 25 RCU Capacity units. (no time limit on free tier)
+  -  S3: 5 Gb storage, 20.000 get Requests 2.000 put requests (only first 12 months on free tier)
+
+Para conocer el gasto que tenemos pendiente en nuestra cuenta y permitir recibir alertas sobre los mismos. Para ello nos logaremos como root en AWS y en el menú services escribiremos Billing.
+<p align="center">
+    <img src="resources/gastos_usuario_aws_17.PNG">
+</p>
+Localizaremos las secciones “Spend summary” y "Month-to-Date" y validaremos que son cero.
+
+Adicionalmente, en el Menú Billing>Bills podemos ver un resumen de los servicios usados y su coste.
+<p align="center">
+    <img src="resources/gastos_usuario_aws_18.PNG">
+</p>
+
+Si tuviesemos algún coste, podemos localizarlo viendo el menú Cost Managment>Cost Explorer.
+En él podremos determinar que servicio está activo y generando costes y proceder como correponda(si no es necesario es posible eliminar).
+
+#### Alarma de Gastos
+Adicionalmente, y para una mayor tranquilidad Amazon posibilita la generación de alarmas de gastos. En este [enlace](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) podemos encontrar detalle de como proceder.
+Básicamente es necesario: 
+  -  Habilitar billing alerts.
+  -  Crear billing alarm.
+
+
+### Creación usuario IAM.
 Lo primero que hay que hacer es logarnos con nuestra nueva cuenta de AWS.
 <p align="center">
     <img src="resources/crear_usuario_aws_7.PNG">
@@ -76,34 +135,9 @@ Al introducir esa url en el navegador, directamente tendremos nuestro id y usern
     <img src="resources/crear_usuario_aws_16.PNG">
 </p>
 
-## Control de Gastos
-Todos los servicios de los que vamos a hacer uso en esta Openathon están cubiertos en su totalidad por el free tier con unos límites de recursos gratuitos muy por encima de los esperados de un ejercicio como este.
 
-Limites del Free Tier para los servicios usados:
-  - Api Gateway:  1 Million api calls per month (only first 12 months on free tier)
-  - Lambda: 1 Million free requests per month (up to 3.2 million  seconds of compute time per month)  (no time limit on free tier)
-  - DynamoDB: 25 Gb storage and 25 WCU and 25 RCU Capacity units. (no time limit on free tier)
-  -  S3: 5 Gb storage, 20.000 get Requests 2.000 put requests (only first 12 months on free tier)
-
-Para conocer el gasto que tenemos pendiente en nuestra cuenta y permitir recibir alertas sobre los mismos. Para ello nos logaremos como root en AWS y en el menú services escribiremos Billing.
-<p align="center">
-    <img src="resources/gastos_usuario_aws_17.PNG">
-</p>
-Localizaremos las secciones “Spend summary” y "Month-to-Date" y validaremos que son cero.
-
-Adicionalmente, en el Menú Billing>Bills podemos ver un resumen de los servicios usados y su coste.
-<p align="center">
-    <img src="resources/gastos_usuario_aws_18.PNG">
-</p>
-
-Si tuviesemos algún coste, podemos localizarlo viendo el menú Cost Managment>Cost Explorer.
-En él podremos determinar que servicio está activo y generando costes y proceder como correponda(si no es necesario es posible eliminar).
-## Alarma de Gastos
-Adicionalmente, y para una mayor tranquilidad Amazon posibilita la generación de alarmas de gastos. En este [enlace](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) podemos encontrar detalle de como proceder.
-Básicamente es necesario: 
-  -  Habilitar billing alerts.
-  -  Crear billing alarm.
 ## Herramientas adicionales
+
 ### Postman
 A lo largo del ejercicio, se crearán servicios que pueden ser consumidos vía REST. Para realizar pruebas sobre los mismos será necesario el uso de alguna aplicación (PostMan, JaSON, etc). Si no tienes ninguna instalada aquí tienes una guía de como instalar Postman HTTP Client
 Lo primero es abrir el navegador y acceder a la web de [postman](https://www.postman.com/).
@@ -136,7 +170,11 @@ Será necesario establecer un nombre. Una vez hecho esto podremos determinar el 
 </p>
 
 ### AWS Toolkit for Eclipse
-Es posible instalar el plugin de AWS Toolkit para eclipse. Para ello, desde el Marketplace de Eclipse escribiremos AWS.
+La implementación de las funciones lambda se puede realizar el python o en java. Si deseas hacerlo en este último lenguaje, será necesario que instales una serie de herramientas que te facilitarán el desarrollo.
+
+Lo primero es descargar la última versión de eclipse.
+
+A continuación tienes que el instalar el plugin de AWS Toolkit para eclipse. Para ello, desde el Marketplace de Eclipse escribiremos AWS.
 <p align="center">
     <img src="resources/instalacion_eclipse_25.PNG">
 </p>
