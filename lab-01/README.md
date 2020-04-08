@@ -1,6 +1,6 @@
 # Laboratorio 1. DynamoDB
 
-DynamoBD(https://docs.aws.amazon.com/es_es/dynamodb/?id=docs_gateway), nos permiterá crear los servicios de persistencia necesarios para nuestra aplicación. Es este caso, una tabla para almacenar los eventos creados llamada "eventos". Esta tabla será usada para almacenar los eventos registrados por los usuarios. 
+[DynamoBD](https://docs.aws.amazon.com/es_es/dynamodb/?id=docs_gateway), nos permiterá crear los servicios de persistencia necesarios para nuestra aplicación. Es este caso, una tabla para almacenar los eventos creados llamada "eventos". Esta tabla será usada para almacenar los eventos registrados por los usuarios. 
 
 Para crearla seguiremos los siguientes pasos:
 
