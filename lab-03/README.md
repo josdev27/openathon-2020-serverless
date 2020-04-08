@@ -20,9 +20,9 @@ En este punto podemos seleccionar como crear muestra función, será distinto se
 
 ### Python version
 
-1. Dejamos seleccionado “Author from Scatch” y en la sección Basic Information introducimos:
+1. Dejamos seleccionado “Author from Scatch” (crear desde cero) y en la sección Basic Information introducimos:
       * Function Name: Events-List.
-      * Runtime: Python 3.7.
+      * Runtime: Python 3.8.
       * Pulsamos en “Choose or create an execution role” para expandirlo y marcamos “Use an existing role”, seleccionando el rol que hemos creado previamente “EventsRole” que permite a la función el acceso a la tabla events y al servicio de logs.
 2. Pulsamos “Create Function”.
 3. Con la función creada, en la ventana de detalle de la función nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
