@@ -79,23 +79,7 @@ En este punto podemos seleccionar como crear muestra función, será distinto se
     ```
 
 4.	Pulsamos “Save”.
-5.	Con la función creada, de manera inmediata podemos probar su funcionamiento. Para hacerlo debemos crear el evento de prueba:
-      * Pulsamos “Test” en la parte superior de la ventana.
-      * En “Event template” dejamos seleccionado “hello world”.
-      * En “Event name” introducimos “ListTest”.
-      * Como los datos de entrada no son relevantes para la función podemos dejar los que vienen por defecto.
-      * Pulsamos “Create".
-6. Una vez creado el evento, podemos pulsar “Test” y comprobar el resultado del funcionamiento de la función:
 
-<p align="center">
-    <img src="resources/Picture1.png">
-</p>
- 
-7. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
-    
-<p align="center">
-    <img src="resources/Picture2.png">
-</p>
 
 ### Java version
 En eclipse, con el workspace configurado para trabajar con nuestra cuenta de desarrollo de AWS:
@@ -122,3 +106,34 @@ En eclipse, con el workspace configurado para trabajar con nuestra cuenta de des
 
 PDTE
 
+## Probando la función
+
+Una vez creada la función, sea cual sea el lenguaje utilizado, e manera inmediata podemos probar su funcionamiento. Para hacerlo:
+
+1.	Debemos crear el evento de prueba:
+      * Pulsamos “Test” en la parte superior de la ventana.
+      * En “Event template” dejamos seleccionado “hello world”.
+      * En “Event name” introducimos “ListTest”.
+      * Como los datos de entrada no son relevantes para la función podemos dejar los que vienen por defecto.
+      * Pulsamos “Create".
+2. Una vez creado el evento, podemos pulsar “Test” y comprobar el resultado del funcionamiento de la función:
+
+<p align="center">
+    <img src="resources/Picture1.png">
+</p>
+ 
+8. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
+    
+<p align="center">
+    <img src="resources/Picture2.png">
+</p>
+
+9. Adicionalmente, si pulsamos la pestaña "Monitoring" en la parte inferior podremos acceder a toda la información que se ha volcado en el servicio CloudWatch, incluyendo en el CloudWatch Logs Insights donde podremos acceder a los logs de las últimas ejecuciones.
+
+## Actividad adicional
+
+La función puede ejecutarse correctamente ya que dispone de las autorizaciones necesarias para hacerlo, pero ¿qué pasaría si no dispusiese de una de ellas?, ¿sería fácil comprobar el tipo de error en los logs?. Os proponemos crea un rol adicional "eventsFool" que no tuviese asignada la política necesaria para acceder a DynamoDB (si estas utilizando la cuenta de formación, ya estará creado) y comprobar que sucede si modificas la función creada para asignarselo y vuelves a lanzar el Test. 
+
+## Conclusión
+
+En este laboratorio hemos creado y probado nuestra primera función lambda. Comprobamos como de una manera sencilla podemos incorporar nuestras funciones de negocio a AWS, que pueden interactuar con otros servicios o recursos que hayamos creado. En el próximo laboratorio experimentaremos como configurar el servicio para que sea accesible desde internet, utilizando API Gateway.
