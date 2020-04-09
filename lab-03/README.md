@@ -25,16 +25,25 @@ En esta sección crearemos y probaremos nuestra primera función lambda, “Even
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “Lambda”.
 > Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
 2.	Pulsamos “Create Function”.
-En este punto podemos seleccionar como crear muestra función, será distinto según el lenguaje de programación que vayamos a usar. En los laboratorios vamos a trabajar con dos opciones: Python y Java. Según prefieras puedes utilizar una u otra.
+<p align="center">
+    <img src="resources/Picture5.png">
+</p>
+En este punto podemos seleccionar como crear muestra función, será distinto según el lenguaje de programación que vayamos a usar. En los laboratorios vamos a trabajar con dos opciones: Python y Java. Según prefieras puedes utilizar una u otra. Continua el laboratorio en el punto correspondiente (puedes realizar las dos versiones si te interesa conocer como se implementa en una y otra, decidiendo luego en el Gateway a que versión quieres dirigirte).
 
 ### Python version
 
 1. Dejamos seleccionado “Author from Scatch” (crear desde cero) y en la sección Basic Information introducimos:
       * Function Name: Events-List.
       * Runtime: Python 3.8.
-      * Pulsamos en “Choose or create an execution role” para expandirlo y marcamos “Use an existing role”, seleccionando el rol que hemos creado previamente “EventsRole” que permite a la función el acceso a la tabla events y al servicio de logs.
-2. Pulsamos “Create Function”.
-3. Con la función creada, en la ventana de detalle de la función nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
+      * Pulsamos en “Choose or create an execution role” para expandirlo y marcamos “Use an existing role”, seleccionando el rol  “EventsRole”, que hemos creado previamente (en nuestra cuenta AWS) o que ya existe (si usamos la cuenta de formación). En ambos casos podemos navegar a ver los detalles del rol, y podemos comprobar que tiene asignadas dos políticas de seguridad que determinan lo que la función puede hacer, en este caso utilizar el servicio de logs (para la escritura de trazas de ejecución) y el servicio DynamoDB, para acceder a la tabla "events" que hemos creado previamente.
+<p align="center">
+    <img src="resources/Picture6.png">
+</p>  
+2. Pulsamos “Create Function”. Nuestra función será añadida, aún sin implementación, a la lista de disponibles y se abrirá una ventana de detalle.
+<p align="center">
+    <img src="resources/Picture7.png">
+</p>  
+3. Con la función creada, en la ventana de detalle de la función vamos a incorporar su implementación. Para ello nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
 
     ```python
     # Events-List
@@ -70,7 +79,7 @@ En este punto podemos seleccionar como crear muestra función, será distinto se
     ```
 
 4.	Pulsamos “Save”.
-5.	A continuación, vamos a probar el funcionamiento de la función, para hacerlo debemos crear el evento de prueba:
+5.	Con la función creada, de manera inmediata podemos probar su funcionamiento. Para hacerlo debemos crear el evento de prueba:
       * Pulsamos “Test” en la parte superior de la ventana.
       * En “Event template” dejamos seleccionado “hello world”.
       * En “Event name” introducimos “ListTest”.
