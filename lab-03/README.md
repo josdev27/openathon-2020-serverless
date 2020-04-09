@@ -2,7 +2,8 @@
 
 ## Prerequisito
 
-Si la función lambda la vas a desarrollar en Java, tienes que crear un bucket en S3 para subir tu código:
+Si la función lambda la desarrollamos en Java, es necesario disponer de un contenedor que permita subir a AWS las clases que van a implementarla. Este contedor se materializa en un bucket que creamos utilizando el servicio ["Amazon Simple Storage Service"](https://docs.aws.amazon.com/s3/index.html) (S3). Para hacerlo hay que seguir los siguientes pasos:
+
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “S3”.
 
 > Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
