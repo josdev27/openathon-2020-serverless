@@ -1,8 +1,12 @@
 # Laboratorio 6. Completar API Gateway
 
-En los laboratorios anteriores creamos el endpoint para obtener todos los eventos creados en la base de datos. Ahora a dicho endpoint vamos a añadirle dos capas de seguridad:
+## Introducción
+
+En los laboratorios anteriores creamos el endpoint para acceder a la función lambda que obtiene y devuelve todos los eventos creados en la base de datos utilizando API Gateway.
+
+Ahora a dicho endpoint vamos a añadirle dos capas de seguridad para controlar quien puede acceder.
 * **Token de usuario**: vamos a añadir la cabecera Authorization, de forma que solo los usuarios autenticados puedan ver los eventos.
-* **API Key**: vamos a añadir la cabecera x-api-key, para limitar el uso de nuestra api añadiendo un plan de uso.
+* **API Key**: vamos a añadir la cabecera x-api-key, para limitar el uso de nuestra api añadiendo un plan de uso. El objeto de este plan de uso es garantizar que en el caso que alguien acceda a la URL de vuestra API, no pueda saturarla con miles de peticiones.
 
 Para llevar a cabo la parte de token de usuario, hemos tenido que crear un pool de usuarios en los laboratorios anteriores.
 
@@ -12,7 +16,7 @@ Para crear el API Key hacemos los siguientes pasos:
 
 1. Con la API abierta, hacemos click en la opción API Keys del menú de la izquierda.
 2. Pinchamos en Actions, y luego en Create API Key.
-3. En el formulario, ponemos un nombre identification y damos a Save.
+3. En el formulario, ponemos un nombre (p. ej. "identification") y damos a Save.
 4. Nos aparecerá la información del API Key. Si hacemos click en Show, podemos ver la clave. Guardala, porque la necesitaras más adelante. 
 
 Ahora vamos a asociarle un plan de uso al API key:
@@ -20,19 +24,21 @@ Ahora vamos a asociarle un plan de uso al API key:
 1. Volvemos a la API y hacemos click en la opción Usages Plan del menú de la izquierda.
 2. Pinchamos en Create.
 3. En el formulario:
-  * Name: indicamos un nombre significativo.
-  * Enable throttling: lo dejamos habilitado
+  * Name: indicamos un nombre significativo (p. ej. "EventsUsagePlan").
+  * Enable throttling: lo dejamos habilitado. 
   * Rate: 1
   * Burst: 1
   * Enable quota: lo dejamos habilitado
-  * Requests per: 200 per moth
+  * Requests per: 200 per month
+Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
 4. Hacemos click en Next.
+Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el Usage Plan. En nuestro caso solo tenemos un previamente creado ("prod"). 
 5. Hacemos click en Add Api Stage.
-6. En API, elejimos nuestra API.
-7. En Stage, elejimos el stage, por ejemplo, prod. Hacemos click en el icono de Ok.
+6. En API, elegimos el nombre de nuestra API.
+7. En Stage, elejimos el stage, ("prod" si hemos seguido las instrucciones anteriores). Hacemos click en el icono de Ok del registro añadido.
 8. Hacemos click en Next.
 9. Hacemos click en Add API Key to Usage Plan.
-10. En name indicamos el nombre de nuestra API key y hacemos click en el icono de Ok.
+10. En name indicamos el nombre de nuestra API key ("identification" en nuestro ejemplo) y hacemos click en el icono de Ok.
 11. Hacemos click en done. 
 
 De esta forma, ya tenemos un plan de uso asociado al stage de nuestra API. 
@@ -40,12 +46,12 @@ De esta forma, ya tenemos un plan de uso asociado al stage de nuestra API.
 
 ## GET /events endpoint
 
-Vamos a añadirle la capa de seguridad al endpoint GET /events:
+Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
 
 1. Con la API abierta, pinchamos en /events > GET
-2. Hacemos click en method request.
+2. Hacemos click en Method Request.
 3. En la sección de settings:
- * En Authorization, elejimos la pool creada.
+ * En Authorization vamos a seleccionar elejimos la pool creada.
  * En OAuth Scopes, lo dejamos a None.
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
