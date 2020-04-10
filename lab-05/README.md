@@ -37,37 +37,37 @@ Para crearlo seguiremos los siguientes pasos:
 
 3.	Introduce un nombre para el pool: “EventAppPool” y pulsa “Step through settings”.
 4.  En la sección How do you want your end users to sign in?, elejimos Email address or phone number.
-4.	En la sección “Which standard attributes do you want to require”, debemos dejar todo vacio. Pulsaremos luego “next step”.
-5.	En la siguiente sección “What password strength do you want to require”, estableceremos las limitaciones para las password, puedes cambiar
+5.	En la sección “Which standard attributes do you want to require”, debemos dejar todo vacio. Pulsaremos luego “next step”.
+6.	En la siguiente sección “What password strength do you want to require”, estableceremos las limitaciones para las password, puedes cambiar
     *	La longitud mínima de la password: la dejamos en 6
     *	Obligatoriedad de caracteres especiales, mayúsculas...: por comodidad, quitamos todas.
 El resto de las opciones las dejaremos por defecto y pulsaremos “next step”.
-6.	Para establecer las propiedades del pool, en el menú de la derecha veremos cada una de las secciones necesarias. Podemos ahora saltar hasta el paso “App clients”, pulsando sobre la sección, dejando las secciones intermedias con los valores por defecto.
+7.	Para establecer las propiedades del pool, en el menú de la izquierda veremos cada una de las secciones necesarias. Podemos ahora saltar hasta el paso “App clients”, pulsando sobre la sección, dejando las secciones intermedias con los valores por defecto.
 <p align="center">
   <img src="resources/img_6.png" width="150px">
 </p>
-7.	Vamos ahora a crear un [User Pool App Client](https://docs.aws.amazon.com/es_es/cognito/latest/developerguide/user-pool-settings-client-apps.html) dentro de nuestro User pool. Esta App Client es una entidad dentro de un user pool que tiene permiso para llamar a API sin autenticar (API que no tengan un usuario autenticado), como las API de registro, inicio de sesión y gestión de contraseñas olvidadas, a las que lógicamente el usuario accede sin haber presentado aún creedenciales.
+Vamos ahora a crear un [User Pool App Client](https://docs.aws.amazon.com/es_es/cognito/latest/developerguide/user-pool-settings-client-apps.html) dentro de nuestro User pool. Esta App Client es una entidad dentro de un user pool que tiene permiso para llamar a API sin autenticar (API que no tengan un usuario autenticado), como las API de registro, inicio de sesión y gestión de contraseñas olvidadas, a las que lógicamente el usuario accede sin haber presentado aún creedenciales.
 
-En la sección “App clients” pulsamos “Add an app client” y en el formulario resultante establecemos las propiedades del cliente:
+8. En la sección “App clients” pulsamos “Add an app client” y en el formulario resultante establecemos las propiedades del cliente:
     *	Nombre de la aplicación “EventAppAngular”.
     *	Deseleccionamos “Generate client secret”.
 Y pulsamos “Create app client” (estos pasos son muy importantes ya que no podrán ser modificados después de crear el app client). Con ello el “app client” habrá sido creado.
 
-8.	En el menú de la izquierda, donde se encuentran las secciones del pool, pulsaremos “Review” para revisar toda las configuraciones establecidas. Y pulsamos “Create pool”. Si todo ha ido bien, debemos navegar a una ventana donde veremos el mensaje “Your user pool was created successfully.”
+9.	En el menú de la izquierda, donde se encuentran las secciones del pool, pulsaremos “Review” para revisar toda las configuraciones establecidas. Y pulsamos “Create pool”. Si todo ha ido bien, debemos navegar a una ventana donde veremos el mensaje “Your user pool was created successfully.”
 
 <p align="center">
   <img src="resources/img_4.png">
 </p>
 
-9.	De la ventana donde nos informan que hemos creado el pool, debemos copiar y salvar dos datos muy importantes: el “Pool id” (identificación única para el pool creado) y el “Pool ARN” (el Amazon Resource Name para poder acceder a él), los utilizaremos más tarde en nuestra aplicación:
+10.	De la ventana donde nos informan que hemos creado el pool, debemos copiar y salvar dos datos muy importantes: el “Pool id” (identificación única para el pool creado) y el “Pool ARN” (el Amazon Resource Name para poder acceder a él), los utilizaremos más tarde en nuestra aplicación:
     * Pool Id: eu-central-1_XXXXXXXX
     * Pool ARN: arn:aws:cognito-idp:eu-central-1:128434942847:userpool/eu-central-1_XXXXXXX.
-10.	En el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “App Clients” y salvaremos también el “App client id” de la app client “EventAppAngular”. Este id nos permitirá a nuestro usaurios acceder a los servicios de login sin que se solicite autenticación previa.
+11.	En el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “App Clients” y salvaremos también el “App client id” de la app client “EventAppAngular”. Este id nos permitirá a nuestro usaurios acceder a los servicios de login sin que se solicite autenticación previa.
 
 ## Creación de un usuario para el User Pool
 
 1.	Dentro de la ventana de administración del user pool que hemos creado (AWS Service “Cognito”, opción “Manage User Pool”, seleccionando el user pool “EventAppPool”), en el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “User and Groups” y “create user”.
-2.	En la ventana emergente introduciremos el nombre y la contraseña que prefiramos (aunque tendrá que cumplir las condiciones que especificamos en la creación del userpool----Test-user1234), desmarcando el envío de invitación y las verificaciones del teléfono y el email. 
+2.	En la ventana emergente introduciremos el nombre y la contraseña que prefiramos (aunque tendrá que cumplir las condiciones que especificamos en la creación del userpool), desmarcando el envío de invitación y las verificaciones del teléfono y el email. 
 
 <p align="center">
   <img src="resources/img_5.png">
