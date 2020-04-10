@@ -1,4 +1,7 @@
 # Laboratorio 5. Cognito
+
+## Introducción
+
 [AWS Cognito](https://docs.aws.amazon.com/es_es/cognito/?id=docs_gateway) proporciona autenticación, autorización y administración de usuarios para sus aplicaciones y en a nuestros servicios de AWS de la capa de seguridad necesaria para el control del acceso. Podemos usar cognito con diversos proveedores de autenticación como Facebook, Amazon, Google o Apple.
 
 Los dos componentes principales de Amazon Cognito son los grupos de usuarios y los grupos de identidades. Los grupos de usuarios son directorios de usuarios que proporcionan a los usuarios de las aplicaciones opciones para inscribirse e iniciar sesión. Los grupos de identidades permiten conceder a los usuarios acceso a otros servicios de AWS. Puede utilizar los grupos de identidades y los grupos de usuarios juntos o por separado.
@@ -63,9 +66,15 @@ Y pulsamos “Create app client” (estos pasos son muy importantes ya que no po
 
 ## Creación de un usuario para el User Pool
 
-1.	Dentro de la ventana de administración del user pool que hemos creado (AWS Service “Cognito”, opción “Manage User Pool”, seleccionando el user pool “EventApp”), en el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “User and Groups” y “create user”.
-2.	En la ventana emergente introduciremos el nombre “test-user” y la contraseña que prefiramos (aunque tendrá que cumplir las condiciones que especificamos en la creación del userpool----Test-user1234), desmarcando el envío de invitación y las verificaciones del teléfono y el email. 
+1.	Dentro de la ventana de administración del user pool que hemos creado (AWS Service “Cognito”, opción “Manage User Pool”, seleccionando el user pool “EventAppPool”), en el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “User and Groups” y “create user”.
+2.	En la ventana emergente introduciremos el nombre y la contraseña que prefiramos (aunque tendrá que cumplir las condiciones que especificamos en la creación del userpool----Test-user1234), desmarcando el envío de invitación y las verificaciones del teléfono y el email. 
 
 <p align="center">
   <img src="resources/img_5.png">
 </p>
+
+## Conclusión
+
+Con los pasos realizados en este laboratorio tenemos ya creado un servicio de identidad que permitirá a nuestra aplicación angular disponer de un servicio de login para el acceso a las funciones lambda que publiquemos a través de una API Gateway. 
+
+En el caso que estes usando el usuario de formación para realizar las actividades, considera que el login está utilizando Cognito para autenticarte y que este tiene configurado a Accenture como proveedor de identidad para permitir el uso de sus EID.
