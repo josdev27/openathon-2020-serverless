@@ -7,11 +7,28 @@ En este capítulo trataremos dos prerequisitos para poder realizar el resto de l
 - Las herramientas utilizadas en las actividades.
 
 
-## Usuarios AWS
+## Usuario Formación Accenture/AWS
 
 Para poder utilizar AWS es necesario disponer de un usuario con las autorizaciones necesarias para hacerlo. A los asistentes a este Openathon se les proveerá de un usuario en la cuenta de formación de Accenture, que dispondrá de dichas autorizaciones. Si te has inscrito, deberías haber recibido un correo con las creedenciales de dicho usuario, si no es así por favor contacta con los organizadores para que te lo hagan llegar.
 
 Este usuario será eliminado al finalizar las actividades y por razones de seguridad realizará de manera limitada alguno de los laboratorios. 
+
+### ¿Cómo me conecto haciendo uso del usuario de formación?
+
+Para acceder con nuestro usuario de formación será necesario abrir la siguiente [url].(https://go.accenture.com/aws_login)
+
+Deberás acceder directamente, aunque si ya tenías un rol previo aparecerá una ventana de selección de rol. Seleccionaremos el rol DevOpenathon. Este es el rol que tendremos todos asignado.
+
+<p align="center">
+    <img src="resources/cuenta_formacion_1.PNG">
+</p>
+
+A continuación accederemos al a consola de AWS con nuestro usuario, ¡ya podemos comenzar a realizar las prácticas!
+<p align="center">
+    <img src="resources/cuenta_formacion_2.PNG">
+</p>                                      
+
+## Usuario propio AWS
 
 Aunque es perfectamente posible realizar y comprender todas las actividades con el usuario de formación, si los asistentes lo desean pueden darse de alta en AWS, lo que les permitirá el uso de la [capa gratuita de AWS](https://aws.amazon.com/es/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc), y por tanto el acceso completo y permanente a todos los servicios utilizados en este Openathon.
 
