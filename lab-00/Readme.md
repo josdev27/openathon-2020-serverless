@@ -15,7 +15,7 @@ Este usuario será eliminado al finalizar las actividades y por razones de segur
 
 ### ¿Cómo me conecto haciendo uso del usuario de formación?
 
-Para acceder con nuestro usuario de formación será necesario abrir la siguiente [url].(https://go.accenture.com/aws_login)
+Para acceder con nuestro usuario de formación será necesario abrir la siguiente [url](https://go.accenture.com/aws_login).
 
 Deberás acceder directamente, aunque si ya tenías un rol previo aparecerá una ventana de selección de rol. Seleccionaremos el rol DevOpenathon. Este es el rol que tendremos todos asignado.
 
@@ -23,10 +23,12 @@ Deberás acceder directamente, aunque si ya tenías un rol previo aparecerá una
     <img src="resources/cuenta_formacion_1.PNG">
 </p>
 
-A continuación accederemos al a consola de AWS con nuestro usuario, ¡ya podemos comenzar a realizar las prácticas!
+Una vez seleccionado el rol, accederemos a la consola de AWS con nuestro usuario. 
 <p align="center">
     <img src="resources/cuenta_formacion_2.PNG">
 </p>                                      
+
+Esto es todo, ¡Ya podemos comenzar a realizar las prácticas!
 
 ## Usuario propio AWS
 
