@@ -73,22 +73,6 @@ Y pulsamos “Create app client” (estos pasos son muy importantes ya que no po
   <img src="resources/img_5.png">
 </p>
 
-## Creación de un Authorizer
-
-Para poder hacer uso de la autorización a través de Cognito, es necesario crear un Authorizer.
-
-1. Entramos en el servicio API Gateway y en el menú de la izquierda, pulsamos sobre Authorizers
-
-<p align="center">
-  <img src="resources/img_7.png">
-</p>
-
-2. Rellenamos el nombre del authorizer.
-3. En la opción tipo, seleccionamos Cognito
-4. En la sección Cognito User Pool introducimos el pool que hemos creado en cognito.
-5. En Token source (Origen del token), escribimos Authorization. 
-
-
 ## Conclusión
 
 Con los pasos realizados en este laboratorio tenemos ya creado un servicio de identidad que permitirá a nuestra aplicación angular disponer de un servicio de login para el acceso a las funciones lambda que publiquemos a través de una API Gateway. 

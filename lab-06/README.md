@@ -2,13 +2,17 @@
 
 ## Introducción
 
+
+
 En los laboratorios anteriores creamos el endpoint para acceder a la función lambda que obtiene y devuelve todos los eventos creados en la base de datos utilizando API Gateway.
 
 Ahora a dicho endpoint vamos a añadirle dos capas de seguridad para controlar quien puede acceder.
 * **Token de usuario**: vamos a añadir la cabecera Authorization, de forma que solo los usuarios autenticados puedan ver los eventos.
 * **API Key**: vamos a añadir la cabecera x-api-key, para limitar el uso de nuestra api añadiendo un plan de uso. El objeto de este plan de uso es garantizar que en el caso que alguien acceda a la URL de vuestra API, no pueda saturarla con miles de peticiones.
 
-Para llevar a cabo la parte de token de usuario, hemos tenido que crear un pool de usuarios en los laboratorios anteriores.
+Para llevar a cabo la parte de token de usuario, debemos crear un Authorizer con el pool de usuarios que hemos creado en los laboratorios anteriores.
+
+En este laboratorio crearemos también el resto de endpoints necesarios para nuestra nuestra APP y le añadiremos la seguridad antes mencionada.
 
 ## API Key y Usage Plan
 
@@ -42,6 +46,22 @@ Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que querem
 11. Hacemos click en done. 
 
 De esta forma, ya tenemos un plan de uso asociado al stage de nuestra API. 
+
+## Creación de un Authorizer
+
+Para poder hacer uso de la autorización a través de Cognito, es necesario crear un Authorizer con el pool de usuarios que hemos creado anteriormente.
+
+1. Entramos en el servicio API Gateway y en el menú de la izquierda, pulsamos sobre Authorizers
+
+<p align="center">
+  <img src="resources/img_1.png">
+</p>
+
+2. Rellenamos el nombre del authorizer.
+3. En la opción tipo, seleccionamos Cognito
+4. En la sección Cognito User Pool introducimos el nombre del pool que hemos creado en cognito.
+5. En Token source (Origen del token), escribimos Authorization.
+6. Pulsamos Create 
 
 
 ## GET /events endpoint
