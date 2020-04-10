@@ -1,8 +1,12 @@
 # Laboratorio 5. Cognito
-AWS Cognito provee a nuestros servicios de AWS de la capa se seguridad necesaria para el control del acceso. Cognito provee de tres servicios:
--	Amazon Cognito Federated Identities 
--	Amazon Cognito User Pools
--	Amazon Cognito Sync
+[AWS Cognito](https://docs.aws.amazon.com/es_es/cognito/?id=docs_gateway) proporciona autenticación, autorización y administración de usuarios para sus aplicaciones y en a nuestros servicios de AWS de la capa de seguridad necesaria para el control del acceso. Podemos usar cognito con diversos proveedores de autenticación como Facebook, Amazon, Google o Apple.
+
+Los dos componentes principales de Amazon Cognito son los grupos de usuarios y los grupos de identidades. Los grupos de usuarios son directorios de usuarios que proporcionan a los usuarios de las aplicaciones opciones para inscribirse e iniciar sesión. Los grupos de identidades permiten conceder a los usuarios acceso a otros servicios de AWS. Puede utilizar los grupos de identidades y los grupos de usuarios juntos o por separado.
+
+Cognito provee de tres servicios:
+-	Amazon Cognito Federated Identities. Permiten crear identidades únicas para sus usuarios y federarlas con proveedores de identidad. Con un grupo de identidades, podemos obtener credenciales de AWS temporales con privilegios limitados para obtener acceso a otros servicios de AWS.
+-	Amazon Cognito User Pools. Directorio de usuarios en Amazon Cognito, permite a los usuarios iniciar sesión en su aplicación web o móvil a través de Amazon Cognito. Los usuarios también pueden iniciar sesión a través de proveedores de identidad sociales como Google, Facebook, Amazon o Apple y a través de proveedores de identidad SAML
+-	Amazon Cognito Sync. Permite sincronizar los datos de los usuarios, como las preferencias de la aplicación. También amplía estas funcionalidades, ya que permite que diferentes usuarios se sincronicen y colaboren en tiempo real sobre los datos compartidos.
 
 Para nuestra aplicación utilizaremos un User Pool:
 -	Crearemos un “Cognito User Pool” para el control de acceso de los usuarios finales de nuestra aplicación a una API Gateway, dotando de seguridad a nuestra aplicación.
@@ -36,20 +40,26 @@ Para crearlo seguiremos los siguientes pasos:
     *	Obligatoriedad de caracteres especiales, mayúsculas...: por comodidad, quitamos todas.
 El resto de las opciones las dejaremos por defecto y pulsaremos “next step”.
 6.	Para establecer las propiedades del pool, en el menú de la derecha veremos cada una de las secciones necesarias. Podemos ahora saltar hasta el paso “App clients”, pulsando sobre la sección, dejando las secciones intermedias con los valores por defecto.
-7.	En la sección “App clients” pulsamos “Add an app client” y en el formulario resultante establecemos las propiedades del cliente:
+<p align="center">
+  <img src="resources/img_6.png" width="150px">
+</p>
+7.	Vamos ahora a crear un [User Pool App Client](https://docs.aws.amazon.com/es_es/cognito/latest/developerguide/user-pool-settings-client-apps.html) dentro de nuestro User pool. Esta App Client es una entidad dentro de un user pool que tiene permiso para llamar a API sin autenticar (API que no tengan un usuario autenticado), como las API de registro, inicio de sesión y gestión de contraseñas olvidadas, a las que lógicamente el usuario accede sin haber presentado aún creedenciales.
+
+En la sección “App clients” pulsamos “Add an app client” y en el formulario resultante establecemos las propiedades del cliente:
     *	Nombre de la aplicación “EventAppAngular”.
     *	Deseleccionamos “Generate client secret”.
 Y pulsamos “Create app client” (estos pasos son muy importantes ya que no podrán ser modificados después de crear el app client). Con ello el “app client” habrá sido creado.
-8.	En el menú de la izquierda, donde se encuentran las secciones del pool, pulsaremos “Review” para revisar toda las configuraciones establecidas. Y pulsamos “Create pool”. Deberemos navegar a una ventana donde veremos el mensaje “Your user pool was created successfully.”
+
+8.	En el menú de la izquierda, donde se encuentran las secciones del pool, pulsaremos “Review” para revisar toda las configuraciones establecidas. Y pulsamos “Create pool”. Si todo ha ido bien, debemos navegar a una ventana donde veremos el mensaje “Your user pool was created successfully.”
 
 <p align="center">
   <img src="resources/img_4.png">
 </p>
 
-9.	De la ventana donde nos informan que hemos creado el pool, debemos copiar y salvar: el “Pool id” y el “Pool ARN”, los utilizaremos más tarde en nuestra aplicación:
+9.	De la ventana donde nos informan que hemos creado el pool, debemos copiar y salvar dos datos muy importantes: el “Pool id” (identificación única para el pool creado) y el “Pool ARN” (el Amazon Resource Name para poder acceder a él), los utilizaremos más tarde en nuestra aplicación:
     * Pool Id: eu-central-1_XXXXXXXX
     * Pool ARN: arn:aws:cognito-idp:eu-central-1:128434942847:userpool/eu-central-1_XXXXXXX.
-10.	En el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “App Clients” y salvaremos también el “App client id” de la app client “EventAppAngular”.
+10.	En el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “App Clients” y salvaremos también el “App client id” de la app client “EventAppAngular”. Este id nos permitirá a nuestro usaurios acceder a los servicios de login sin que se solicite autenticación previa.
 
 ## Creación de un usuario para el User Pool
 
