@@ -54,7 +54,7 @@ Para poder hacer uso de la autorización a través de Cognito, es necesario crea
 1. Entramos en el servicio API Gateway y en el menú de la izquierda, pulsamos sobre Authorizers
 
 <p align="center">
-  <img src="resources/img_1.png">
+  <img src="resources/img_1.PNG">
 </p>
 
 2. Rellenamos el nombre del authorizer.
