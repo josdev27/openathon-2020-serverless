@@ -2,17 +2,19 @@
 
 ## Introducción
 
+En los laboratorios anteriores creamos el endpoint para acceder a la función lambda que obtiene y devuelve todos los eventos creados en la base de datos utilizando API Gateway. Ahora vamos a crear el resto de endpoint:
 
+1. POST /events: para crear un evento.
+3. GET /events/{eventid}: para obtener un evento.
+2. PUT /events/{eventid}: para editar un evento.
+3. DELETE /events/{eventid}: para eliminar un evento.
+4. GET /events/me: para obtener los eventos creados por el usuario autenticado.
 
-En los laboratorios anteriores creamos el endpoint para acceder a la función lambda que obtiene y devuelve todos los eventos creados en la base de datos utilizando API Gateway.
-
-Ahora a dicho endpoint vamos a añadirle dos capas de seguridad para controlar quien puede acceder.
+Ademas, vamos a añadirle a todos los endpoints dos capas de seguridad para controlar quien puede acceder.
 * **Token de usuario**: vamos a añadir la cabecera Authorization, de forma que solo los usuarios autenticados puedan ver los eventos.
 * **API Key**: vamos a añadir la cabecera x-api-key, para limitar el uso de nuestra api añadiendo un plan de uso. El objeto de este plan de uso es garantizar que en el caso que alguien acceda a la URL de vuestra API, no pueda saturarla con miles de peticiones.
 
 Para llevar a cabo la parte de token de usuario, debemos crear un Authorizer con el pool de usuarios que hemos creado en los laboratorios anteriores.
-
-En este laboratorio crearemos también el resto de endpoints necesarios para nuestra nuestra APP y le añadiremos la seguridad antes mencionada.
 
 ## API Key y Usage Plan
 
@@ -72,7 +74,7 @@ Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
 2. Hacemos click en Method Request.
 3. En la sección de settings:
  * En Authorization vamos a seleccionar elejimos la pool creada.
- * En OAuth Scopes, lo dejamos a None.
+ * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
  
@@ -170,7 +172,7 @@ Para crear el endpoint en nuestro API Gateway:
 4. Hacemos click en method request.
 5. En la sección de settings:
  * En Authorization, elejimos la pool creada.
- * En OAuth Scopes, lo dejamos a None.
+ * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
 6. Volvemos atrás, y hacemos click en Integration Request:
@@ -244,7 +246,7 @@ Para crear el endpoint en nuestro API Gateway:
 4. Hacemos click en method request.
 5. En la sección de settings:
  * En Authorization, elejimos la pool creada.
- * En OAuth Scopes, lo dejamos a None.
+ * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
 6. Volvemos atrás, y hacemos click en Integration Request:
@@ -337,7 +339,7 @@ Para crear el endpoint en nuestro API Gateway:
 2. Hacemos click en method request.
 3. En la sección de settings:
  * En Authorization, elejimos la pool creada.
- * En OAuth Scopes, lo dejamos a None.
+ * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
 4. Volvemos atrás, y hacemos click en Integration Request:
@@ -408,7 +410,7 @@ Para crear el endpoint en nuestro API Gateway:
 2. Hacemos click en method request.
 3. En la sección de settings:
  * En Authorization, elejimos la pool creada.
- * En OAuth Scopes, lo dejamos a None.
+ * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
 4. Volvemos atrás, y hacemos click en Integration Request:
@@ -433,3 +435,40 @@ Finalmente, para desplegar la API tenemos que llevar a cabo dos pasos más:
 4. Volvemos atrás y hacemos click en Actions.
 5. Click en Deploy API.
 6. Elegimos el stage y damos a Deploy
+
+## Probar API
+
+Para probar la API, vamos a utilizar postman. El fichero con la descripción de la API está en el siguiente enlace: [postman_collection.json](./resources/events-app.postman_collection.json).
+El primer paso es importar el fichero en postman:
+
+1. Abrimos Postman
+2. Hacemos click en import
+3. Hacemos click en choose files y elejimos el json que hemos descargado.
+
+Esto nos creará una nueva colección que podemos ver en el menú de la izquierda, con los 6 endpoints que acabamos de crear. Además, necesitamos importar el [entorno](./resources/events.postman_environment.json) con las variables que necesitaremos para probar nuestra API:
+
+1. Hacemos click en import
+2. Hacemos click en choose files y elejimos el json que hemos descargado.
+
+Esto nos creará un nuevo entorno en postman llamado events con las siguientes variables:
+
+1. apiKey: es la api key creada anteriormente
+2. apiUrl: es la url de nuestra api
+3. eventid: es el id de algún evento creado en la base de datos
+4. userPoolWebClientId: es el client id de nuestra app en cognito
+5. cognitoDomain: es el dominio creado en cognito de nuestra app en el laboratorio 5.
+
+Simplemente hay que editarlas:
+
+1. Hacemos click en el icono que es un ojo.
+2. Al lado de cada variable, hacemos click en el lapiz
+3. Indicamos el valor de cada variable
+
+Para probar cada endpoint, hacemos clik en el, y damos a send. Abajo veremos la respuesta.
+
+> Es importante, una vez probada la API desde postman. En cada endpoint, debemos dejar lo oauth scope a none, y volver a hacer un deploy de la API.
+
+## Resumen
+
+En este laboratio, hemos completado el resto de nuestra API. Además, la hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo. 
+El siguiente paso, es integrarla con nuestra aplicación frontend.
