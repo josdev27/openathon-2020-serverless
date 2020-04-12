@@ -64,6 +64,19 @@ Y pulsamos “Create app client” (estos pasos son muy importantes ya que no po
     * Pool ARN: arn:aws:cognito-idp:eu-central-1:128434942847:userpool/eu-central-1_XXXXXXX.
 11.	En el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “App Clients” y salvaremos también el “App client id” de la app client “EventAppAngular”. Este id nos permitirá a nuestro usaurios acceder a los servicios de login sin que se solicite autenticación previa.
 
+## Habilitar OAuth2.0
+
+Para poder autenticarnos contra cognito desde postman con una interfaz visual, vamos a crear un dominio para cognito, y habilitar otras propiedades:
+
+1. En el menú de la izquierda, pulsamos en Domain name
+2. Introducimos un prefijo de dominio, por ejemplo, <your-name>-events-app, y hacemos click en create domain. La url entera la tenemos que apuntarla porque la necesitaremos más adelante.
+3. En el menú de la izquierda, pulsamos en App client settings.
+4. Habilitamos Cognito User Pool.
+5. En Callback URL ponemos *myapp://example* (en nuestra caso es irrelevante)
+6. En Allowed OAuth Flows, hacemos click en Implicit grant.
+7. En Allowed OAuth Scopes, hacemos click en openid.
+8. Finalmente, hacemos click en save changes.
+
 ## Creación de un usuario para el User Pool
 
 1.	Dentro de la ventana de administración del user pool que hemos creado (AWS Service “Cognito”, opción “Manage User Pool”, seleccionando el user pool “EventAppPool”), en el panel de navegación a la izquierda, dentro de “General Settings”, pulsaremos “User and Groups” y “create user”.
