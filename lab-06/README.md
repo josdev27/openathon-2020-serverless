@@ -464,11 +464,25 @@ Simplemente hay que editarlas:
 2. Al lado de cada variable, hacemos click en el lapiz
 3. Indicamos el valor de cada variable
 
-Para probar cada endpoint, hacemos clik en el, y damos a send. Abajo veremos la respuesta.
+Para probar cada endpoint: 
+1. Hacemos click en el, desde el menú de la izquierda.
+2. En la pestaña Authorization, hacemos click en Get New Access Token.
+3. En la ventana abierta:
+   * Token name: Events Token
+   * Grant type: Implicit
+   * Callback URL: myapp://example
+   * AuthURL: {{cognitoDomain}}/login
+   * Client ID: {{userPoolWebClientId}}
+   * Scope: openid
+   * State: lo dejamos vacio
+   * Client Authentication: Send client credentials in body
+4. Hacemos click en Request token.
+5. En la ventana abierta, usamos el usuario que creamos en el laboratorio 5.
+6. Finalmente, hacemos click en send y veremos la respuesta.
 
 > Es importante, una vez probada la API desde postman. En cada endpoint, debemos dejar lo oauth scope a none, y volver a hacer un deploy de la API.
 
 ## Resumen
 
-En este laboratio, hemos completado el resto de nuestra API. Además, la hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo. 
+En este laboratorio, hemos completado el resto de nuestra API. Además, la hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo. 
 El siguiente paso, es integrarla con nuestra aplicación frontend.
