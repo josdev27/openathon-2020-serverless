@@ -50,4 +50,4 @@
 4.	Pulsamos “Save”.
 
 
-[< Volver al Laboratorio 03 ](../lab-03)  
+[< Volver al Laboratorio 03 ](../../lab-03)  
