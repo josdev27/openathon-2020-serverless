@@ -40,4 +40,4 @@ Primero tenemos que crear la función lambda, de la misma forma que en [lab-03](
 	```
 
 
-[< Volver al Laboratorio 06 ](../lab-06/README.md#crear-endpoint-4)
+[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-4)
