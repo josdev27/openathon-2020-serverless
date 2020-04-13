@@ -24,7 +24,7 @@ En eclipse, con el workspace configurado para trabajar con nuestra cuenta de des
 
 4. Abrimos la clase ListEvents creada y reemplazamos el contenido por:
 
-		```
+		
 		package com.accenture.aws.functions;
 
 		import java.util.ArrayList;
@@ -81,7 +81,7 @@ En eclipse, con el workspace configurado para trabajar con nuestra cuenta de des
 		    return result;
 		    }
 			}
-			```
+			
 
 
 Vemos que nos da error de compilación proque no encuentra el tipo Event. Para resolverlo:
