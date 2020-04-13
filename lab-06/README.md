@@ -175,7 +175,26 @@ Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
  
 De esta forma, para usar el endpoint GET /events, se va a necesitar el Api key y un token de usuario.
 
-> Es importante, una vez probada la API desde postman. En cada endpoint, debemos dejar lo oauth scope a none, y volver a hacer un deploy de la API.
+### Probar endpoint
+
+Lo primero que tenemos que hacer es desplegar la API:
+
+1. Click en Actions.
+2. Click en Enable CORS
+3. Click en Enable CORS and replace existing CORS headers
+4. Volvemos atrás y hacemos click en Actions.
+5. Click en Deploy API.
+6. Elegimos el stage y damos a Deploy
+
+Después, abrimos postman:
+
+1. Nos aseguramos que estamos usando el entorno events.
+2. Hacemos click en Get All events, en el menu de la izquierda en la colección events.
+3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+
+
+Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
 
 ## POST /events endpoint
 
@@ -202,6 +221,27 @@ Para crear el endpoint en nuestro API Gateway:
  * En Integration type, elejimos Lambda Function.
  * En Lambda Region, la region correspondiente.
  * En Lambda Function, la funcion lambda para crear eventos.
+ 
+### Probar endpoint
+
+Lo primero que tenemos que hacer es desplegar la API:
+
+1. Click en Actions.
+2. Click en Enable CORS
+3. Click en Enable CORS and replace existing CORS headers
+4. Volvemos atrás y hacemos click en Actions.
+5. Click en Deploy API.
+6. Elegimos el stage y damos a Deploy
+
+Después, abrimos postman:
+
+1. Nos aseguramos que estamos usando el entorno events.
+2. Hacemos click en Get All events, en el menu de la izquierda en la colección events.
+3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+
+
+Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
 
 
 ## GET /events/me endpoint
@@ -245,6 +285,27 @@ Para crear el endpoint en nuestro API Gateway:
    ```
    * Hacemos click en Save
 
+### Probar endpoint
+
+Lo primero que tenemos que hacer es desplegar la API:
+
+1. Click en Actions.
+2. Click en Enable CORS
+3. Click en Enable CORS and replace existing CORS headers
+4. Volvemos atrás y hacemos click en Actions.
+5. Click en Deploy API.
+6. Elegimos el stage y damos a Deploy
+
+Después, abrimos postman:
+
+1. Nos aseguramos que estamos usando el entorno events.
+2. Hacemos click en Get All events, en el menu de la izquierda en la colección events.
+3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+
+
+Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
+
 ## GET /events/{eventsId} endpoint
 
 Este endpoint nos permitirá obtener los eventos del usuario logueado.
@@ -284,6 +345,28 @@ Para crear el endpoint en nuestro API Gateway:
    ```
    * Hacemos click en Save
 
+### Probar endpoint
+
+Lo primero que tenemos que hacer es desplegar la API:
+
+1. Click en Actions.
+2. Click en Enable CORS
+3. Click en Enable CORS and replace existing CORS headers
+4. Volvemos atrás y hacemos click en Actions.
+5. Click en Deploy API.
+6. Elegimos el stage y damos a Deploy
+
+Después, abrimos postman:
+
+1. Nos aseguramos que estamos usando el entorno events.
+2. Hacemos click en Get All events, en el menu de la izquierda en la colección events.
+3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+
+
+Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
+
+
 ## PUT /events/{eventsId} endpoint
 
 Este endpoint nos permitirá editar un evento.
@@ -293,8 +376,6 @@ Este endpoint nos permitirá editar un evento.
 [Crear función lambda >](../lambda-functions-python/EditEventId)
 
 [Crear función java >](../lambda-functions-java/EditEventId)
-
-
 
 ### Crear endpoint
 
@@ -320,6 +401,28 @@ Para crear el endpoint en nuestro API Gateway:
    }
    ```
    * Hacemos click en Save
+
+### Probar endpoint
+
+Lo primero que tenemos que hacer es desplegar la API:
+
+1. Click en Actions.
+2. Click en Enable CORS
+3. Click en Enable CORS and replace existing CORS headers
+4. Volvemos atrás y hacemos click en Actions.
+5. Click en Deploy API.
+6. Elegimos el stage y damos a Deploy
+
+Después, abrimos postman:
+
+1. Nos aseguramos que estamos usando el entorno events.
+2. Hacemos click en Get All events, en el menu de la izquierda en la colección events.
+3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+
+
+Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
+
 
 ## DELETE /events/{eventsId} endpoint
 
@@ -356,9 +459,10 @@ Para crear el endpoint en nuestro API Gateway:
    ```
    * Hacemos click en Save
 
-## Deploy API
+### Probar endpoint
 
-Finalmente, para desplegar la API tenemos que llevar a cabo dos pasos más:
+Lo primero que tenemos que hacer es desplegar la API:
+
 1. Click en Actions.
 2. Click en Enable CORS
 3. Click en Enable CORS and replace existing CORS headers
@@ -366,6 +470,15 @@ Finalmente, para desplegar la API tenemos que llevar a cabo dos pasos más:
 5. Click en Deploy API.
 6. Elegimos el stage y damos a Deploy
 
+Después, abrimos postman:
+
+1. Nos aseguramos que estamos usando el entorno events.
+2. Hacemos click en Get All events, en el menu de la izquierda en la colección events.
+3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+
+
+Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
 
 ## Resumen
 
