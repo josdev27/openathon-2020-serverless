@@ -25,10 +25,10 @@ El indice del contenido es el siguiente:
 
 1. [Introduccion Serverless AWS & Visión General de la Aplicación.](/introduction)
 2. [LAB 0. Pasos iniciales](/lab-00)
-3. LAB 1. DynamoDB
-4. LAB 2. Crear rol en IAM (Sólo con cuenta privada)
-5. LAB 3. Crear función lambda: listEvents
-6. LAB 4. Crear API Gateway
-7. LAB 5. Cognito
-8. LAB 6. Terminar el API Gateway con lambda
-9. LAB 7. Publicar la web en S3
+3. [LAB 1. DynamoDB](/lab-01)
+4. [LAB 2. Crear rol en IAM (Sólo con cuenta privada)](/lab-02)
+5. [LAB 3. Crear función lambda: listEvents](/lab-03)
+6. [LAB 4. Crear API Gateway](/lab-04)
+7. [LAB 5. Cognito](/lab-05)
+8. [LAB 6. Terminar el API Gateway con lambda](/lab-06)
+9. [LAB 7. Publicar la web en S3](/lab-07)
