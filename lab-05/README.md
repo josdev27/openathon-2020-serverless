@@ -92,4 +92,4 @@ Con los pasos realizados en este laboratorio tenemos ya creado un servicio de id
 
 En el caso que estes usando el usuario de formación para realizar las actividades, considera que el login está utilizando Cognito para autenticarte y que este tiene configurado a Accenture como proveedor de identidad para permitir el uso de sus EID.
 
-[< Lab-04 ](../lab-04)  | [Lab 06 >](../lab-06)
+[< Lab 04 ](../lab-04)  | [Lab 06 >](../lab-06)
