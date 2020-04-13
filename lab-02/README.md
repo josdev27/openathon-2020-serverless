@@ -2,7 +2,9 @@
 
 :warning: **Sólo con cuenta privada. En el caso de las cuentas de formación, estára precreado** :warning:
 
-En esta sección crearemos las políticas y los roles IAM necesarios para la ejecución de las funciones lambda. Necesitaremos otorgarles permisos para:
+## Introducción
+
+El servicio de [Identity and Access Management](https://docs.aws.amazon.com/es_es/iam/?id=docs_gateway) (IAM) de AWS, permite el controlar de forma segura el acceso a los recursos de AWS, tanto para usuarios, como para servicios AWS. En nuestro caso, utilizaremos IAM para crear las políticas y los roles necesarios para que nuestras funciones lambda accedan a los recursos que necesita en su ejecución. Necesitaremos otorgarles permisos para:
 -	Realizar operaciones CRUD en DynamoDB.
 -	Dejar trazas en el servicio de log de AWS (Cloudwatch).
 
@@ -119,3 +121,7 @@ b.	En “Choose a use case” seleccionamos “Lambda”.
 8.	Pulsamos “Create Role”.
 
 Con ello nuestro rol estará creado y deberá ser accesible en la sección “Roles” del servicio IAM.
+
+## Conclusión
+Hemos creado dos políticas con las acciones necesarias para nuestras funciones lambda, el acceso de lectura y escritura a DynamoDB para acceder a la tabla events, y el acceso al servicio de logs. Estas dos políticas las hemos agrupado en un rol que utilizaremos en los laboratorios posteriores para asignarselo a nuestras funciones lambda y que AWS conozca que permisos tendrán dichas funciones en el momento de su ejecución.
+
