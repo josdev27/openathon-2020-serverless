@@ -81,3 +81,5 @@ Nuestro bucket ahora aparecerá como de “Public Access”.
 ## Probar la aplicación
 
 Accedemos al endpoint previamente anotado desde un navegador web, y probamos cada una de las funcionalidades de la misma.
+
+[< Lab 06](../lab-06)
