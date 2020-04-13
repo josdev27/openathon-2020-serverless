@@ -79,3 +79,5 @@ Para crearla seguiremos los siguientes pasos:
 <p align="center">
     <img src="resources/Picture10.png"/>
 </p>
+
+[< Lab 00 ](../lab-00)  | [Lab 02 >](../lab-02) 
