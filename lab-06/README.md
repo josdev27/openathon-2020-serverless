@@ -65,6 +65,101 @@ Para poder hacer uso de la autorización a través de Cognito, es necesario crea
 5. En Token source (Origen del token), escribimos Authorization.
 6. Pulsamos Create 
 
+## Preparar Postman
+
+Para probar la API, vamos a utilizar postman. El fichero con la descripción de la API está en el siguiente enlace: [postman_collection.json](./resources/events-app.postman_collection.json).
+El primer paso es importar el fichero en postman:
+
+1. Abrimos Postman
+2. Hacemos click en import
+
+<p align="center">
+    <img src="resources/import_button.png"/>
+</p>
+
+3. Hacemos click en choose files y elejimos el json que hemos descargado.
+
+<p align="center">
+    <img src="resources/import_menu.png"/>
+</p>
+
+Esto nos creará una nueva colección que podemos ver en el menú de la izquierda, con los 6 endpoints que acabamos de crear.
+
+<p align="center">
+    <img src="resources/colection.png"/>
+</p>
+
+Además, necesitamos importar el [entorno](./resources/events.postman_environment.json) con las variables que necesitaremos para probar nuestra API:
+
+1. Hacemos click en import
+2. Hacemos click en choose files y elejimos el json que hemos descargado.
+
+<p align="center">
+    <img src="resources/environment.png"/>
+</p>
+
+Esto nos creará un nuevo entorno en postman llamado events con las siguientes variables:
+
+1. apiKey: es la api key creada anteriormente
+2. apiUrl: es la url de nuestra api
+3. eventid: es el id de algún evento creado en la base de datos
+4. userPoolWebClientId: es el client id de nuestra app en cognito
+5. cognitoDomain: es el dominio creado en cognito de nuestra app en el laboratorio 5.
+
+Simplemente hay que editarlas:
+
+1. Hacemos click en el icono que es un ojo.
+2. Al lado de cada variable, hacemos click en el lapiz
+
+<p align="center">
+    <img src="resources/edit_environment.png"/>
+</p>
+
+3. Indicamos el valor de cada variable
+
+Para probar cada endpoint: 
+1. Hacemos click en el, desde el menú de la izquierda.
+
+<p align="center">
+    <img src="resources/authorization.png"/>
+</p>
+
+2. En la pestaña Authorization, hacemos click en Get New Access Token.
+
+<p align="center">
+    <img src="resources/get_access_token_menu.png"/>
+</p>
+
+3. En la ventana abierta:
+   * Token name: Events Token
+   * Grant type: Implicit
+   * Callback URL: myapp://example
+   * AuthURL: {{cognitoDomain}}/login
+   * Client ID: {{userPoolWebClientId}}
+   * Scope: openid
+   * State: lo dejamos vacio
+   * Client Authentication: Send client credentials in body
+4. Hacemos click en Request token.
+5. En la ventana abierta, usamos el usuario que creamos en el laboratorio 5.
+
+<p align="center">
+    <img src="resources/login.png"/>
+</p>
+
+6. Al iniciar sesión, veremos que hemos obtenido un nuevo token.
+
+<p align="center">
+    <img src="resources/login_result.png"/>
+</p>
+
+7. Bajamos el scroll, y hacemos click en use token.
+
+<p align="center">
+    <img src="resources/token_result.png"/>
+</p>
+
+6. Finalmente, hacemos click en send y veremos la respuesta.
+
 
 ## GET /events endpoint
 
@@ -79,6 +174,8 @@ Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
  * En API Key Required, lo dejamos a True.
  
 De esta forma, para usar el endpoint GET /events, se va a necesitar el Api key y un token de usuario.
+
+> Es importante, una vez probada la API desde postman. En cada endpoint, debemos dejar lo oauth scope a none, y volver a hacer un deploy de la API.
 
 ## POST /events endpoint
 
@@ -269,51 +366,6 @@ Finalmente, para desplegar la API tenemos que llevar a cabo dos pasos más:
 5. Click en Deploy API.
 6. Elegimos el stage y damos a Deploy
 
-## Probar API
-
-Para probar la API, vamos a utilizar postman. El fichero con la descripción de la API está en el siguiente enlace: [postman_collection.json](./resources/events-app.postman_collection.json).
-El primer paso es importar el fichero en postman:
-
-1. Abrimos Postman
-2. Hacemos click en import
-3. Hacemos click en choose files y elejimos el json que hemos descargado.
-
-Esto nos creará una nueva colección que podemos ver en el menú de la izquierda, con los 6 endpoints que acabamos de crear. Además, necesitamos importar el [entorno](./resources/events.postman_environment.json) con las variables que necesitaremos para probar nuestra API:
-
-1. Hacemos click en import
-2. Hacemos click en choose files y elejimos el json que hemos descargado.
-
-Esto nos creará un nuevo entorno en postman llamado events con las siguientes variables:
-
-1. apiKey: es la api key creada anteriormente
-2. apiUrl: es la url de nuestra api
-3. eventid: es el id de algún evento creado en la base de datos
-4. userPoolWebClientId: es el client id de nuestra app en cognito
-5. cognitoDomain: es el dominio creado en cognito de nuestra app en el laboratorio 5.
-
-Simplemente hay que editarlas:
-
-1. Hacemos click en el icono que es un ojo.
-2. Al lado de cada variable, hacemos click en el lapiz
-3. Indicamos el valor de cada variable
-
-Para probar cada endpoint: 
-1. Hacemos click en el, desde el menú de la izquierda.
-2. En la pestaña Authorization, hacemos click en Get New Access Token.
-3. En la ventana abierta:
-   * Token name: Events Token
-   * Grant type: Implicit
-   * Callback URL: myapp://example
-   * AuthURL: {{cognitoDomain}}/login
-   * Client ID: {{userPoolWebClientId}}
-   * Scope: openid
-   * State: lo dejamos vacio
-   * Client Authentication: Send client credentials in body
-4. Hacemos click en Request token.
-5. En la ventana abierta, usamos el usuario que creamos en el laboratorio 5.
-6. Finalmente, hacemos click en send y veremos la respuesta.
-
-> Es importante, una vez probada la API desde postman. En cada endpoint, debemos dejar lo oauth scope a none, y volver a hacer un deploy de la API.
 
 ## Resumen
 
