@@ -21,16 +21,12 @@ Si la función lambda la desarrollamos en Java, es necesario disponer de un cont
 
 ## Nuestra primera función. Events-List
 
+
 En esta sección crearemos y probaremos nuestra primera función lambda, “Events-List”, que nos permitirá acceder a los datos existentes en la tabla “events” que hemos creado en DynamoDB.
-1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “Lambda”.
-> Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
-2.	Pulsamos “Create Function”.
-<p align="center">
-    <img src="resources/Picture5.png">
-</p>
-En este punto podemos seleccionar como crear muestra función, será distinto según el lenguaje de programación que vayamos a usar. En los laboratorios vamos a trabajar con dos opciones: Python y Java. Según prefieras puedes utilizar una u otra. Continua el laboratorio en el punto correspondiente (puedes realizar las dos versiones si te interesa conocer como se implementa en una y otra, decidiendo luego en el Gateway a que versión quieres dirigirte).
 
+En los laboratorios vamos a trabajar con dos opciones: Python y Java. Según prefieras puedes utilizar una u otra. Continua el laboratorio en el punto correspondiente (puedes realizar las dos versiones si te interesa conocer como se implementa en una y otra, decidiendo luego en el Gateway a que versión quieres dirigirte).
 
+En este punto seleccionamos como crear muestra función, ya que será distinto según el lenguaje de programación que vayamos a usar:
 
 [ Crear función EventList en Python >](../lambda-functions-python/EventsList)  
 

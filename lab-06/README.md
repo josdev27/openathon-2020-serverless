@@ -84,44 +84,10 @@ De esta forma, para usar el endpoint GET /events, se va a necesitar el Api key y
 
 A través de este endpoint se podrán crear nuevos eventos.
 
-### Crear función lambda
+[Crear función lambda >](../lambda-functions-python/CreateEvent)
 
-Primero tenemos que crear la funcion lambda, de la misma forma que en lab-02, pero el código fuente es el siguiente:
+[Crear función java >](../lambda-functions-java/CreateEvent)
 
-```python
-# This lambda function is integrated with the following API methods:
-# /events POST
-#
-# Its purpose is to post events from our DynamoDB table
-
-from __future__ import print_function
-import boto3
-import json
-from boto3.dynamodb.conditions import Key
-from botocore.exceptions import ClientError
-import uuid
-
-def lambda_handler(event, context):
-
-    print('Initiating Events-ListFunction...')
-    print("Received event from API Gateway: " + json.dumps(event, indent=2))
-    
-    # Create our DynamoDB resource using our Environment Variable for table name
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events')
-    try:
-        event["id"] = str(uuid.uuid4())
-        response = table.put_item(
-            Item=event)
-    except ClientError as e:
-        print(e.response['Error']['Message'])
-        print('Check your DynamoDB table...')
-    else:
-        print("PutItem succeeded:")
-        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
-        return event
-
-```
 
 ### Crear endpoint
 
@@ -147,17 +113,9 @@ Este endpoint nos permitirá obtener los eventos del usuario logueado.
 
 ### Crear función lambda
 
-En este caso no es necesario, ya que la función para obtener eventos ya tiene la lógica para obtener los eventos añadidos por un usuario.
+[Crear función lambda >](../lambda-functions-python/GetEventsMe)
 
-```python
-if "addedBy" in event:
-  response = table.query(
-      IndexName="addedBy-index",
-      KeyConditionExpression=Key('addedBy').eq(event["addedBy"])
-      )
-else:
-  response = table.scan()
-```
+[Crear función java >](../lambda-functions-java/GetEventsMe)
 
 ### Crear endpoint
 
@@ -196,42 +154,10 @@ Este endpoint nos permitirá obtener los eventos del usuario logueado.
 
 ### Crear función lambda
 
-Primero tenemos que crear la funcion lambda, de la misma forma que en lab-02, pero el código fuente es el siguiente:
+[Crear función lambda >](../lambda-functions-python/GetEventId)
 
-```python
-# This lambda function is integrated with the following API methods:
-# /events GET (list operation)
-#
-# Its purpose is to get events from our DynamoDB table
+[Crear función java >](../lambda-functions-java/GetEventId)
 
-from __future__ import print_function
-import boto3
-import json
-from boto3.dynamodb.conditions import Key
-from botocore.exceptions import ClientError
-
-def lambda_handler(event, context):
-
-    print('Initiating Events-ListFunction...')
-    print("Received event from API Gateway: " + json.dumps(event, indent=2))
-    
-    # Create our DynamoDB resource using our Environment Variable for table name
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events')
-
-    try:
-        response_event = table.get_item(Key={'id': event["id"]})
-        item = response_event["Item"]
-    except ClientError as e:
-        print(e.response['Error']['Message'])
-        print('Check your DynamoDB table...')
-    else:
-        print("GetItem succeeded:")
-        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
-        # Return only the Items and not the whole response from DynamoDB
-        return item
-
-```
 
 ### Crear endpoint
 
@@ -267,69 +193,11 @@ Este endpoint nos permitirá editar un evento.
 
 ### Crear función lambda
 
-Primero tenemos que crear la funcion lambda, de la misma forma que en lab-02, pero el código fuente es el siguiente:
+[Crear función lambda >](../lambda-functions-python/EditEventId)
 
-```python
-# This lambda function is integrated with the following API methods:
-# /events POST
-#
-# Its purpose is to post events from our DynamoDB table
+[Crear función java >](../lambda-functions-java/EditEventId)
 
-from __future__ import print_function
-import boto3
-import json
-from boto3.dynamodb.conditions import Key
-from botocore.exceptions import ClientError
-import uuid
 
-def lambda_handler(event, context):
-
-    print('Initiating Events-ListFunction...')
-    print("Received event from API Gateway: " + json.dumps(event, indent=2))
-    
-    # Create our DynamoDB resource using our Environment Variable for table name
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events')
-    try:
-        
-        response_event = table.get_item(Key={'id': event["id"]})
-        item = response_event["Item"]
-        item_put = event["body-json"]
-        
-        if item["addedBy"] == event["addedBy"]:
-            response = table.update_item(
-                Key={"id": event["id"]},
-                ExpressionAttributeNames={
-                    "#addedBy": "addedBy",
-                    "#date": "date",
-                    "#description": "description",
-                    "#title": "title",
-                    "#location": "location"
-                },
-                ExpressionAttributeValues= {
-                    ":addedBy":item_put["addedBy"],
-                    ":date":item_put["date"],
-                    ":description":item_put["description"],
-                    ":title":item_put["title"],
-                    ":location":item_put["location"]
-                },
-                UpdateExpression =  ("SET #addedBy = :addedBy,"  
-                                    "#date = :date,"  
-                                    "#description = :description," 
-                                    "#title = :title," 
-                                    "#location = :location")
-                )
-        else:
-            raise ClientError('You are not the author of event')
-    except ClientError as e:
-        print(e.response['Error']['Message'])
-        print('Check your DynamoDB table...')
-    else:
-        print("PutItem succeeded:")
-        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
-        return item_put
-
-```
 
 ### Crear endpoint
 
@@ -362,45 +230,10 @@ Este endpoint nos permitirá borrar un evento.
 
 ### Crear función lambda
 
-Primero tenemos que crear la funcion lambda, de la misma forma que en lab-02, pero el código fuente es el siguiente:
+[Crear función lambda >](../lambda-functions-python/DeleteEventId)
 
-```python
-# This lambda function is integrated with the following API methods:
-# /events GET (list operation)
-#
-# Its purpose is to get events from our DynamoDB table
+[Crear función java >](../lambda-functions-java/DeleteEventId)
 
-from __future__ import print_function
-import boto3
-import json
-from boto3.dynamodb.conditions import Key
-from botocore.exceptions import ClientError
-
-def lambda_handler(event, context):
-
-    print('Initiating Events-ListFunction...')
-    print("Received event from API Gateway: " + json.dumps(event, indent=2))
-    
-    # Create our DynamoDB resource using our Environment Variable for table name
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events')
-
-    try:
-        response_event = table.get_item(Key={'id': event["id"]})
-        item = response_event["Item"]
-        if item["addedBy"] == event["addedBy"]:
-            response = table.delete_item(Key={"id":event["id"]})
-        
-    except ClientError as e:
-        print(e.response['Error']['Message'])
-        print('Check your DynamoDB table...')
-    else:
-        print("DeleteItem succeeded:")
-        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
-        # Return only the Items and not the whole response from DynamoDB
-        return
-
-```
 
 ### Crear endpoint
 
