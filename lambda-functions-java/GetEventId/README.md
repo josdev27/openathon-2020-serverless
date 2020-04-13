@@ -69,4 +69,4 @@
 5. Subimos la función a AWS como explicamos en el [laboratorio 03](../EventsList#subir-la-funci%C3%B3n-a-aws)
 
 
-[< Volver al Laboratorio 06 ](../lab-06#crear-endpoint-2) 
+[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-2) 

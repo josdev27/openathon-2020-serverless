@@ -1,6 +1,6 @@
 
 1. Creamos una nueva clase pulsando con el botón derecho sobre el paquete com.accenture.aws.functions->New ->Class
-2. Le ponemos un nombre significativo, por ejemplo ListEventsMe
+2. Le ponemos un nombre significativo, por ejemplo EditEventItem
 3. Pegamos el siguiente código:
 
 		 package com.accenture.aws.functions;
@@ -79,4 +79,4 @@
 5. Subimos la función a AWS como explicamos en el [laboratorio 03](../EventsList#subir-la-funci%C3%B3n-a-aws)
 
 
-[< Volver al Laboratorio 06 ](../lab-06#crear-endpoint-3) 
+[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-3) 
