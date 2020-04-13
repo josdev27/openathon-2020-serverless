@@ -37,4 +37,4 @@ Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](.
 	```
 
 
-[< Volver al Laboratorio 06 ](../lab-06#crear-endpoint) 
+[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint) 
