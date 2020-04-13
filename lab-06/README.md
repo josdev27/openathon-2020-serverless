@@ -487,4 +487,4 @@ Para probar cada endpoint:
 En este laboratorio, hemos completado el resto de nuestra API. Además, la hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo. 
 El siguiente paso, es integrarla con nuestra aplicación frontend.
 
-[< Lab-05 ](../lab-05)  | [Lab 07 >](../lab-07)
+[< Lab-05 ](../lab-05)  | [Lab-07 >](../lab-07)
