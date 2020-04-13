@@ -2,14 +2,14 @@
 En este caso no es necesario, ya que la función para obtener eventos ya tiene la lógica para obtener los eventos añadidos por un usuario.
 
 	```python
-		if "addedBy" in event:
-		  response = table.query(
-		      IndexName="addedBy-index",
-		      KeyConditionExpression=Key('addedBy').eq(event["addedBy"])
-		      )
-		else:
-		  response = table.scan()
+	if "addedBy" in event:
+	  response = table.query(
+	      IndexName="addedBy-index",
+	      KeyConditionExpression=Key('addedBy').eq(event["addedBy"])
+	      )
+	else:
+	  response = table.scan()
 	```
 
 
-[< Volver al Laboratorio 06 ](../lab-06#crear-endpoint-1) 
+[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-1) 
