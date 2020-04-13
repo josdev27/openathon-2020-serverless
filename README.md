@@ -23,8 +23,8 @@ Los servicios que utilizaremos serán:
 
 El indice del contenido es el siguiente:
 
-1. Introduccion Serverless AWS & Visión General de la Aplicación.
-2. LAB 0. Pasos iniciales.
+1. [Introduccion Serverless AWS & Visión General de la Aplicación.](/introduction)
+2. [LAB 0. Pasos iniciales](/lab-00)
 3. LAB 1. DynamoDB
 4. LAB 2. Crear rol en IAM (Sólo con cuenta privada)
 5. LAB 3. Crear función lambda: listEvents
