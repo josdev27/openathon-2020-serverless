@@ -71,3 +71,5 @@ La función puede ejecutarse correctamente ya que dispone de las autorizaciones 
 ## Conclusión
 
 En este laboratorio hemos creado y probado nuestra primera función lambda. Comprobamos como de una manera sencilla podemos incorporar nuestras funciones de negocio a AWS, que pueden interactuar con otros servicios o recursos que hayamos creado. En el próximo laboratorio experimentaremos como configurar el servicio para que sea accesible desde internet, utilizando API Gateway.
+
+[< Lab-02 ](../lab-02)  | [Lab 04 >](../lab-04)
