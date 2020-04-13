@@ -1,8 +1,10 @@
 # Laboratorio 1. DynamoDB
 
+## Introducción
 [DynamoBD](https://docs.aws.amazon.com/es_es/dynamodb/?id=docs_gateway), nos permiterá crear los servicios de persistencia necesarios para nuestra aplicación. Es este caso, una tabla para almacenar los eventos creados llamada "eventos". Esta tabla será usada para almacenar los eventos registrados por los usuarios. 
 
-Para crearla seguiremos los siguientes pasos:
+## Creando la tabla
+Será necesario seguir los siguientes pasos:
 
 1. En la consola de AWS, en el menú Services buscaremos y seleccionaremos “DynamoDB”.
 
@@ -79,5 +81,9 @@ Para crearla seguiremos los siguientes pasos:
 <p align="center">
     <img src="resources/Picture10.png"/>
 </p>
+
+## Conclusión
+
+En este laboratorio hemos creado una tabla para almacenar nuestros eventos. También Hemos insertado un evento de prueba. En el próximo laboratorio revisaremos las posibilidades del IAM para establecer roles y permisos.
 
 [< Lab 00 ](../lab-00)  | [Lab 02 >](../lab-02) 
