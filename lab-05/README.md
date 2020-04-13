@@ -91,3 +91,5 @@ Para poder autenticarnos contra cognito desde postman con una interfaz visual, v
 Con los pasos realizados en este laboratorio tenemos ya creado un servicio de identidad que permitirá a nuestra aplicación angular disponer de un servicio de login para el acceso a las funciones lambda que publiquemos a través de una API Gateway. 
 
 En el caso que estes usando el usuario de formación para realizar las actividades, considera que el login está utilizando Cognito para autenticarte y que este tiene configurado a Accenture como proveedor de identidad para permitir el uso de sus EID.
+
+[< Lab-04 ](../lab-04)  | [Lab 06 >](../lab-06)
