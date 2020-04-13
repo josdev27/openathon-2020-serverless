@@ -187,7 +187,7 @@ Vemos que nos da error de compilación proque no encuentra el tipo Event. Para r
 		
 			}
 
-###Subir la función a AWS
+### Subir la función a AWS
 
 Una vez que tengamos la función ya creada, la debemos subir a AWS.
 
