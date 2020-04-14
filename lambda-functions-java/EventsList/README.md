@@ -186,12 +186,13 @@ public String toString() {
 }
 ```
 
+:warning:Para quitar los errors de compilación del proyecto, elimina el contenido del paquete **src/test/java**, ya que no vamos a hacer Junits en este openathon:warning:
 
 ### Subir la función a AWS
 
 Una vez que tengamos la función ya creada, la debemos subir a AWS.
 
-1. Pulsamos el botón derecho en mitad de la clase,elegimos la opcion de menú AWS Lambda -> Upload function to AWS Lambda
+1. Pulsamos el botón derecho en mitad de la clase,elegimos la opción de menú AWS Lambda -> Upload function to AWS Lambda
 	<p align="center">
     <img src="resources/Picture4.png">
 	</p>
@@ -209,12 +210,21 @@ Una vez que tengamos la función ya creada, la debemos subir a AWS.
 	</p>
 7. Pulsamos "Finish"
 
-## Comprobar la creación de la función en la consola de AWS
+## Comprobar la creación de la función en AWS desde eclipse
 
-Para comprobar que la función se ha creado correctamente, podemos hacerlo en la consola de AWS: en el menú Services buscaremos y seleccionaremos “Lambda”.
-	> Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
-	
-Una vez dentro del servicio, pulsando la opción functions del menú de la izquierda podremos acceder a la lista de funciones lambda creadas y localizar la nuestra.
+Para comprobar el comportamiento de la función, podemos probarla en AWS desde eclipse.
+
+Para ello, Pulsamos el botón derecho en mitad de la clase,elegimos la opción de menú AWS Lambda -> Run function on AWS Lambda
+	<p align="center">
+	    <img src="resources/Picture7.png">
+	</p>
+
+En este caso no se envía nada, por lo que dejamos la selección por defecto y pulsamos "Invoke".
+	<p align="center">
+	    <img src="resources/Picture8.png">
+	</p>
+
+En la consola de eclipse verás la ejecución de la función con el resultado. 
 
 [< Volver al Laboratorio 03 ](../../lab-03)  
 
