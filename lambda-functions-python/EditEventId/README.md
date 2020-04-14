@@ -1,3 +1,4 @@
+# Edit Event - Python Version
 
 Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente:
 
