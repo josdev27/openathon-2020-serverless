@@ -6,6 +6,10 @@
 
 ## Introducción
 
+<p align="center">
+    <img src="resources/api_cognito.png"/>
+</p>
+
 En los laboratorios anteriores creamos el endpoint para acceder a la función lambda que obtiene y devuelve todos los eventos creados en la base de datos utilizando API Gateway. Ahora vamos a crear el resto de endpoint:
 
 1. POST /events: para crear un evento.
