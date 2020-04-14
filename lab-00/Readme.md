@@ -1,4 +1,4 @@
-# Laboratorio 0 - Seguidad y Utilidades
+# Laboratorio 0 - Seguridad y Utilidades
 
 ## Contenido
 
@@ -210,6 +210,6 @@ Si esta ventana no aparece, es posible abrirla desde el nuevo icono de AWS ToolK
     <img src="resources/instalacion_eclipse_27.PNG">
 </p>
 
-En esta ventana debemos informar los datos del usuario que realizará el upload de la función lambda a AWS. En el caso de utilizar la cuanta de formación, esta información habrá sido remitida a cada usuario, en el caso de utilizar la cuenta personal creada, se informará con los datos de nuestro usuario IAM creado(no root). Los datos de clave y secret pueden obtenerse del fichero download.csv que descargamos al crear el usuario.
+En esta ventana debemos informar los datos del usuario que realizará el upload de la función lambda a AWS. En el caso de utilizar la cuanta de formación, esta información habrá sido remitida a cada usuario por los organizadores. En el caso de utilizar la cuenta personal creada, se informará con los datos de nuestro usuario IAM creado(no root). Los datos de clave y secret pueden obtenerse del fichero download.csv que descargamos al crear el usuario.
 
 [< Introducción ](../introduction)  | [Lab 01 >](../lab-01) 
