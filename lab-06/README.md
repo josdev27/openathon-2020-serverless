@@ -25,7 +25,7 @@ Para crear el API Key hacemos los siguientes pasos:
 
 1. Con la API abierta, hacemos click en la opción *API Keys* del menú de la izquierda.
 2. Pinchamos en *Actions*, y luego en *Create API Key*.
-3. En el formulario, ponemos un nombre (p. ej. "identification") y damos a *Save*.
+3. En el formulario, ponemos un nombre (p. ej. "identification_XXXX", identificando de manera única nuestra API Key) y damos a *Save*.
 4. Nos aparecerá la información del API Key. Si hacemos click en *Show*, podemos ver la clave. 
    :pushpin: **Guardala, porque la necesitaras más adelante.** 
 
