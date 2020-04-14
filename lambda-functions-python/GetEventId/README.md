@@ -35,4 +35,4 @@ def lambda_handler(event, context):
 	return item
 ```
 
-[< Volver al Laboratorio 06 ](../../lab-06) 
+[< Volver al Laboratorio 07 ](../../lab-07) 
