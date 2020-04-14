@@ -39,7 +39,7 @@ print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
 # Creamos el acceso a la tabla DynamoDB por el nombre
 dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('events')
+table = dynamodb.Table('events_XXXX')
 
 # Obtenemos todos los eventos existentes en la tabla
 try:
@@ -52,6 +52,7 @@ else:
     # De la respuesta obtenida de DynamoDB devolvemos los items
     return response["Items"]
 ```
+Deberemos cambiar en el código "events_XXXX" por el nombre de la tabla que hemos creado en DynamoDB.
 
 4.	Pulsamos “Save”.
 
