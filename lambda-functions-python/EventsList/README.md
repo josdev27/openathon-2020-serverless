@@ -21,10 +21,10 @@
 5. Con la función creada, en la ventana de detalle de la función vamos a incorporar su implementación. Para ello nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
 
 ```python
-# Events-List
-# Esta función lambda se integra con el siguiente API method:
+# This lambda function is integrated with the following API methods:
 # /events GET (list operation)
-# Su proposito es obtener los eventos existentes en la table Events
+#
+# Its purpose is to get events from our DynamoDB table
 
 from __future__ import print_function
 import boto3
@@ -34,23 +34,28 @@ from botocore.exceptions import ClientError
 
 def lambda_handler(event, context):
 
-print('Initiating Events-List...')
-print("Received event from API Gateway: " + json.dumps(event, indent=2))
+    print('Initiating Events-ListFunction...')
+    print("Received event from API Gateway: " + json.dumps(event, indent=2))
+    
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('events_XXXX')
 
-# Creamos el acceso a la tabla DynamoDB por el nombre
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('events_XXXX')
+    try:
+        if "addedBy" in event:
+            response = table.query(
+                IndexName="addedBy-index",
+                KeyConditionExpression=Key('addedBy').eq(event["addedBy"])
+                )
+        else:
+            response = table.scan()
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+        print('Check your DynamoDB table...')
+    else:
+        print("GetItems succeeded:")
+        print("Received response from DynamoDB: " + json.dumps(response, indent=2))
+        return response["Items"]
 
-# Obtenemos todos los eventos existentes en la tabla
-try:
-    response = table.scan()
-except ClientError as e:
-    print(e.response['Error']['Message'])
-else:
-    print("scan succeeded:")
-
-    # De la respuesta obtenida de DynamoDB devolvemos los items
-    return response["Items"]
 ```
 Deberemos cambiar en el código "events_XXXX" por el nombre de la tabla que hemos creado en DynamoDB.
 
