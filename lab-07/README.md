@@ -41,8 +41,8 @@ Para crear el endpoint, accedemos al API que hemos creado (API_EVENTS_XXXX):
  * En **Authorization**, elejimos el authorizer creado para la API.
  * En **OAuth Scopes**, lo dejamos a *openid*. 
  :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
- * En *Request Validator*, lo dejamos a None.
- * En *API Key Required*, lo dejamos a True.
+ * En **Request Validator**, lo dejamos a None.
+ * En **API Key Required**, lo dejamos a True.
 4. Volvemos atrás, y hacemos click en *Integration Request*:
  * En *Integration type*, elejimos *Lambda Function*.
  * En *Lambda Region*, la region correspondiente.
@@ -64,10 +64,23 @@ Después, abrimos postman:
 1. Nos aseguramos que estamos usando el *entorno events*.
 2. Hacemos click en *Post events*, en el menu de la izquierda en la *colección events*.
 3. Vamos a la pestaña *Authorization* y nos aseguramos que el campo *Access Token* está relleno. En caso de que no, damos a *Get access Token*, y seguimos los pasos [anteriores](lab-06#preparar-postman).
-4. Hacemos click en *Send*, y deberiamos de recibir un **200 OK**. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña *Authorization*, y damos a *Get Access Token*, y seguimos los pasos [anteriores](lab-06#preparar-postman).
+4. Vamos a la pestaña de *Body*, he introducimos un json con el evento a crear, similar al siguiente:
+
+```json
+{
+    "title": "Hola",
+    "location": "Madrid",
+    "date": "1997-01-01",
+    "description": "dfnsbfiusduigsf",
+    "addedBy": "student@example.com",
+    "id": ""
+}
+```
+
+5. Hacemos click en *Send*, y deberiamos de recibir un **200 OK**. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña *Authorization*, y damos a *Get Access Token*, y seguimos los pasos [anteriores](lab-06#preparar-postman).
 
 
-Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
+Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
 
 ## GET /events/me endpoint
@@ -79,6 +92,8 @@ Este endpoint nos permitirá obtener los eventos del usuario logueado.
 [Crear función python >](../lambda-functions-python/GetEventsMe)
 
 [Crear función java >](../lambda-functions-java/GetEventsMe)
+
+[Probar función lambda >](Testing_Get_Events_Me.md)
 
 ### Crear endpoint
 
@@ -113,24 +128,9 @@ Para crear el endpoint en nuestro API Gateway:
 
 ### Probar endpoint
 
-Lo primero que tenemos que hacer es desplegar la API:
+Como en el caso de crear eventos, tendriamos que desplegar la API. Después, desde Postman, dentro de la colección events, la que se corresponde con nuestro endpoint.
 
-1. Click en Actions.
-2. Click en Enable CORS
-3. Click en Enable CORS and replace existing CORS headers
-4. Volvemos atrás y hacemos click en Actions.
-5. Click en Deploy API.
-6. Elegimos el stage y damos a Deploy
-
-Después, abrimos postman:
-
-1. Nos aseguramos que estamos usando el entorno events.
-2. Hacemos click en Get my events, en el menu de la izquierda en la colección events.
-3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-
-
-Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
+Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
 ## GET /events/{eventsId} endpoint
 
@@ -173,24 +173,9 @@ Para crear el endpoint en nuestro API Gateway:
 
 ### Probar endpoint
 
-Lo primero que tenemos que hacer es desplegar la API:
+Como en el caso de crear eventos, tendriamos que desplegar la API. Después, desde Postman, dentro de la colección events, la que se corresponde con nuestro endpoint.
 
-1. Click en Actions.
-2. Click en Enable CORS
-3. Click en Enable CORS and replace existing CORS headers
-4. Volvemos atrás y hacemos click en Actions.
-5. Click en Deploy API.
-6. Elegimos el stage y damos a Deploy
-
-Después, abrimos postman:
-
-1. Nos aseguramos que estamos usando el entorno events.
-2. Hacemos click en Get event by id, en el menu de la izquierda en la colección events.
-3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-
-
-Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
+Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
 
 ## Crear endpoint para editar eventos (PUT /events/{eventsId})
@@ -232,25 +217,9 @@ Para crear el endpoint en nuestro API Gateway:
 
 ### Probar endpoint
 
-Lo primero que tenemos que hacer es desplegar la API:
+Como en el caso de crear eventos, tendriamos que desplegar la API. Después, desde Postman, dentro de la colección events, la que se corresponde con nuestro endpoint.
 
-1. Click en Actions.
-2. Click en Enable CORS
-3. Click en Enable CORS and replace existing CORS headers
-4. Volvemos atrás y hacemos click en Actions.
-5. Click en Deploy API.
-6. Elegimos el stage y damos a Deploy
-
-Después, abrimos postman:
-
-1. Nos aseguramos que estamos usando el entorno events.
-2. Hacemos click en Put event, en el menu de la izquierda en la colección events.
-3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-
-
-Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
-
+Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
 ## DELETE /events/{eventsId} endpoint
 
@@ -289,24 +258,9 @@ Para crear el endpoint en nuestro API Gateway:
 
 ### Probar endpoint
 
-Lo primero que tenemos que hacer es desplegar la API:
+Como en el caso de crear eventos, tendriamos que desplegar la API. Después, desde Postman, dentro de la colección events, la que se corresponde con nuestro endpoint.
 
-1. Click en Actions.
-2. Click en Enable CORS
-3. Click en Enable CORS and replace existing CORS headers
-4. Volvemos atrás y hacemos click en Actions.
-5. Click en Deploy API.
-6. Elegimos el stage y damos a Deploy
-
-Después, abrimos postman:
-
-1. Nos aseguramos que estamos usando el entorno events.
-2. Hacemos click en Delete event, en el menu de la izquierda en la colección events.
-3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-
-
-Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
+Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
 ## Resumen
 
