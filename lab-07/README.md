@@ -210,7 +210,7 @@ Para crear el endpoint en nuestro API Gateway:
    * En el editor que se nos ha abierto ponemos:
    ```json
    {
-   "body-json" : $input.json('$'),
+   "body-json" : "$input.json('$')",
    "id": "$input.params('eventid')",
    "addedBy" : "$context.authorizer.claims.email"
    }
