@@ -4,9 +4,9 @@ Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](.
 
 ```python
 # This lambda function is integrated with the following API methods:
-# /events POST
+# PUT /events/{id}
 #
-# Its purpose is to post events from our DynamoDB table
+# Its purpose is to edit an event from our DynamoDB table
 
 from __future__ import print_function
 import boto3
@@ -17,14 +17,13 @@ import uuid
 
 def lambda_handler(event, context):
 
-    print('Initiating Events-ListFunction...')
+    print('Initiating EditEvent...')
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
-    # Create our DynamoDB resource using our Environment Variable for table name
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('events')
+    
     try:
-
 	response_event = table.get_item(Key={'id': event["id"]})
 	item = response_event["Item"]
 	item_put = event["body-json"]
@@ -53,7 +52,7 @@ def lambda_handler(event, context):
 				    "#location = :location")
 		)
 	else:
-	    raise ClientError('You are not the author of event')
+	    raise Exception('You are not the author of event')
     except ClientError as e:
 	print(e.response['Error']['Message'])
 	print('Check your DynamoDB table...')
@@ -63,5 +62,38 @@ def lambda_handler(event, context):
 	return item_put
 ```
 
+## Probar la función
 
-[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-3) 
+Creamos un test de prueba cuya entrada es la siguiente:
+
+```json
+{
+  "date": "1997-01-01",
+  "location": "Barcelona",
+  "description": "dfnsbfiusduigsf",
+  "id": "3a64b9fc-bac4-47cd-a591-1813f404475e",
+  "addedBy": "prueba@gmail.com",
+  "title": "Hola"
+}
+```
+donde,
+* **id**: id del evento a editar
+* **addedBy**: es el correo del autor del evento.
+* **date**: fecha de creación
+* **location**: localización del evento
+* **description**: descripción del evento 
+* **title**:: titulo del evento.
+
+Si el campo addedBy no se corresponde con el autor, se producirá una excepción con el mensaje 'You are not the author of event':
+
+<p align="center">
+    <img src="edit_event_not_author.png">
+</p>
+
+Si la ejecución tiene éxito, nos devolverá el evento editado:
+
+<p align="center">
+    <img src="edit_event_success.png">
+</p>
+
+[< Volver al Laboratorio 07 ](../../lab-07) 
