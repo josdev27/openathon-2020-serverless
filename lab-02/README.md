@@ -4,7 +4,7 @@
 
 # Laboratorio 2. IAM
 
-:warning: **Sólo con cuenta privada. En el caso de las cuentas de formación, estára precreado** :warning:
+:warning: **Sólo con cuenta privada. En el caso de las cuentas de formación, estará precreado** :warning:
 
 ## Introducción
 
