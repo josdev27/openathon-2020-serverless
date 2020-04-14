@@ -1,6 +1,6 @@
 # Edit Event - Python Version
 
-Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente:
+Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente (:warning: recuerda sustituir el nombre de la tabla por el tuyo):
 
 ```python
 # This lambda function is integrated with the following API methods:
@@ -21,7 +21,7 @@ def lambda_handler(event, context):
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events')
+    table = dynamodb.Table('events_XXXX')
     
     try:
     	response_event = table.get_item(Key={'id': event["id"]})
@@ -61,39 +61,5 @@ def lambda_handler(event, context):
     	print("Received response from DynamoDB: " + json.dumps(response, indent=2))
     	return item_put
 ```
-
-## Probar la función
-
-Creamos un test de prueba cuya entrada es la siguiente:
-
-```json
-{
-  "date": "1997-01-01",
-  "location": "Barcelona",
-  "description": "dfnsbfiusduigsf",
-  "id": "3a64b9fc-bac4-47cd-a591-1813f404475e",
-  "addedBy": "prueba@gmail.com",
-  "title": "Hola"
-}
-```
-donde,
-* **id**: id del evento a editar
-* **addedBy**: es el correo del autor del evento.
-* **date**: fecha de creación
-* **location**: localización del evento
-* **description**: descripción del evento 
-* **title**:: titulo del evento.
-
-Si el campo addedBy no se corresponde con el autor, se producirá una excepción con el mensaje 'You are not the author of event':
-
-<p align="center">
-    <img src="edit_event_not_author.png">
-</p>
-
-Si la ejecución tiene éxito, nos devolverá el evento editado:
-
-<p align="center">
-    <img src="edit_event_success.png">
-</p>
 
 [< Volver al Laboratorio 07 ](../../lab-07) 
