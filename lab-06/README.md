@@ -12,11 +12,11 @@
 
 En los laboratorios anteriores creamos el endpoint para acceder a la función lambda que obtiene y devuelve todos los eventos creados en la base de datos utilizando API Gateway. Ahora vamos a crear el resto de endpoint:
 
-1. POST /events: para crear un evento.
-3. GET /events/{eventid}: para obtener un evento.
-2. PUT /events/{eventid}: para editar un evento.
-3. DELETE /events/{eventid}: para eliminar un evento.
-4. GET /events/me: para obtener los eventos creados por el usuario autenticado.
+1. **POST /events**: para crear un evento.
+3. **GET /events/{eventid}**: para obtener un evento.
+2. **PUT /events/{eventid}**: para editar un evento.
+3. **DELETE /events/{eventid}**: para eliminar un evento.
+4. **GET /events/me**: para obtener los eventos creados por el usuario autenticado.
 
 Ademas, vamos a añadirle a todos los endpoints dos capas de seguridad para controlar quien puede acceder.
 * **Token de usuario**: vamos a añadir la cabecera Authorization, de forma que solo los usuarios autenticados puedan ver los eventos.
@@ -28,25 +28,25 @@ Para llevar a cabo la parte de token de usuario, debemos crear un Authorizer con
 
 Para crear el API Key hacemos los siguientes pasos:
 
-1. Con la API abierta, hacemos click en la opción API Keys del menú de la izquierda.
-2. Pinchamos en Actions, y luego en Create API Key.
-3. En el formulario, ponemos un nombre (p. ej. "identification") y damos a Save.
-4. Nos aparecerá la información del API Key. Si hacemos click en Show, podemos ver la clave. Guardala, porque la necesitaras más adelante. 
+1. Con la API abierta, hacemos click en la opción *API Keys* del menú de la izquierda.
+2. Pinchamos en *Actions*, y luego en *Create API Key*.
+3. En el formulario, ponemos un nombre (p. ej. "identification") y damos a *Save*.
+4. Nos aparecerá la información del API Key. Si hacemos click en *Show*, podemos ver la clave. **Guardala, porque la necesitaras más adelante.** 
 
 Ahora vamos a asociarle un plan de uso al API key:
 
-1. Volvemos a la API y hacemos click en la opción Usages Plan del menú de la izquierda.
-2. Pinchamos en Create.
+1. Volvemos a la API y hacemos click en la opción *Usages Plan* del menú de la izquierda.
+2. Pinchamos en *Create*.
 3. En el formulario:
-  * Name: indicamos un nombre significativo (p. ej. "EventsUsagePlan").
-  * Enable throttling: lo dejamos habilitado. 
-  * Rate: 1
-  * Burst: 1
-  * Enable quota: lo dejamos habilitado
-  * Requests per: 200 per month
+  * **Name:** indicamos un nombre significativo (p. ej. "EventsUsagePlan").
+  * **Enable throttling:** lo dejamos habilitado. 
+  * **Rate:** 1
+  * **Burst:** 1
+  * **Enable quota:** lo dejamos habilitado
+  * **Requests per:** 200 per month
 Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
-4. Hacemos click en Next.
-Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el Usage Plan. En nuestro caso solo tenemos un previamente creado ("prod"). 
+4. Hacemos click en *Next*.
+Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el *Usage Plan*. En nuestro caso solo tenemos un previamente creado ("prod"). 
 5. Hacemos click en Add Api Stage.
 6. En API, elegimos el nombre de nuestra API.
 7. En Stage, elejimos el stage, ("prod" si hemos seguido las instrucciones anteriores). Hacemos click en el icono de Ok del registro añadido.
