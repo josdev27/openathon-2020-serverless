@@ -47,37 +47,37 @@ public class ListEvents implements RequestHandler<S3Event, List<Event>> {
 @Override
 public List<Event> handleRequest(S3Event event, Context context) {
 
-System.out.println("Received event: " + event);
+	System.out.println("Received event: " + event);
 
-//Definimos el cliente de Dynamodb
-AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+	//Definimos el cliente de Dynamodb
+	AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 
-// Creamos la request con el nombre de la tabla
-ScanRequest scanRequest = new ScanRequest()
-    .withTableName("events");   
+	// Creamos la request con el nombre de la tabla
+	ScanRequest scanRequest = new ScanRequest()
+	    .withTableName("events");   
 
-ScanResult outcome = null;
-try {
-System.out.println("Reading table events...");
+	ScanResult outcome = null;
+	try {
+		System.out.println("Reading table events...");
 
-outcome = client.scan(scanRequest);
-System.out.println("Outcome results "+outcome.getItems());
-}
-catch (Exception e) {
-System.err.println("Unable to read table");
-System.err.println(e.getMessage());
-}
-// Transformamos la salida del scan en una lista de eventos
-List<Event> result = new ArrayList<Event>();
-for (Map<String, AttributeValue> item:outcome.getItems()) {
-Event eventItem = new Event(item.get("id").getS(),
-		item.get("title").getS(), 
-		item.get("date").getS(), 
-		item.get("addedBy").getS(), 
-		item.get("description").getS(), 
-		item.get("location").getS());
-result.add(eventItem);
-}
+		outcome = client.scan(scanRequest);
+		System.out.println("Outcome results "+outcome.getItems());
+	}
+		catch (Exception e) {
+		System.err.println("Unable to read table");
+		System.err.println(e.getMessage());
+	}
+	// Transformamos la salida del scan en una lista de eventos
+	List<Event> result = new ArrayList<Event>();
+	for (Map<String, AttributeValue> item:outcome.getItems()) {
+	Event eventItem = new Event(item.get("id").getS(),
+			item.get("title").getS(), 
+			item.get("date").getS(), 
+			item.get("addedBy").getS(), 
+			item.get("description").getS(), 
+			item.get("location").getS());
+	result.add(eventItem);
+	}
 return result;
 }
 }
