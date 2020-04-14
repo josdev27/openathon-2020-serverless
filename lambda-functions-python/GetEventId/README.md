@@ -4,9 +4,9 @@ Primero tenemos que crear la función lambda, de la misma forma que en [lab-03](
 
 ```python
 # This lambda function is integrated with the following API methods:
-# /events GET (list operation)
+# GET /events/{id}
 #
-# Its purpose is to get events from our DynamoDB table
+# Its purpose is to get an event from our DynamoDB table
 
 from __future__ import print_function
 import boto3
@@ -16,10 +16,9 @@ from botocore.exceptions import ClientError
 
 def lambda_handler(event, context):
 
-    print('Initiating Events-ListFunction...')
+    print('Initiating GetEventId...')
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
-    # Create our DynamoDB resource using our Environment Variable for table name
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('events')
 
@@ -36,5 +35,22 @@ def lambda_handler(event, context):
 	return item
 ```
 
+## Probar la función
+
+Creamos un test de prueba cuya entrada es la siguiente:
+
+```json
+{
+  "id": "939e0579-641e-4cd2-afe2-1384a2f0e816"
+}
+```
+donde,
+* **id**: es un id de algún evento creado en la tabla de dynamodb.
+
+Si se ejecuta correctamente, nos devolverá el evento:
+
+<p align="center">
+    <img src="get_event_id.png">
+</p>
 
 [< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-2) 
