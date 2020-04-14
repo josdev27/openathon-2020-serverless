@@ -39,7 +39,7 @@ Utilizar un usuario propio de AWS supone asumir el control y administración de 
 Para utilizar nuestra propia cuenta, por razones de seguridad crearemos dos usuarios:
 
 - Usuario raiz. Usuario nominal con el que creamos la cuenta AWS, tiene acceso a todos los servicios sin limitación.
-- Usuario IAM. Usuario creado desde el usuario raiz con un conjunto de permisos administrativos para acceder de manera limitada a los servicios de AWS. Como práctica recomendada, un usaurio solo debe acceder a aquellos servicios imprescindibles para realizar el trabajo que le es asignado.
+- Usuario IAM. Usuario creado desde el usuario raiz con un conjunto de permisos administrativos para acceder de manera limitada a los servicios de AWS. Como práctica recomendada, un usuario solo debe acceder a aquellos servicios imprescindibles para realizar el trabajo que le es asignado.
 
 Así, una vez creado el usuario raiz y que este halla creado el usuario IAM, todos las actividades del Openathon las realizaremos con este último.
 
