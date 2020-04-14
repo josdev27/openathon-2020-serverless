@@ -206,8 +206,7 @@ Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar e
 
 ## Resumen
 
-En este laboratorio, hemos completado el resto de nuestra API. Además, la hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo. 
-El siguiente paso, es integrarla con nuestra aplicación frontend.
+En este laboratorio hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo, del endpoint que nos devuelve todos los eventos. El siguiente paso, es integrarla con nuestra aplicación frontend.
 
 [< Lab 05 ](../lab-05)  | [Lab 07 >](../lab-07)
 
