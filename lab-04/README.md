@@ -31,7 +31,7 @@ Para securizar esta API utilizaremos [Cognito](https://docs.aws.amazon.com/es_es
 4.	En “Create your first API” pulsamos “OK”.
 5.	Debajo de “Create new API” seleccionamos “NEW API”.
 6.	Introducimos la siguiente información:
-    * API name: EventsAP
+    * API name: EventsAP_XXXXXXX
     * Description: EventsAP
     * Endpoint Type: Regional
     * Pulsamos “Create API”.
@@ -48,9 +48,7 @@ Crearemos ahora los “Resources” a los que va a atender nuestra API.
 14.	Pulsamos “Actions” y en el desplegable seleccionamos “Create Resource” e introducimos:
     * Name: events
 15.	Pulsamos “Create Resource”.
-
-Una vez creado el recurso debemos crear los métodos http para el recurso creado.
-16.	Seleccionamos “/events” dentro de la sección Resources del API EventsAP.
+16.	Una vez creado el recurso debemos crear los métodos http para el recurso creado. Seleccionamos “/events” dentro de la sección Resources del API EventsAP.
 17.	Pulsamos “Actions” y seleccionamos “Create Method”.
 18.	Debajo del root de nuestro recurso se habrá creado un desplegable en el que seleccionaremos “GET”. Con ello vamos a habilitar la acción HTTP GET para nuestra API, en este caso para recuperar los eventos existentes sin ningún filtro.
 
