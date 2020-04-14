@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="resources/header.png">
+</p>
+
 # Openathon VI - Serverless with AWS
 
 ¡¡Bienvenido al Openathon VI!!
