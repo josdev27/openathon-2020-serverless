@@ -4,9 +4,9 @@ Primero tenemos que crear la función lambda, de la misma forma que en [lab-03](
 
 ```python
 # This lambda function is integrated with the following API methods:
-# /events GET (list operation)
+# DELETE /events/{id}
 #
-# Its purpose is to get events from our DynamoDB table
+# Its purpose is to delete a event in DynamoDB table
 
 from __future__ import print_function
 import boto3
@@ -16,10 +16,9 @@ from botocore.exceptions import ClientError
 
 def lambda_handler(event, context):
 
-    print('Initiating Events-ListFunction...')
+    print('Initiating DeleteEvents...')
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
-    # Create our DynamoDB resource using our Environment Variable for table name
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('events')
 
@@ -28,16 +27,16 @@ def lambda_handler(event, context):
 	item = response_event["Item"]
 	if item["addedBy"] == event["addedBy"]:
 	    response = table.delete_item(Key={"id":event["id"]})
-
+	else
+	    raise Exception('You are not the author of event')
     except ClientError as e:
 	print(e.response['Error']['Message'])
 	print('Check your DynamoDB table...')
     else:
 	print("DeleteItem succeeded:")
 	print("Received response from DynamoDB: " + json.dumps(response, indent=2))
-	# Return only the Items and not the whole response from DynamoDB
 	return
 ```
 
 
-[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-4)
+[< Volver al Laboratorio 07 ](../../lab-07)
