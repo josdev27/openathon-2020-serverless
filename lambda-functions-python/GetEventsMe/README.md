@@ -12,5 +12,18 @@ else:
   response = table.scan()
 ```
 
+## Probar la función
+
+Creamos un test de prueba cuya entrada es la siguiente:
+
+```json
+{
+  "addedBy": "prueba@gmail.com"
+}
+```
+donde,
+* **addedBy**: es el correo del autor del evento.
+
+Si es correcto, nos devolverá los eventos asociados a ese usuario.
 
 [< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-1) 
