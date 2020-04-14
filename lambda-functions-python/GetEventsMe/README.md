@@ -26,4 +26,4 @@ donde,
 
 Si es correcto, nos devolverá los eventos asociados a ese usuario.
 
-[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-1) 
+[< Volver al Laboratorio 07 ](../../lab-07) 
