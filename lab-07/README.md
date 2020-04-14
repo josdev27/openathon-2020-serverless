@@ -12,14 +12,14 @@
 
 En el laboratorio anterior hemos securizado el endpoint que nos devuelve todos los eventos. Ahora vamos a crear y securizar el resto de endpoint:
 
-1. [**POST /events**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#post-events-endpoint): para crear un evento.
-3. [**GET /events/{eventid}**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#get-eventseventsid-endpoint): para obtener un evento.
-2. [**PUT /events/{eventid}**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#put-eventseventsid-endpoint): para editar un evento.
-3. [**DELETE /events/{eventid}**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#delete-eventseventsid-endpoint): para eliminar un evento.
-4. [**GET /events/me**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#get-eventsme-endpoint): para obtener los eventos creados por el usuario autenticado.
+1. [**Crear endpoint para dar de alta eventos (POST /events)**](lab-07#post-events-endpoint)
+3. [**Crear endpoint para recuperar el detalle de un evento(GET /events/{eventid})**](lab-07#get-eventseventsid-endpoint)
+2. [**Crear endpoint para actualizar un evento(PUT /events/{eventid})**](lab-07#put-eventseventsid-endpoint)
+3. [**Crear endpoint para eliminar un evento(DELETE /events/{eventid})**](lab-07#delete-eventseventsid-endpoint)
+4. [**Crear endpoint para obtener los eventos de un usuario(GET /events/me)**](lab-07#get-eventsme-endpoint)
 
 
-## POST /events endpoint
+## Crear endpoint para dar de alta eventos (POST /events)
 
 A través de este endpoint se podrán crear nuevos eventos.
 
@@ -27,41 +27,44 @@ A través de este endpoint se podrán crear nuevos eventos.
 
 [Crear función java >](../lambda-functions-java/CreateEvent)
 
+[Probar función lambda >](Testing_Create_Event.md)
+
 
 ### Crear endpoint
 
-Para crear el endpoint en nuestro API Gateway:
+Para crear el endpoint, accedemos al API que hemos creado (API_EVENTS_XXXX):
 
-1. Pinchamos en /events
-2. Hacemos click en Actions y luego en Create Method. Elejimos POST.
-2. Hacemos click en method request.
-3. En la sección de settings:
- * En Authorization, elejimos la pool creada.
- * En OAuth Scopes, lo dejamos a None.
- * En Request Validator, lo dejamos a None.
- * En API Key Required, lo dejamos a True.
-4. Volvemos atrás, y hacemos click en Integration Request:
- * En Integration type, elejimos Lambda Function.
- * En Lambda Region, la region correspondiente.
- * En Lambda Function, la funcion lambda para crear eventos.
+1. Pinchamos en */events*
+2. Hacemos click en *Actions* y luego en *Create Method*. Elejimos *POST*.
+2. Hacemos click en *Method request*.
+3. En la sección de *settings*:
+ * En **Authorization**, elejimos el authorizer creado para la API.
+ * En **OAuth Scopes**, lo dejamos a *openid*. 
+ :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
+ * En *Request Validator*, lo dejamos a None.
+ * En *API Key Required*, lo dejamos a True.
+4. Volvemos atrás, y hacemos click en *Integration Request*:
+ * En *Integration type*, elejimos *Lambda Function*.
+ * En *Lambda Region*, la region correspondiente.
+ * En *Lambda Function*, nuestra función para crear eventos.
  
 ### Probar endpoint
 
 Lo primero que tenemos que hacer es desplegar la API:
 
-1. Click en Actions.
-2. Click en Enable CORS
-3. Click en Enable CORS and replace existing CORS headers
-4. Volvemos atrás y hacemos click en Actions.
-5. Click en Deploy API.
-6. Elegimos el stage y damos a Deploy
+1. Click en *Actions*.
+2. Click en *Enable CORS*.
+3. Click en *Enable CORS* and *replace existing CORS headers*.
+4. Volvemos atrás y hacemos click en *Actions*.
+5. Click en *Deploy API*.
+6. Elegimos el *stage* **prod** y damos a *Deploy*.
 
 Después, abrimos postman:
 
-1. Nos aseguramos que estamos usando el entorno events.
-2. Hacemos click en Post events, en el menu de la izquierda en la colección events.
-3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
+1. Nos aseguramos que estamos usando el *entorno events*.
+2. Hacemos click en *Post events*, en el menu de la izquierda en la *colección events*.
+3. Vamos a la pestaña *Authorization* y nos aseguramos que el campo *Access Token* está relleno. En caso de que no, damos a *Get access Token*, y seguimos los pasos [anteriores](lab-06#preparar-postman).
+4. Hacemos click en *Send*, y deberiamos de recibir un **200 OK**. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña *Authorization*, y damos a *Get Access Token*, y seguimos los pasos [anteriores](lab-06#preparar-postman).
 
 
 Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
@@ -190,7 +193,7 @@ Después, abrimos postman:
 Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
 
 
-## PUT /events/{eventsId} endpoint
+## Crear endpoint para editar eventos (PUT /events/{eventsId})
 
 Este endpoint nos permitirá editar un evento.
 
@@ -199,6 +202,8 @@ Este endpoint nos permitirá editar un evento.
 [Crear función python >](../lambda-functions-python/EditEventId)
 
 [Crear función java >](../lambda-functions-java/EditEventId)
+
+[Probar función lambda >](Testing_Edit_Event.md)
 
 ### Crear endpoint
 
