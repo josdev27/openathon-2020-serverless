@@ -36,3 +36,7 @@ El indice del contenido es el siguiente:
 7. [LAB 5. Cognito](/lab-05)
 8. [LAB 6. Terminar el API Gateway con lambda](/lab-06)
 9. [LAB 7. Publicar la web en S3](/lab-07)
+
+<p align="center">
+    <img src="resources/header.png">
+</p>
