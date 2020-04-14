@@ -198,7 +198,7 @@ Una vez que tengamos la función ya creada, la debemos subir a AWS.
 
 2. Selccionamos la clase que acabamos de crear como Handler.
 3. Seleccionamos la región en la que creamos el bucket 
-4. Creamos una nueva función lambda con el nombre Events-list
+4. Creamos una nueva función lambda con el nombre Events-list-XXXX (sustituir por un identificador único).
 	<p align="center">
 	    <img src="resources/Picture5.png">
 	</p>
