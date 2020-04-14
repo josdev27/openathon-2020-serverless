@@ -42,6 +42,7 @@ g.	DescribeTable
 </p>
 
 También podemos pulsar la opción “expand all” para seleccionar manualmente las acciones o comprobar que las hemos seleccionado correctamente.
+
 5.	A continuación, especificaremos el recurso sobre el que queremos aplicar estas acciones, pulsando  sobre “resources”:
 
 <p align="center">
