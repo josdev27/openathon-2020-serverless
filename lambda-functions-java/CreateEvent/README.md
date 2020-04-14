@@ -23,9 +23,9 @@
 		@Override
 		public Event handleRequest(Event event, Context context) {
 		
-			 // Creamos el cliente DynamoDB y
-		 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
-		 DynamoDB dynamoDB = new DynamoDB(client);
+		     // Creamos el cliente DynamoDB y
+		     AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+		     DynamoDB dynamoDB = new DynamoDB(client);
 		     Table table = dynamoDB.getTable("events_XXXX");
 		
 		     // Creamos un id aleatorio
@@ -42,7 +42,7 @@
 					with("location", event.getLocation()).
 					with("title", event.getTitle()));
 		
-		    System.out.println("PutItem succeeded:\n" + outcome.getPutItemResult());
+		    System.out.println("Add item succeeded:\n" + outcome.getPutItemResult());
 		
 		}
 		catch (Exception e) {
