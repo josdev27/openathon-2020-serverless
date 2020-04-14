@@ -209,7 +209,7 @@ Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar e
 
 A través de este endpoint se podrán crear nuevos eventos.
 
-[Crear función lambda >](../lambda-functions-python/CreateEvent)
+[Crear función python >](../lambda-functions-python/CreateEvent)
 
 [Crear función java >](../lambda-functions-java/CreateEvent)
 
@@ -259,7 +259,7 @@ Este endpoint nos permitirá obtener los eventos del usuario logueado.
 
 ### Crear función lambda
 
-[Crear función lambda >](../lambda-functions-python/GetEventsMe)
+[Crear función python >](../lambda-functions-python/GetEventsMe)
 
 [Crear función java >](../lambda-functions-java/GetEventsMe)
 
@@ -321,7 +321,7 @@ Este endpoint nos permitirá obtener los eventos del usuario logueado.
 
 ### Crear función lambda
 
-[Crear función lambda >](../lambda-functions-python/GetEventId)
+[Crear función python >](../lambda-functions-python/GetEventId)
 
 [Crear función java >](../lambda-functions-java/GetEventId)
 
@@ -382,7 +382,7 @@ Este endpoint nos permitirá editar un evento.
 
 ### Crear función lambda
 
-[Crear función lambda >](../lambda-functions-python/EditEventId)
+[Crear función python >](../lambda-functions-python/EditEventId)
 
 [Crear función java >](../lambda-functions-java/EditEventId)
 
@@ -439,7 +439,7 @@ Este endpoint nos permitirá borrar un evento.
 
 ### Crear función lambda
 
-[Crear función lambda >](../lambda-functions-python/DeleteEventId)
+[Crear función python >](../lambda-functions-python/DeleteEventId)
 
 [Crear función java >](../lambda-functions-java/DeleteEventId)
 
