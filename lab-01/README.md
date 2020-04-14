@@ -94,6 +94,7 @@ Será necesario seguir los siguientes pasos:
         "addedBy": "test-user@example.com",
         "location": "Málaga",
         "description": "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy.",
+        "title": "Título del evento",
         "date": "2020-05-06"
       }
       ```
