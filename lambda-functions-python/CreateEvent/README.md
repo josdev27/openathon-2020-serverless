@@ -4,9 +4,9 @@ Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](.
 
 ```python
 # This lambda function is integrated with the following API methods:
-# /events POST
+# POST /events
 #
-# Its purpose is to post events from our DynamoDB table
+# Its purpose is create events in DynamoDB table
 
 from __future__ import print_function
 import boto3
@@ -17,7 +17,7 @@ import uuid
 
 def lambda_handler(event, context):
 
-    print('Initiating Events-ListFunction...')
+    print('Initiating CreateEvent...')
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
     # Create our DynamoDB resource using our Environment Variable for table name
