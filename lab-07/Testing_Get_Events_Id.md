@@ -13,7 +13,7 @@ donde,
 Si se ejecuta correctamente, nos devolverá el evento:
 
 <p align="center">
-    <img src="get_event_id.png">
+    <img src="resources/get_event_id.png">
 </p>
 
 
