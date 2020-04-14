@@ -35,22 +35,4 @@ def lambda_handler(event, context):
 	return item
 ```
 
-## Probar la función
-
-Creamos un test de prueba cuya entrada es la siguiente:
-
-```json
-{
-  "id": "939e0579-641e-4cd2-afe2-1384a2f0e816"
-}
-```
-donde,
-* **id**: es un id de algún evento creado en la tabla de dynamodb.
-
-Si se ejecuta correctamente, nos devolverá el evento:
-
-<p align="center">
-    <img src="get_event_id.png">
-</p>
-
 [< Volver al Laboratorio 06 ](../../lab-06) 
