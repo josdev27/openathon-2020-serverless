@@ -6,6 +6,10 @@
 
 ## Introducción
 
+<p align="center">
+    <img src="resources/cognito.png"/>
+</p>
+
 [AWS Cognito](https://docs.aws.amazon.com/es_es/cognito/?id=docs_gateway) proporciona autenticación, autorización y administración de usuarios para sus aplicaciones y en a nuestros servicios de AWS de la capa de seguridad necesaria para el control del acceso. Podemos usar cognito con diversos proveedores de autenticación como Facebook, Amazon, Google o Apple.
 
 Los dos componentes principales de Amazon Cognito son los grupos de usuarios y los grupos de identidades. Los grupos de usuarios son directorios de usuarios que proporcionan a los usuarios de las aplicaciones opciones para inscribirse e iniciar sesión. Los grupos de identidades permiten conceder a los usuarios acceso a otros servicios de AWS. Puede utilizar los grupos de identidades y los grupos de usuarios juntos o por separado.
