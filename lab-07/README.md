@@ -12,11 +12,11 @@
 
 En el laboratorio anterior hemos securizado el endpoint que nos devuelve todos los eventos. Ahora vamos a crear y securizar el resto de endpoint:
 
-1. **POST /events**: para crear un evento.
-3. **GET /events/{eventid}**: para obtener un evento.
-2. **PUT /events/{eventid}**: para editar un evento.
-3. **DELETE /events/{eventid}**: para eliminar un evento.
-4. **GET /events/me**: para obtener los eventos creados por el usuario autenticado.
+1. [**POST /events**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#post-events-endpoint): para crear un evento.
+3. [**GET /events/{eventid}**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#get-eventseventsid-endpoint): para obtener un evento.
+2. [**PUT /events/{eventid}**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#put-eventseventsid-endpoint): para editar un evento.
+3. [**DELETE /events/{eventid}**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#delete-eventseventsid-endpoint): para eliminar un evento.
+4. [**GET /events/me**](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-07#get-eventsme-endpoint): para obtener los eventos creados por el usuario autenticado.
 
 
 ## POST /events endpoint
