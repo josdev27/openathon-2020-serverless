@@ -55,7 +55,7 @@ donde,
 Si el campo addedBy no se corresponde con el autor, se producirá una excepción con el mensaje 'You are not the author of event':
 
 <p align="center">
-    <img src="edit_event_not_author.png">
+    <img src="delete_event_not_author.png">
 </p>
 
 [< Volver al Laboratorio 07 ](../../lab-07)
