@@ -22,10 +22,10 @@ Las funciones lambda pueden implementarse en múltiples lenguajes de programaci�
 Si la función lambda la desarrollamos en Java, es necesario disponer de un contenedor que permita subir a AWS las clases que van a implementarla. Este contedor se materializa en un bucket que creamos utilizando el servicio ["Amazon Simple Storage Service"](https://docs.aws.amazon.com/s3/index.html) (S3). Para hacerlo hay que seguir los siguientes pasos:
 
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “S3”.
+2.	Creamos el “code bucket” que contendrá las funciones lamdba que despleguemos en AWS. Pulsamos “Create Bucket”, como nombre y en minúsculas estableceremos “events-web-xxxxxxx”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “events-web-xxxxxxx” por un identificador exclusivo, por ejemplo “events-web-john-smith1234”.
 
 > :warning: Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región. Para tener más información acerca de las regiones puedes acceder a este [enlace](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/using-regions-availability-zones.html). Para la elaboración de los laboratorios os sugerimos utilizar Irlanda.
 
-2.	Creamos el “code bucket” que contendrá las funciones lamdba que despleguemos en AWS. Pulsamos “Create Bucket”, como nombre y en minúsculas estableceremos “events-web-xxxxxxx”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “events-web-xxxxxxx” por un identificador exclusivo, por ejemplo “events-web-john-smith1234”.
 3.	Pulsamos “create".
 4.  Luego, seleccionaremos el nuevo bucket creado. Sobre la pestaña properties, en la opción Default encryption seleccionaremos AES-256 para encriptar nuestro contenido y añadir seguridad.
 <p align="center">
@@ -46,15 +46,17 @@ En este punto seleccionamos como crear muestra función, ya que será distinto s
 
 
 
-[ Crear función EvenList en Java >](../lambda-functions-java/EventsList)  
+[ Crear función EventList en Java >](../lambda-functions-java/EventsList)  
 
 
 	
 ## Probando la función
 
-Una vez creada la función, sea cual sea el lenguaje utilizado, de manera inmediata podemos probar su funcionamiento. Para hacerlo:
+Una vez creada la función, sea cual sea el lenguaje utilizado, de manera inmediata podemos probar su funcionamiento. 
 
-1.	Debemos crear el evento de prueba:
+Para hacerlo debemos acceder al detalle del servicio desde la consola de AWS, siguiendo los siguientes pasos:
+
+1. Debemos crear el evento de prueba:
       * Pulsamos “Test” en la parte superior de la ventana.
       * En “Event template” dejamos seleccionado “hello world”.
       * En “Event name” introducimos “ListTest”.
@@ -66,13 +68,15 @@ Una vez creada la función, sea cual sea el lenguaje utilizado, de manera inmedi
     <img src="resources/Picture1.png">
 </p>
  
-8. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
+4. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
     
 <p align="center">
     <img src="resources/Picture2.png">
 </p>
 
-9. Adicionalmente, si pulsamos la pestaña "Monitoring" en la parte inferior podremos acceder a toda la información que se ha volcado en el servicio CloudWatch, incluyendo en el CloudWatch Logs Insights donde podremos acceder a los logs de las últimas ejecuciones.
+5. Adicionalmente, si pulsamos la pestaña "Monitoring" en la parte inferior podremos acceder a toda la información que se ha volcado en el servicio CloudWatch, incluyendo en el CloudWatch Logs Insights donde podremos acceder a los logs de las últimas ejecuciones.
+
+Si hemos realizado la función en java, una alternativa para realizar la prueba es utilizar el plugin de AWS de Eclise. Pulsando botón derecho sobre la función, seleccionar la opción "AWS Lambda" y allí "Run Function on AWS Labmda".
 
 ## Actividad adicional
 
