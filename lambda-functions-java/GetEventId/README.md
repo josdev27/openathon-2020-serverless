@@ -4,7 +4,7 @@
 3. Pegamos el siguiente código:
 
 	 
-
+```java
 		package com.accenture.aws.functions;
 
 		import com.accenture.aws.model.Event;
@@ -63,7 +63,7 @@
 	
 		}
 
-
+```
 
 
 5. Subimos la función a AWS como explicamos en el [laboratorio 03](../EventsList#subir-la-funci%C3%B3n-a-aws)
