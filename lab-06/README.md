@@ -42,14 +42,14 @@ Ahora vamos a asociarle un plan de uso al API key:
       * **Requests per:** 200 per month
 Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
 4. Hacemos click en *Next*.
-Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el *Usage Plan*. En nuestro caso solo tenemos un previamente creado ("prod"). 
-5. Hacemos click en Add Api Stage.
-6. En API, elegimos el nombre de nuestra API.
-7. En Stage, elejimos el stage, ("prod" si hemos seguido las instrucciones anteriores). Hacemos click en el icono de Ok del registro añadido.
-8. Hacemos click en Next.
-9. Hacemos click en Add API Key to Usage Plan.
-10. En name indicamos el nombre de nuestra API key ("identification" en nuestro ejemplo) y hacemos click en el icono de Ok.
-11. Hacemos click en done. 
+Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el *Usage Plan*. En nuestro caso tenemos uno previamente creado (**prod**). 
+5. Hacemos click en *Add Api Stage*.
+6. En *API*, elegimos el nombre de nuestra API.
+7. En *Stage*, elejimos el stage, ("prod" si hemos seguido las instrucciones anteriores). Hacemos click en el icono de Ok del registro añadido.
+8. Hacemos click en *Next*.
+9. Hacemos click en *Add API Key to Usage Plan*.
+10. En name indicamos el nombre de nuestra *API key* ("identification" en nuestro ejemplo) y hacemos click en el icono de Ok.
+11. Hacemos click en *Done*. 
 
 De esta forma, ya tenemos un plan de uso asociado al stage de nuestra API. 
 
