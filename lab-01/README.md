@@ -29,7 +29,7 @@ Será necesario seguir los siguientes pasos:
 
 1. Seleccionamos “Create table”.
 2. Introducimos:
-   * Nombre: “events_XXXX”. Siendo XXXX un identificador para nuestra propia tabla. Hay que tener en cuenta que todos los asistentes compartimos un mismo servicio por lo que los identificadores deberán ser únicos para hacer uso de nuestros servicios proprios.
+   * Nombre: “events_XXXX”. Siendo XXXX un identificador para nuestra propia tabla. Hay que tener en cuenta que todos los asistentes compartimos un mismo servicio por lo que los identificadores deberán ser únicos para hacer uso de nuestros servicios propios.
    * Primary Key. Estableceremos los campos que la forman, en nuestro caso id:
      * Partition key: id (string).
 <p align="center">
@@ -37,38 +37,50 @@ Será necesario seguir los siguientes pasos:
 </p>  
 3. En Table settings, quitamos la opción default settings, y ponemos la siguiente configuración:
    * En la sección Secondary indexes, hacemos click en add index:
-     * En partition key, ponemos addedBy y type String.
-     *  En index-name lo dejamos como está.
-     *  En Projected attributes, ponemos ALL.
-     *  Finalmente, hacemos click en add index.
+   * En partition key, ponemos addedBy y type String.
+   *  En index-name lo dejamos como está.
+   *  En Projected attributes, ponemos ALL.
+   *  Finalmente, hacemos click en add index.
+   
 <p align="center">
     <img src="resources/Picture5.png"/>
 </p>    
-       *  En la sección Read/Write capacity mode, lo dejamos en provisionado.
-       *  En la sección Auto Scaling, quitamos las opciones Read Capacity y Write Capacity.
-       *  En la sección Provisioned capacity, lo dejamos todo en 1.
-       *  En la sección Encryption At Rest, lo dejamos en Default.
+
+   *  En la sección Read/Write capacity mode, lo dejamos en provisionado.
+   *  En la sección Auto Scaling, quitamos las opciones Read Capacity y Write Capacity.
+   *  En la sección Provisioned capacity, lo dejamos todo en 1.
+   *  En la sección Encryption At Rest, lo dejamos en Default.
+   
 <p align="center">
     <img src="resources/Picture6.png"/>
-</p>          
-       
-4. Pulsamos Create, llevará en torno a 15 segundos la creación de la tabla. Una vez creada podremos acceder a todos sus detalles haciendo clic sobre el botón "Continue to table" o en la sección “tables” del servicio “DynamoDB”.
+</p>     
+
+4. Para facilitar la localización de nuestra tabla vamos a añadir dos etiquetas:
+   * key: createdby   value: [enterprise id]
+   * key: training    value: Openathon IV
+<p align="center">
+    <img src="resources/Picture10.png"/>
+</p>            
+      
+5. Pulsamos Create, llevará en torno a 15 segundos la creación de la tabla. Una vez creada podremos acceder a todos sus detalles haciendo clic sobre el botón "Continue to table" o en la sección “tables” del servicio “DynamoDB”.
 <p align="center">
     <img src="resources/Picture7.png"/>
-</p>                                  
-5. En el panel de control de la tabla pulsamos la pestaña “ítems” y a continuación “create ítem” para crear nuestro primer evento.
-6. En el dialogo introduciremos los datos de nuestro primer evento:
+</p> 
+
+6. En el panel de control de la tabla pulsamos la pestaña “ítems” y a continuación “create ítem” para crear nuestro primer evento.
+7. En el dialogo introduciremos los datos de nuestro primer evento:
 
 <p align="center">
     <img src="resources/Picture2.png"/>
 </p>
 
-7. A continuación, introduciremos el resto de los datos. Pulsando el “+” adyacente a “addedBy” seleccionaremos “Append” y “String” indicando que queremos introducir en el ítem un dato de tipo cadena. Los ítems en las tablas de DynamoDB no tienen que cumplir una estructura obligatoria más allá de los que forman la primary key. De esta manera incorporaremos:
+8. A continuación, introduciremos el resto de los datos. Pulsando el “+” adyacente a “addedBy” seleccionaremos “Append” y “String” indicando que queremos introducir en el ítem un dato de tipo cadena. Los ítems en las tablas de DynamoDB no tienen que cumplir una estructura obligatoria más allá de los que forman la primary key. De esta manera incorporaremos:
 <p align="center">
     <img src="resources/Picture8.png"/>
 </p>
    * Key: location – Value: Málaga.
    * Key: description – Value: Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy.
+   * Key: title - Value: Título del evento
    * Key: date – Value: "2020-05-06"
 <p align="center">
     <img src="resources/Picture9.png"/>
@@ -86,10 +98,7 @@ Será necesario seguir los siguientes pasos:
       }
       ```
 
-8. Pulsamos Save. Hemos creado así el primer evento.
-<p align="center">
-    <img src="resources/Picture10.png"/>
-</p>
+9. Pulsamos Save. Hemos creado así el primer evento.
 
 ## Conclusión
 
