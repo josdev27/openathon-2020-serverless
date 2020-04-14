@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="../resources/header.png">
+</p>
+
 # Laboratorio 4.  Crear API Gateway sin seguridad
 
 ## Introducción
@@ -104,3 +108,7 @@ También podemos probar directamente nuestra API desde un navegador si introduci
 Hemos realizado ya publicación a través de la API de nuestra función lambda que ya podría ser accesible desde una aplicación cliente. En los siguientes laboratorios vamos a dotar la Solución de la seguridad necesaria e integrarla con nuestra aplicación angular.
 
 [< Lab 03 ](../lab-03)  | [Lab 05 >](../lab-05)
+
+<p align="center">
+    <img src="../resources/header.png">
+</p>
