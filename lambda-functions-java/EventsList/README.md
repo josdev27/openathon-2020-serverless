@@ -54,7 +54,7 @@ public List<Event> handleRequest(S3Event event, Context context) {
 
 	// Creamos la request con el nombre de la tabla
 	ScanRequest scanRequest = new ScanRequest()
-	    .withTableName("events");   
+	    .withTableName("events_XXXX");   
 
 	ScanResult outcome = null;
 	try {
@@ -82,7 +82,7 @@ return result;
 }
 }
 ```			
-
+En esta clase, deberemos cambiar el nombre de la tabla "events" por el que corresponda con la tabla que hemos creado en DynamoDB.
 
 Vemos que nos da error de compilación proque no encuentra el tipo Event. Para resolverlo:
 
@@ -183,10 +183,9 @@ public String toString() {
 			+ description + ", location=" + location + "]";
 }
 
-
-
 }
 ```
+
 
 ### Subir la función a AWS
 
@@ -210,7 +209,12 @@ Una vez que tengamos la función ya creada, la debemos subir a AWS.
 	</p>
 7. Pulsamos "Finish"
 
+## Comprobar la creación de la función en la consola de AWS
 
+Para comprobar que la función se ha creado correctamente, podemos hacerlo en la consola de AWS: en el menú Services buscaremos y seleccionaremos “Lambda”.
+	> Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
+	
+Una vez dentro del servicio, pulsando la opción functions del menú de la izquierda podremos acceder a la lista de funciones lambda creadas y localizar la nuestra.
 
 [< Volver al Laboratorio 03 ](../../lab-03)  
 
