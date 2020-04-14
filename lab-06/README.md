@@ -34,12 +34,12 @@ Ahora vamos a asociarle un plan de uso al API key:
 1. Volvemos a la API y hacemos click en la opción *Usages Plan* del menú de la izquierda.
 2. Pinchamos en *Create*.
 3. En el formulario:
-  * **Name:** indicamos un nombre significativo (p. ej. "EventsUsagePlan").
-  * **Enable throttling:** lo dejamos habilitado. 
-  * **Rate:** 1
-  * **Burst:** 1
-  * **Enable quota:** lo dejamos habilitado
-  * **Requests per:** 200 per month
+      * **Name:** indicamos un nombre significativo (p. ej. "EventsUsagePlan").
+      * **Enable throttling:** lo dejamos habilitado. 
+      * **Rate:** 1
+      * **Burst:** 1
+      * **Enable quota:** lo dejamos habilitado
+      * **Requests per:** 200 per month
 Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
 4. Hacemos click en *Next*.
 Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el *Usage Plan*. En nuestro caso solo tenemos un previamente creado ("prod"). 
@@ -76,10 +76,10 @@ Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
 1. Con la API abierta, pinchamos en /events > GET
 2. Hacemos click en Method Request.
 3. En la sección de settings:
- * En Authorization vamos a seleccionar elejimos la pool creada.
- * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
- * En Request Validator, lo dejamos a None.
- * En API Key Required, lo dejamos a True.
+     * En Authorization vamos a seleccionar elejimos la pool creada.
+     * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
+     * En Request Validator, lo dejamos a None.
+     * En API Key Required, lo dejamos a True.
  
 De esta forma, para usar el endpoint GET /events, se va a necesitar el Api key y un token de usuario.
 
