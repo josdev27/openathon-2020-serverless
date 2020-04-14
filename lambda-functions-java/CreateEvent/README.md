@@ -26,7 +26,7 @@
 			 // Creamos el cliente DynamoDB y
 		 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 		 DynamoDB dynamoDB = new DynamoDB(client);
-		     Table table = dynamoDB.getTable("events-xxxx");
+		     Table table = dynamoDB.getTable("events_XXXX");
 		
 		     // Creamos un id aleatorio
 		     UUID id = UUID.randomUUID();
@@ -78,5 +78,5 @@
 
 
 
-[< Volver al Laboratorio 06 ](../../lab-07#crear-endpoint)
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint)
 

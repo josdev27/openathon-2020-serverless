@@ -38,7 +38,7 @@
 			//Configurar cliente de dynamodb y la tabla
 			AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();		
 			DynamoDB dynamoDB = new DynamoDB(client);
-		    Table table = dynamoDB.getTable("events");
+		    Table table = dynamoDB.getTable("events_XXXX");
 	
 		    HashMap<String, String> nameMap = new HashMap<String, String>();
 	        nameMap.put("#addedBy", "addedBy");
@@ -80,11 +80,14 @@
 	
 		}
 ```
+ >En esta clase, deberemos cambiar el nombre de la tabla "events_XXXX" por el que corresponda con la tabla que hemos creado en DynamoDB.
+ 
+4. Subimos la función a AWS como explicamos en el [laboratorio 03](../EventsList#subir-la-funci%C3%B3n-a-aws)
+5. Probamos la función lambda como explicamos también en el [laboratorio 03](..EventsList#comprobar-la-creaci%C3%B3n-de-la-funci%C3%B3n-en-aws-desde-eclipse), pero en este caso elegimos "Enter de JSON input for your function" y pegamos un json con el siguiente formato:
+```json
+{
+    "addedBy": "aqui poner el addedBy que pusieras al crear el evento"
+}
+```
 
-
-
-5. Subimos la función a AWS como explicamos en el [laboratorio 03](../EventsList#subir-la-funci%C3%B3n-a-aws)
-
-
-
-[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-1) 
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-1) 
