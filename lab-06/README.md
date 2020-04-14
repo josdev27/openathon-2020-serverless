@@ -191,16 +191,6 @@ Para probar cada endpoint:
 
 6. Finalmente, hacemos click en send y veremos la respuesta.
 
-#### Usar Postman
-
-Después, abrimos postman:
-
-1. Nos aseguramos que estamos usando el entorno events.
-2. Hacemos click en Get All events, en el menu de la izquierda en la colección events.
-3. Vamos a la pestaña Authorization y nos aseguramos que el campo Access Token está relleno. En caso de que no, damos a Get access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-4. Hacemos click en Send, y deberiamos de recibir un 200 OK. En caso de que recibamos un 401, tenemos que generar un nuevo token. Para ellos, vamos a la pestaña Authorization, y damos a Get Access Token, y seguimos los pasos [anteriores](https://github.com/josdev27/openathon-2020-serverless/tree/master/lab-06#preparar-postman).
-
-
 Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
 
 
