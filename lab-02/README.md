@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="../resources/header.png">
+</p>
+
 # Laboratorio 2. IAM
 
 :warning: **Sólo con cuenta privada. En el caso de las cuentas de formación, estára precreado** :warning:
@@ -126,3 +130,7 @@ Con ello nuestro rol estará creado y deberá ser accesible en la sección “Ro
 Hemos creado dos políticas con las acciones necesarias para nuestras funciones lambda, el acceso de lectura y escritura a DynamoDB para acceder a la tabla events, y el acceso al servicio de logs. Estas dos políticas las hemos agrupado en un rol que utilizaremos en los laboratorios posteriores para asignarselo a nuestras funciones lambda y que AWS conozca que permisos tendrán dichas funciones en el momento de su ejecución.
 
 [< Lab 01 ](../lab-01)  | [Lab 03 >](../lab-03) 
+
+<p align="center">
+    <img src="../resources/header.png">
+</p>
