@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="../resources/header.png">
+</p>
+
 # Laboratorio 7. Publicar la web en S3
 
 ## Descargar y configurar la app
@@ -83,3 +87,7 @@ Nuestro bucket ahora aparecerá como de “Public Access”.
 Accedemos al endpoint previamente anotado desde un navegador web, y probamos cada una de las funcionalidades de la misma.
 
 [< Lab 06](../lab-06)
+
+<p align="center">
+    <img src="../resources/header.png">
+</p>
