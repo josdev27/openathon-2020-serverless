@@ -1,6 +1,4 @@
-
-### Python version
-
+# Get all events - Python Version
 
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “Lambda”.
 	> Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
