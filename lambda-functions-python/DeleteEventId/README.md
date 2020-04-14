@@ -1,3 +1,4 @@
+# DeleteEvent - Python Version
 
 Primero tenemos que crear la función lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente:
 
