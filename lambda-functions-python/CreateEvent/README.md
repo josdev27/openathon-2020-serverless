@@ -19,14 +19,13 @@ def lambda_handler(event, context):
 
     print('Initiating CreateEvent...')
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
-
-    # Create our DynamoDB resource using our Environment Variable for table name
+    
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('events')
+    
     try:
 	event["id"] = str(uuid.uuid4())
-	response = table.put_item(
-	    Item=event)
+	response = table.put_item(Item=event)
     except ClientError as e:
 	print(e.response['Error']['Message'])
     else:
