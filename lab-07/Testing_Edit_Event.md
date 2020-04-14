@@ -4,12 +4,16 @@ Creamos un test de prueba cuya entrada es la siguiente:
 
 ```json
 {
-  "date": "1997-01-01",
-  "location": "Barcelona",
-  "description": "dfnsbfiusduigsf",
-  "id": "3a64b9fc-bac4-47cd-a591-1813f404475e",
-  "addedBy": "prueba@gmail.com",
-  "title": "Hola"
+  "body-json": {
+    "date": "1997-01-01",
+    "location": "Barcelona",
+    "description": "dfnsbfiusduigsf",
+    "id": "939e0579-641e-4cd2-afe2-1384a2f0e816",
+    "addedBy": "student@example.com",
+    "title": "Hola"
+  },
+  "addedBy": "student@example.com",
+  "id": "939e0579-641e-4cd2-afe2-1384a2f0e816"
 }
 ```
 
