@@ -23,19 +23,19 @@ def lambda_handler(event, context):
     table = dynamodb.Table('events')
 
     try:
-	response_event = table.get_item(Key={'id': event["id"]})
-	item = response_event["Item"]
-	if item["addedBy"] == event["addedBy"]:
-	    response = table.delete_item(Key={"id":event["id"]})
-	else
-	    raise Exception('You are not the author of event')
+	    response_event = table.get_item(Key={'id': event["id"]})
+	    item = response_event["Item"]
+	    if item["addedBy"] == event["addedBy"]:
+	        response = table.delete_item(Key={"id":event["id"]})
+	    else:
+	        raise Exception('You are not the author of event')
     except ClientError as e:
-	print(e.response['Error']['Message'])
-	print('Check your DynamoDB table...')
+	    print(e.response['Error']['Message'])
+	    print('Check your DynamoDB table...')
     else:
-	print("DeleteItem succeeded:")
-	print("Received response from DynamoDB: " + json.dumps(response, indent=2))
-	return
+	    print("DeleteItem succeeded:")
+	    print("Received response from DynamoDB: " + json.dumps(response, indent=2))
+	    return
 ```
 
 
