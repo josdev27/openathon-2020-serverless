@@ -34,8 +34,9 @@ El indice del contenido es el siguiente:
 5. [LAB 3. Crear función lambda: listEvents](/lab-03)
 6. [LAB 4. Crear API Gateway](/lab-04)
 7. [LAB 5. Cognito](/lab-05)
-8. [LAB 6. Terminar el API Gateway con lambda](/lab-06)
-9. [LAB 7. Publicar la web en S3](/lab-07)
+8. [LAB 6. Securizar Get events](/lab-06)
+9. [LAB 7. Terminar el API Gateway con lambda](/lab-07)
+10. [LAB 8. Publicar la web en S3](/lab-08)
 
 <p align="center">
     <img src="resources/header.png">
