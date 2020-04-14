@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="../resources/header.png">
+</p>
+
 # Laboratorio 1. DynamoDB
 
 ## Introducción
@@ -87,3 +91,7 @@ Será necesario seguir los siguientes pasos:
 En este laboratorio hemos creado una tabla para almacenar nuestros eventos. También Hemos insertado un evento de prueba. En el próximo laboratorio revisaremos las posibilidades del IAM para establecer roles y permisos.
 
 [< Lab 00 ](../lab-00)  | [Lab 02 >](../lab-02) 
+
+<p align="center">
+    <img src="../resources/header.png">
+</p>
