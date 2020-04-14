@@ -29,9 +29,8 @@ def lambda_handler(event, context):
 	    Item=event)
     except ClientError as e:
 	print(e.response['Error']['Message'])
-	print('Check your DynamoDB table...')
     else:
-	print("PutItem succeeded:")
+	print("Post event succeeded:")
 	print("Received response from DynamoDB: " + json.dumps(response, indent=2))
 	return event
 
