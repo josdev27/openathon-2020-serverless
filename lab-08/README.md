@@ -2,7 +2,7 @@
     <img src="../resources/header.png">
 </p>
 
-# Laboratorio 7. Publicar la web en S3
+# Laboratorio 8. Publicar la web en S3
 
 <p align="center">
     <img src="resources/s3.png"/>
