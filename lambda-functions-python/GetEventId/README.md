@@ -1,6 +1,6 @@
 # Get Event by id - Python Version
 
-Primero tenemos que crear la función lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente:
+Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente (:warning: recuerda sustituir el nombre de la tabla por el tuyo):
 
 ```python
 # This lambda function is integrated with the following API methods:
@@ -20,7 +20,7 @@ def lambda_handler(event, context):
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events')
+    table = dynamodb.Table('events_XXXX')
 
     try:
 	response_event = table.get_item(Key={'id': event["id"]})
@@ -53,4 +53,4 @@ Si se ejecuta correctamente, nos devolverá el evento:
     <img src="get_event_id.png">
 </p>
 
-[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-2) 
+[< Volver al Laboratorio 06 ](../../lab-06) 
