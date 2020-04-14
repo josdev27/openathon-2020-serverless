@@ -22,38 +22,38 @@
 	</p>  
 5. Con la función creada, en la ventana de detalle de la función vamos a incorporar su implementación. Para ello nos desplazamos a la parte inferior de la ventana donde se puede editar su código. Allí reemplazamos el contenido por:
 
-	    ```python
-		    # Events-List
-		    # Esta función lambda se integra con el siguiente API method:
-		    # /events GET (list operation)
-		    # Su proposito es obtener los eventos existentes en la table Events
-		    
-			from __future__ import print_function
-		    import boto3
-		    import json
-		    from boto3.dynamodb.conditions import Key
-		    from botocore.exceptions import ClientError
-		
-		    def lambda_handler(event, context):
-		
-		        print('Initiating Events-List...')
-		        print("Received event from API Gateway: " + json.dumps(event, indent=2))
-		        
-		        # Creamos el acceso a la tabla DynamoDB por el nombre
-		        dynamodb = boto3.resource('dynamodb')
-		        table = dynamodb.Table('events')
-		
-		        # Obtenemos todos los eventos existentes en la tabla
-		        try:
-		            response = table.scan()
-		        except ClientError as e:
-		            print(e.response['Error']['Message'])
-		        else:
-		            print("scan succeeded:")
-		
-		            # De la respuesta obtenida de DynamoDB devolvemos los items
-		            return response["Items"]
-	    ```
+```python
+# Events-List
+# Esta función lambda se integra con el siguiente API method:
+# /events GET (list operation)
+# Su proposito es obtener los eventos existentes en la table Events
+
+from __future__ import print_function
+import boto3
+import json
+from boto3.dynamodb.conditions import Key
+from botocore.exceptions import ClientError
+
+def lambda_handler(event, context):
+
+print('Initiating Events-List...')
+print("Received event from API Gateway: " + json.dumps(event, indent=2))
+
+# Creamos el acceso a la tabla DynamoDB por el nombre
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('events')
+
+# Obtenemos todos los eventos existentes en la tabla
+try:
+    response = table.scan()
+except ClientError as e:
+    print(e.response['Error']['Message'])
+else:
+    print("scan succeeded:")
+
+    # De la respuesta obtenida de DynamoDB devolvemos los items
+    return response["Items"]
+```
 
 4.	Pulsamos “Save”.
 
