@@ -12,6 +12,10 @@ Las funciones lambda están limitadas en las tareas y servicios que pueden ejecu
 
 Las funciones lambda pueden implementarse en múltiples lenguajes de programación. En nuestro openathon cubriremos dos (java y python) para facilitar la comprensión a los participantes. Por tanto dirígete a la versión que te resulte más familiar.
 
+<p align="center">
+    <img src="resources/lambda.png"/>
+</p>
+
 ## Prerequisito - Implementación en Java
 
 Si la función lambda la desarrollamos en Java, es necesario disponer de un contenedor que permita subir a AWS las clases que van a implementarla. Este contedor se materializa en un bucket que creamos utilizando el servicio ["Amazon Simple Storage Service"](https://docs.aws.amazon.com/s3/index.html) (S3). Para hacerlo hay que seguir los siguientes pasos:
