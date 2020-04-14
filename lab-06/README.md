@@ -2,7 +2,7 @@
     <img src="../resources/header.png">
 </p>
 
-# Laboratorio 6. Completar API Gateway
+# Laboratorio 6. Securizar Get Events
 
 ## Introducción
 
