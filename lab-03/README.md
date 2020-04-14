@@ -27,6 +27,11 @@ Si la función lambda la desarrollamos en Java, es necesario disponer de un cont
 
 2.	Creamos el “code bucket” que contendrá las funciones lamdba que despleguemos en AWS. Pulsamos “Create Bucket”, como nombre y en minúsculas estableceremos “events-web-xxxxxxx”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “events-web-xxxxxxx” por un identificador exclusivo, por ejemplo “events-web-john-smith1234”.
 3.	Pulsamos “create".
+4.  Luego, seleccionaremos el nuevo bucket creado. Sobre la pestaña properties, en la opción Default encryption seleccionaremos AES-256 para encriptar nuestro contenido y añadir seguridad.
+<p align="center">
+    <img src="resources/Picture6.png"/>
+</p>
+
 
 ## Nuestra primera función. Events-List
 

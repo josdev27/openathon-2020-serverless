@@ -32,7 +32,10 @@ En esta sección crearemos un bucket para almacenar nuestro front-end angular (w
 2.	Creamos el “web bucket” que contendrá el front-end. Pulsamos “Create Bucket”, como nombre y en minúsculas estableceremos 
 “events-web-xxxxxxx”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “xxxxxxx” por un identificador exclusivo, por ejemplo “evento-web-john-smith1234”.
 3.	Pulsamos “create".
-
+4.  Finalmente, encriptaremos el bucket. Para ello seleccionaremos el nuevo bucket creado. Sobre la pestaña properties, en la opción Default encryption seleccionaremos AES-256.
+<p align="center">
+    <img src="resources/img_3.png"/>
+</p>
 Con ello ya tendremos creados los contenedores para nuestra aplicación.
 
 ## Subir web al bucket
