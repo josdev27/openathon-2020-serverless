@@ -8,7 +8,7 @@
 	    <img src="resources/Picture5.png">
 	</p>
 3. Dejamos seleccionado “Author from Scatch” (crear desde cero) y en la sección Basic Information introducimos:
-      * Function Name: Events-List.
+      * Function Name: Events-List_XXXX (utilizar un identificador único).
       * Runtime: Python 3.8.
       * Pulsamos en “Choose or create an execution role” para expandirlo y marcamos “Use an existing role”, seleccionando el rol  “EventsRole”, que hemos creado previamente (en nuestra cuenta AWS) o que ya existe (si usamos la cuenta de formación). En ambos casos podemos navegar a ver los detalles del rol, y podemos comprobar que tiene asignadas dos políticas de seguridad que determinan lo que la función puede hacer, en este caso utilizar el servicio de logs (para la escritura de trazas de ejecución) y el servicio DynamoDB, para acceder a la tabla "events" que hemos creado previamente.
 	<p align="center">
