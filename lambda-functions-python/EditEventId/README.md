@@ -24,42 +24,42 @@ def lambda_handler(event, context):
     table = dynamodb.Table('events')
     
     try:
-	response_event = table.get_item(Key={'id': event["id"]})
-	item = response_event["Item"]
-	item_put = event["body-json"]
+    	response_event = table.get_item(Key={'id': event["id"]})
+    	item = response_event["Item"]
+    	item_put = event["body-json"]
 
-	if item["addedBy"] == event["addedBy"]:
-	    response = table.update_item(
-		Key={"id": event["id"]},
-		ExpressionAttributeNames={
-		    "#addedBy": "addedBy",
-		    "#date": "date",
-		    "#description": "description",
-		    "#title": "title",
-		    "#location": "location"
-		},
-		ExpressionAttributeValues= {
-		    ":addedBy":item_put["addedBy"],
-		    ":date":item_put["date"],
-		    ":description":item_put["description"],
-		    ":title":item_put["title"],
-		    ":location":item_put["location"]
-		},
-		UpdateExpression =  ("SET #addedBy = :addedBy,"  
-				    "#date = :date,"  
-				    "#description = :description," 
-				    "#title = :title," 
-				    "#location = :location")
-		)
-	else:
-	    raise Exception('You are not the author of event')
+    	if item["addedBy"] == event["addedBy"]:
+    	    response = table.update_item(
+    		Key={"id": event["id"]},
+    		ExpressionAttributeNames={
+    		    "#addedBy": "addedBy",
+    		    "#date": "date",
+    		    "#description": "description",
+    		    "#title": "title",
+    		    "#location": "location"
+    		},
+    		ExpressionAttributeValues= {
+    		    ":addedBy":item_put["addedBy"],
+    		    ":date":item_put["date"],
+    		    ":description":item_put["description"],
+    		    ":title":item_put["title"],
+    		    ":location":item_put["location"]
+    		},
+    		UpdateExpression =  ("SET #addedBy = :addedBy,"  
+    				    "#date = :date,"  
+    				    "#description = :description," 
+    				    "#title = :title," 
+    				    "#location = :location")
+    		)
+    	else:
+    	    raise Exception('You are not the author of event')
     except ClientError as e:
-	print(e.response['Error']['Message'])
-	print('Check your DynamoDB table...')
+    	print(e.response['Error']['Message'])
+    	print('Check your DynamoDB table...')
     else:
-	print("PutItem succeeded:")
-	print("Received response from DynamoDB: " + json.dumps(response, indent=2))
-	return item_put
+    	print("PutItem succeeded:")
+    	print("Received response from DynamoDB: " + json.dumps(response, indent=2))
+    	return item_put
 ```
 
 ## Probar la función
