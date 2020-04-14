@@ -183,7 +183,8 @@ Para crear una Request(necesario para probar nuestras funciones lambdas a traves
 <p align="center">
     <img src="resources/instalacion_postman_23.PNG">
 </p>
-Será necesario establecer un nombre. Una vez hecho esto podremos determinar el tipo de petición, la url y los parámetros, autorización y cabeceras. Para ejecutar la petición habrá que pulsar sobre el botón Send.
+Será necesario establecer un nombre. Una vez hecho esto podremos determinar el tipo de petición, la url y los parámetros, autorización y 
+cabeceras. Para ejecutar la petición habrá que pulsar sobre el botón Send.
 <p align="center">
     <img src="resources/instalacion_postman_24.PNG">
 </p>
@@ -208,6 +209,7 @@ Si esta ventana no aparece, es posible abrirla desde el nuevo icono de AWS ToolK
 <p align="center">
     <img src="resources/instalacion_eclipse_27.PNG">
 </p>
-Esta ventana se informará con los datos de nuestro usuario creado(no root). Los datos de clave y secret pueden obtenerse del fichero download.csv
+
+En esta ventana debemos informar los datos del usuario que realizará el upload de la función lambda a AWS. En el caso de utilizar la cuanta de formación, esta información habrá sido remitida a cada usuario, en el caso de utilizar la cuenta personal creada, se informará con los datos de nuestro usuario IAM creado(no root). Los datos de clave y secret pueden obtenerse del fichero download.csv que descargamos al crear el usuario.
 
 [< Introducción ](../introduction)  | [Lab 01 >](../lab-01) 
