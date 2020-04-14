@@ -142,6 +142,8 @@ Este endpoint nos permitirá obtener los eventos del usuario logueado.
 
 [Crear función java >](../lambda-functions-java/GetEventId)
 
+[Probar función lambda >](Testing_Get_Events_Id.md)
+
 
 ### Crear endpoint
 
@@ -156,7 +158,7 @@ Para crear el endpoint en nuestro API Gateway:
 4. Hacemos click en method request.
 5. En la sección de settings:
  * En Authorization, elejimos la pool creada.
- * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
+ * En OAuth Scopes, lo dejamos a openid.                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
 6. Volvemos atrás, y hacemos click en Integration Request:
@@ -231,6 +233,8 @@ Este endpoint nos permitirá borrar un evento.
 
 [Crear función java >](../lambda-functions-java/DeleteEventId)
 
+[Probar función lambda >](Testing_Delete_Event.md)
+
 
 ### Crear endpoint
 
@@ -264,8 +268,7 @@ Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicació
 
 ## Resumen
 
-En este laboratorio, hemos completado el resto de nuestra API. Además, la hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo. 
-El siguiente paso, es integrarla con nuestra aplicación frontend.
+En este laboratorio, hemos completado el resto de nuestra API. Además, la hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo. El siguiente paso, es integrarla con nuestra aplicación frontend.
 
 [< Lab 06 ](../lab-06)  | [Lab 08 >](../lab-08)
 
