@@ -82,7 +82,7 @@ return result;
 }
 }
 ```			
-En esta clase, deberemos cambiar el nombre de la tabla "events" por el que corresponda con la tabla que hemos creado en DynamoDB.
+En esta clase, deberemos cambiar el nombre de la tabla "events_XXXX" por el que corresponda con la tabla que hemos creado en DynamoDB.
 
 Vemos que nos da error de compilación proque no encuentra el tipo Event. Para resolverlo:
 
