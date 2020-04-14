@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="../resources/header.png">
+</p>
+
 # Laboratorio 6. Completar API Gateway
 
 ## Introducción
@@ -486,3 +490,7 @@ En este laboratorio, hemos completado el resto de nuestra API. Además, la hemos
 El siguiente paso, es integrarla con nuestra aplicación frontend.
 
 [< Lab 05 ](../lab-05)  | [Lab 07 >](../lab-07)
+
+<p align="center">
+    <img src="../resources/header.png">
+</p>
