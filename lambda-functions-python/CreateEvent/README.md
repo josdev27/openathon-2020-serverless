@@ -1,6 +1,6 @@
 # CreateEvent - Python Version
 
-Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente:
+Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente (:warning: recuerda sustituir el nombre de la tabla por el tuyo):
 
 ```python
 # This lambda function is integrated with the following API methods:
@@ -21,7 +21,7 @@ def lambda_handler(event, context):
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
     
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events')
+    table = dynamodb.Table('events_XXXX')
     
     try:
 	event["id"] = str(uuid.uuid4())
@@ -36,4 +36,4 @@ def lambda_handler(event, context):
 ```
 
 
-[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint) 
+[< Volver al Laboratorio 06 ](../../lab-06) 
