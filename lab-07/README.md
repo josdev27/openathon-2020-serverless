@@ -4,6 +4,10 @@
 
 # Laboratorio 7. Publicar la web en S3
 
+<p align="center">
+    <img src="resources/s3.png"/>
+</p>
+
 ## Descargar y configurar la app
 
 La app ya compilada se encuentra en https://github.com/josdev27/openathon-2020-serverless/tree/master/app. Teneis que descargaros el repositorio e ir a la carpeta app. Dentro ella está la carpeta assets/config. Dentro está el fichero con la configuración de la app, llamado config.json, que debemos editar informandonos con los valores que hemos ido obteniendo al configurar nuestros servicios.
