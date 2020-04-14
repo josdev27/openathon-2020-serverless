@@ -6,6 +6,10 @@
 
 ## Introducción
 
+<p align="center">
+    <img src="resources/api_no_cognito.png"/>
+</p>
+
 Una vez creada la función lambda deberemos crear un método para hacerla accesible a nuestra aplicación front. Para hacerlo utilizaremos el servicio [API Gateway](https://docs.aws.amazon.com/es_es/apigateway/?id=docs_gateway). Con él podemos crear API RESTful y API WebSocket que permiten aplicaciones de comunicación bidireccional en tiempo real. 
 En este laboratorio crearemos un API Restful para publicar las funciones lambda que vayamos creando. 
 
