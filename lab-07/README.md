@@ -35,15 +35,15 @@ A través de este endpoint se podrán crear nuevos eventos.
 Para crear el endpoint, accedemos al API que hemos creado (API_EVENTS_XXXX):
 
 1. Pinchamos en */events*
-2. Hacemos click en *Actions* y luego en *Create Method*. Elejimos *POST*.
+2. Hacemos click en *Actions* y luego en *Create Method*. Elegimos *POST*.
 3. En la ventana abierta:
  * En **Integration Type**, lo dejamos a Lambda Function.
  * En **Lambda Region**, lo dejamos a la región que estemos usando durante todos los laboratios.
- * En **Lambda Function**, elejimos la función lambda para crear nuevos eventos.
+ * En **Lambda Function**, elegimos la función lambda para crear nuevos eventos.
  * Hacemos click en *Save*
 4. Hacemos click en *Method request*.
 5. En la sección de *settings*:
- * En **Authorization**, elejimos el authorizer creado para la API.
+ * En **Authorization**, elegimos el authorizer creado para la API.
  * En **OAuth Scopes**, lo dejamos a *openid*. 
  :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En **Request Validator**, lo dejamos a None.
@@ -105,16 +105,16 @@ Para crear el endpoint en nuestro API Gateway:
    * En Resource Name: Mis eventos
    * Resource Path: me
 3. Hacemos click en Create Reosurce.
-4. Hacemos click en /me. Luego En Actions y en Create Method. Elejimos GET.
+4. Hacemos click en /me. Luego En Actions y en Create Method. Elegimos GET.
 5. En la ventana abierta:
  * En **Integration Type**, lo dejamos a Lambda Function.
  * En **Lambda Region**, lo dejamos a la región que estemos usando durante todos los laboratios.
- * En **Lambda Function**, elejimos la función lambda para obtener los eventos de un usuario.
+ * En **Lambda Function**, elegimos la función lambda para obtener los eventos de un usuario.
  * Hacemos click en *Save*
 6. Hacemos click en *Method request*.
 7. Hacemos click en method request.
 8. En la sección de settings:
- * En Authorization, elejimos la pool creada.
+ * En Authorization, elegimos la pool creada.
  * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
@@ -170,16 +170,16 @@ Para crear el endpoint en nuestro API Gateway:
    * En Resource Name: Eventos por id
    * Resource Path: {eventid}
 3. Hacemos click en Create Resource.
-4. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elejimos GET.
+4. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elegimos GET.
 5. En la ventana abierta:
  * En **Integration Type**, lo dejamos a Lambda Function.
  * En **Lambda Region**, lo dejamos a la región que estemos usando durante todos los laboratios.
- * En **Lambda Function**, elejimos la función lambda para obtener eventos por su id.
+ * En **Lambda Function**, elegimos la función lambda para obtener eventos por su id.
  * Hacemos click en *Save*
 6. Hacemos click en *Method request*.
 7. Hacemos click en method request.
 8. En la sección de settings:
- * En Authorization, elejimos la pool creada.
+ * En Authorization, elegimos la pool creada.
  * En OAuth Scopes, lo dejamos a openid.                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
@@ -218,16 +218,16 @@ Este endpoint nos permitirá editar un evento.
 
 Para crear el endpoint en nuestro API Gateway:
 
-1. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elejimos PUT.
+1. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elegimos PUT.
 2. En la ventana abierta:
  * En **Integration Type**, lo dejamos a Lambda Function.
  * En **Lambda Region**, lo dejamos a la región que estemos usando durante todos los laboratios.
- * En **Lambda Function**, elejimos la función lambda para editar eventos.
+ * En **Lambda Function**, elegimos la función lambda para editar eventos.
  * Hacemos click en *Save*
 3. Hacemos click en *Method request*.
 4. Hacemos click en method request.
 5. En la sección de settings:
- * En Authorization, elejimos la pool creada.
+ * En Authorization, elegimos la pool creada.
  * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
