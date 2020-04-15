@@ -79,5 +79,5 @@
 
 
 
-[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint)
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-dar-de-alta-eventos-post-events)
 
