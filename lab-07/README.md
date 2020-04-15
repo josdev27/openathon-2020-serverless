@@ -12,11 +12,11 @@
 
 En el laboratorio anterior hemos securizado el endpoint que nos devuelve todos los eventos. Ahora vamos a crear y securizar el resto de endpoint:
 
-1. [**Crear endpoint para dar de alta eventos (POST /events)**](lab-07#crear-endpoint-para-dar-de-alta-eventos-post-events)
-2. [**Crear endpoint para obtener los eventos de un usuario(GET /events/me)**](lab-07#crear-endpoint-para-obtener-los-eventos-de-un-usuarioget-eventsme)
-3. [**Crear endpoint para recuperar el detalle de un evento(GET /events/{eventid})**](lab-07#crear-endpoint-para-recuperar-el-detalle-de-un-eventoget-eventseventid)
-4. [**Crear endpoint para actualizar un evento(PUT /events/{eventid})**](lab-07#put-eventseventsid-endpoint)
-5. [**Crear endpoint para eliminar un evento(DELETE /events/{eventid})**](lab-07#delete-eventseventsid-endpoint)
+1. [**Crear endpoint para dar de alta eventos (POST /events)**](#crear-endpoint-para-dar-de-alta-eventos-post-events)
+2. [**Crear endpoint para obtener los eventos de un usuario(GET /events/me)**](#crear-endpoint-para-obtener-los-eventos-de-un-usuarioget-eventsme)
+3. [**Crear endpoint para recuperar el detalle de un evento(GET /events/{eventid})**](#crear-endpoint-para-recuperar-el-detalle-de-un-eventoget-eventseventid)
+4. [**Crear endpoint para actualizar un evento(PUT /events/{eventid})**](#put-eventseventsid-endpoint)
+5. [**Crear endpoint para eliminar un evento(DELETE /events/{eventid})**](#delete-eventseventsid-endpoint)
 
 
 ## Crear endpoint para dar de alta eventos (POST /events)
