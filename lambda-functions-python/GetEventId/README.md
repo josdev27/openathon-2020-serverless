@@ -32,7 +32,6 @@ def lambda_handler(event, context):
     else:
 	print("GetItem succeeded:")
 	print("Received response from DynamoDB: " + json.dumps(response_event, indent=2))
-	# Return only the Items and not the whole response from DynamoDB
 	return item
 ```
 
