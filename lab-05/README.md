@@ -43,7 +43,7 @@ Para crearlo seguiremos los siguientes pasos:
   <img src="resources/img_3.png">
 </p>
 
-3.	Introduce un nombre para el pool: “EventAppPool” y pulsa “Step through settings”.
+3.	Introduce un nombre para el pool: “EventAppPool_XXXX” (siendo XXXX el identificador único que estes usando) y pulsa “Step through settings”.
 4.  En la sección How do you want your end users to sign in?, elejimos Email address or phone number.
 5.	En la sección “Which standard attributes do you want to require”, debemos dejar todo vacio. Pulsaremos luego “next step”.
 6.	En la siguiente sección “What password strength do you want to require”, estableceremos las limitaciones para las password, puedes cambiar
@@ -57,7 +57,7 @@ El resto de las opciones las dejaremos por defecto y pulsaremos “next step”.
 Vamos ahora a crear un [User Pool App Client](https://docs.aws.amazon.com/es_es/cognito/latest/developerguide/user-pool-settings-client-apps.html) dentro de nuestro User pool. Esta App Client es una entidad dentro de un user pool que tiene permiso para llamar a API sin autenticar (API que no tengan un usuario autenticado), como las API de registro, inicio de sesión y gestión de contraseñas olvidadas, a las que lógicamente el usuario accede sin haber presentado aún creedenciales.
 
 8. En la sección “App clients” pulsamos “Add an app client” y en el formulario resultante establecemos las propiedades del cliente:
-    *	Nombre de la aplicación “EventAppAngular”.
+    *	Nombre de la aplicación “EventAppAngular_XXXX” (siendo XXXX el identificador único que estes usando).
     *	Deseleccionamos “Generate client secret”.
 Y pulsamos “Create app client” (estos pasos son muy importantes ya que no podrán ser modificados después de crear el app client). Con ello el “app client” habrá sido creado.
 
@@ -77,8 +77,8 @@ Y pulsamos “Create app client” (estos pasos son muy importantes ya que no po
 Para poder autenticarnos contra cognito desde postman con una interfaz visual, vamos a crear un dominio para cognito, y habilitar otras propiedades:
 
 1. En el menú de la izquierda, pulsamos en Domain name
-2. Introducimos un prefijo de dominio, por ejemplo, <your-name>-events-app, y hacemos click en create domain. La url entera la tenemos que apuntarla porque la necesitaremos más adelante.
-3. En el menú de la izquierda, pulsamos en App client settings.
+2. Introducimos un prefijo de dominio, por ejemplo, XXXX-events-app, y hacemos click en *Save changes*. La url entera la tenemos que apuntarla porque la necesitaremos más adelante.
+3. En el menú de la izquierda, pulsamos en App client settings en la sección App Integration.
 4. Habilitamos Cognito User Pool.
 5. En Callback URL ponemos *myapp://example* (en nuestra caso es irrelevante)
 6. En Allowed OAuth Flows, hacemos click en Implicit grant.
