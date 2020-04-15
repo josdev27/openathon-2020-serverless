@@ -95,7 +95,7 @@ Nuestro bucket ahora aparecerá como de *Public Access*.
     * Anotamos el Endpoint URL. Este será el punto de acceso a nuestra aplicación web.
 10.	Pulsamos “save".
 
-## Probar la aplicación
+## Probar la aplicación :trophy: :fire:
 
 Accedemos al endpoint previamente anotado desde un navegador web, y probamos cada una de las funcionalidades de la misma.
 
