@@ -31,6 +31,7 @@ Para securizar esta API utilizaremos [Cognito](https://docs.aws.amazon.com/es_es
 4.	En “Create your first API” pulsamos *OK*.
 5.	Debajo de “Create new API” seleccionamos *NEW API*.
 6.	Introducimos la siguiente información:
+
     **API name**: EventsAP_XXXXXXX
     **Description**: EventsAP
     **Endpoint Type**: Regional
