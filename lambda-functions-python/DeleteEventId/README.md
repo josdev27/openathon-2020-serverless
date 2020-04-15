@@ -34,4 +34,4 @@ def lambda_handler(event, context):
 	    return
 ```
 
-[< Volver al Laboratorio 07 ](../../lab-07)
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-eliminar-un-eventodelete-eventseventid)
