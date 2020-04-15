@@ -21,18 +21,18 @@ def lambda_handler(event, context):
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events_XXXX')
+    table = dynamodb.Table('events')
 
     try:
-	response_event = table.get_item(Key={'id': event["id"]})
-	item = response_event["Item"]
+    	response_event = table.get_item(Key={'id': event["id"]})
+    	item = response_event["Item"]
     except ClientError as e:
-	print(e.response['Error']['Message'])
-	print('Check your DynamoDB table...')
+    	print(e.response['Error']['Message'])
+    	print('Check your DynamoDB table...')
     else:
-	print("GetItem succeeded:")
-	print("Received response from DynamoDB: " + json.dumps(response_event, indent=2))
-	return item
+    	print("GetItem succeeded:")
+    	print("Received response from DynamoDB: " + json.dumps(response_event, indent=2))
+    	return item
 ```
 
 [< Volver al Laboratorio 07 ](../../lab-07) 
