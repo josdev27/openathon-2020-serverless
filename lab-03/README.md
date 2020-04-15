@@ -36,7 +36,7 @@ Si la función lambda la desarrollamos en Java, es necesario disponer de un cont
 ## Nuestra primera función. Events-List
 
 
-En esta sección crearemos y probaremos nuestra primera función lambda, “Events-List”, que nos permitirá acceder a los datos existentes en la tabla “events” que hemos creado en DynamoDB.
+En esta sección crearemos y probaremos nuestra primera función lambda, “Events-List-XXXX” (siendo XXXX un identificador único que nos permita localizar los servicios que creemos), que nos permitirá acceder a los datos existentes en la tabla “events” que hemos creado en DynamoDB.
 
 En los laboratorios vamos a trabajar con dos opciones: Python y Java. Según prefieras puedes utilizar una u otra. Continua el laboratorio en el punto correspondiente (puedes realizar las dos versiones si te interesa conocer como se implementa en una y otra, decidiendo luego en el Gateway a que versión quieres dirigirte).
 
@@ -68,7 +68,7 @@ Para hacerlo debemos acceder al detalle del servicio desde la consola de AWS, si
     <img src="resources/Picture1.png">
 </p>
  
-4. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events”.
+4. Desplegando “Details”, podremos revisar los logs y la salida de la función, en este caso el evento que creamos previamente como primer ítem de la tabla “Events-XXXX”.
     
 <p align="center">
     <img src="resources/Picture2.png">
@@ -80,7 +80,7 @@ Si hemos realizado la función en java, una alternativa para realizar la prueba 
 
 ## Actividad adicional
 
-La función puede ejecutarse correctamente ya que dispone de las autorizaciones necesarias para hacerlo, pero ¿qué pasaría si no dispusiese de una de ellas?, ¿sería fácil comprobar el tipo de error en los logs?. Os proponemos crea un rol adicional "eventsFool" que no tuviese asignada la política necesaria para acceder a DynamoDB (si estas utilizando la cuenta de formación, ya estará creado) y comprobar que sucede si modificas la función creada para asignarselo y vuelves a lanzar el Test. 
+La función puede ejecutarse correctamente ya que dispone de las autorizaciones necesarias para hacerlo, pero ¿qué pasaría si no dispusiese de una de ellas?, ¿sería fácil comprobar el tipo de error en los logs?. Os proponemos crea un rol adicional "eventsFool" que no tuviese asignada la política necesaria para acceder a DynamoDB (si estas utilizando la cuenta de formación, utiliza el rol "s3UpperCaseLambdaRole") y comprobar que sucede si modificas la función creada para asignarselo y vuelves a lanzar el Test. 
 
 ## Conclusión
 
