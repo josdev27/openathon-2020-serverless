@@ -36,7 +36,7 @@ En esta sección crearemos un bucket para almacenar nuestro front-end angular (w
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos **S3**.
 2.	Creamos el *web bucket* que contendrá el front-end. Pulsamos *Create Bucket*, como nombre y en minúsculas estableceremos 
 *events-web-xxxx*. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “xxxx” por un identificador exclusivo, por ejemplo “evento-web-john-smith1234”.
-> Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
+> :warning: Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
 3.	Pulsamos *create*.
 4.  Finalmente, encriptaremos el bucket. Para ello seleccionaremos el nuevo bucket creado. Sobre la pestaña properties, en la opción Default encryption seleccionaremos **AES-256**.
 <p align="center">
