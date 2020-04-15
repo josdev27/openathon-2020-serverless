@@ -1,3 +1,4 @@
+# Get Event by id - Java Version
 
 1. Creamos una nueva clase pulsando con el botón derecho sobre el paquete com.accenture.aws.functions->New ->Class
 2. Le ponemos un nombre significativo, por ejemplo GetEventItem
