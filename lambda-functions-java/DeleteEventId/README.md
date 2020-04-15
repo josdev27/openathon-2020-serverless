@@ -61,4 +61,4 @@ public class DeleteEventItem implements RequestHandler<Event, Event> {
 }
 ```
 
-[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-4)
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-eliminar-un-eventodelete-eventseventid)
