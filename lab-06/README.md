@@ -45,8 +45,7 @@ Ahora vamos a asociarle un plan de uso al API key:
       * **Burst:** 1
       * **Enable quota:** lo dejamos habilitado
       * **Requests per:** 200 per month. 
-      
- Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
+      >Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
 4. Hacemos click en *Next*.
 Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el **Usage Plan**. En nuestro caso solo tenemos un previamente creado ("prod"). 
 5. Hacemos click en *Add Api Stage*.
