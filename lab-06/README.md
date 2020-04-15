@@ -76,7 +76,9 @@ Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
 1. Con la API abierta, en *resources* pinchamos en */events* > *GET*
 2. Hacemos click en *Method Request*.
 3. En la sección de settings:
-     * En *Authorization* vamos a seleccionar la pool creada.
+     * En *Authorization* vamos a seleccionar el authorizer creado.
+     > :warning: **Si no aparece, prueba a recargar la página, o a esperar unos minutos.**
+     * En *Authorization* vamos a seleccionar el authorizer creado.
      * En *OAuth Scopes*, dejamos *openid*                                                                                     :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
      * En *Request Validator*, lo dejamos a *None*.
      * En *API Key Required*, lo dejamos a *True*.
@@ -190,6 +192,8 @@ Para probar cada endpoint:
 </p>
 
 6. Finalmente, hacemos click en send y veremos la respuesta.
+
+> :warning: **La api puede tardar un rato en desplegarse en las cuentas de formación. Si en Postman os indican que no hubo respuesta, esperar un poco y volver a probar.**
 
 Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
 
