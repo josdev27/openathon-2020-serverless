@@ -145,7 +145,7 @@ Esto nos creará un nuevo entorno en postman llamado "events" con las siguientes
 2. **apiUrl**: es la url de nuestra api deployada. Se puede obtener dentro de nuestra API, pulsando en stages y seleccionando el deploy que hayamos realizado ("prod" si hemos seguido las instrucciones).
 3. **eventid**: es el identificador de algún evento creado en la base de datos. Para obtener uno puedes dirigirte a **DynamoDB**, seleccionar la tabla que hayas creado y en la pestaña "Items" consultar un registro, el campo **id** será el identificador único. 
 4. **userPoolWebClientId**: es el client id de nuestra app en cognito. Para recuperarlo tenemos que acceder al **User Pool** que hemos creado en Cognito, seleccionar *App Clients* dentro de *General Settings* y allí consultarlo en el campo *App client id*
-5. **cognitoDomain**: es el dominio creado en cognito de nuestra app en el [laboratorio 5](../lab05). Podemos recuperarlo del user pool de **Cognito**, accediendo a *Domain Name* dentro de *App Integration* y allí recuperar el campo "Domain prefix".
+5. **cognitoDomain**: es el dominio creado en cognito de nuestra app en el [laboratorio 5](../lab-05). Podemos recuperarlo del user pool de **Cognito**, accediendo a *Domain Name* dentro de *App Integration* y allí recuperar el campo "Domain prefix".
 
 Simplemente hay que editarlas:
 
@@ -181,7 +181,7 @@ Para probar cada endpoint:
    * **State**: lo dejamos vacio
    * **Client Authentication**: Send client credentials in body
 4. Hacemos click en *Request token*.
-5. En la ventana abierta, usamos el usuario que creamos en el [laboratorio 5](../lab05).
+5. En la ventana abierta, usamos el usuario que creamos en el [laboratorio 5](../lab-05).
 
 <p align="center">
     <img src="resources/login.png"/>
