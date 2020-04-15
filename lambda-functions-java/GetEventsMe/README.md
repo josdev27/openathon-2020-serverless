@@ -91,4 +91,5 @@
 }
 ```
 
-[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-1) 
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-obtener-los-eventos-de-un-usuarioget-eventsme) 
+
