@@ -91,4 +91,4 @@ Item item = outcome.getItem();
  >Es importante que se le pasen todos los campos de entrada
 
 
-[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-3) 
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-editar-eventos-put-eventseventsid) 
