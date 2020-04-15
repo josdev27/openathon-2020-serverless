@@ -32,9 +32,9 @@ Para securizar esta API utilizaremos [Cognito](https://docs.aws.amazon.com/es_es
 5.	Debajo de “Create new API” seleccionamos *NEW API*.
 6.	Introducimos la siguiente información:
 
-    **API name**: EventsAP_XXXXXXX
-    **Description**: EventsAP
-    **Endpoint Type**: Regional
+    * **API name**: EventsAP_XXXXXXX
+    * **Description**: EventsAP
+    * **Endpoint Type**: Regional
     * Pulsamos *Create API*.
 
 Crearemos ahora los **Resources** a los que va a atender nuestra API.
@@ -47,7 +47,7 @@ Crearemos ahora los **Resources** a los que va a atender nuestra API.
 </p>
 
 14.	Pulsamos *Actions* y en el desplegable seleccionamos *Create Resource* e introducimos:
-    **Name**: events
+    * **Name**: events
 15.	Pulsamos *Create Resource*.
 16.	Una vez creado el recurso debemos crear los métodos http para el recurso creado. Seleccionamos “/events” dentro de la sección **Resources** del API EventsAP.
 17.	Pulsamos *Actions* y seleccionamos “Create Method”.
@@ -80,8 +80,9 @@ Para poder acceder a la API que hemos creado es imprescindible realizar su [depl
 </p>
 
 26.	Pulsamos de nuevo *Actions* y seleccionamos “Deploy API”, haciendo los siguientes cambios:
-    **Deployment stage**: [New Stage]
-    **Stage name**: prod
+
+    * **Deployment stage**: [New Stage]
+    * **Stage name**: prod
 
 <p align="center">
     <img src="resources/api_5.png">
