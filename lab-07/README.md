@@ -13,10 +13,10 @@
 En el laboratorio anterior hemos securizado el endpoint que nos devuelve todos los eventos. Ahora vamos a crear y securizar el resto de endpoint:
 
 1. [**Crear endpoint para dar de alta eventos (POST /events)**](lab-07#post-events-endpoint)
+2. [**Crear endpoint para obtener los eventos de un usuario(GET /events/me)**](lab-07#get-eventsme-endpoint)
 3. [**Crear endpoint para recuperar el detalle de un evento(GET /events/{eventid})**](lab-07#get-eventseventsid-endpoint)
-2. [**Crear endpoint para actualizar un evento(PUT /events/{eventid})**](lab-07#put-eventseventsid-endpoint)
-3. [**Crear endpoint para eliminar un evento(DELETE /events/{eventid})**](lab-07#delete-eventseventsid-endpoint)
-4. [**Crear endpoint para obtener los eventos de un usuario(GET /events/me)**](lab-07#get-eventsme-endpoint)
+4. [**Crear endpoint para actualizar un evento(PUT /events/{eventid})**](lab-07#put-eventseventsid-endpoint)
+5. [**Crear endpoint para eliminar un evento(DELETE /events/{eventid})**](lab-07#delete-eventseventsid-endpoint)
 
 
 ## Crear endpoint para dar de alta eventos (POST /events)
@@ -83,7 +83,7 @@ Después, abrimos postman:
 Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
 
-## GET /events/me endpoint
+## Crear endpoint para obtener los eventos de un usuario(GET /events/me)
 
 Este endpoint nos permitirá obtener los eventos del usuario logueado.
 
@@ -132,7 +132,7 @@ Como en el caso de crear eventos, tendriamos que desplegar la API. Después, des
 
 Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
-## GET /events/{eventsId} endpoint
+## Crear endpoint para recuperar el detalle de un evento(GET /events/{eventid})
 
 Este endpoint nos permitirá obtener el detalle de un evento por el identificador.
 
@@ -223,7 +223,7 @@ Como en el caso de crear eventos, tendriamos que desplegar la API. Después, des
 
 Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
-## DELETE /events/{eventsId} endpoint
+## Crear endpoint para eliminar un evento(DELETE /events/{eventid})
 
 Este endpoint nos permitirá borrar un evento.
 
