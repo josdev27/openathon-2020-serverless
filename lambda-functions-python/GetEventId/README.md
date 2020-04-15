@@ -35,4 +35,4 @@ def lambda_handler(event, context):
     	return item
 ```
 
-[< Volver al Laboratorio 07 ](../../lab-07) 
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-recuperar-el-detalle-de-un-eventoget-eventseventid) 
