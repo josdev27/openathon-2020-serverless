@@ -23,8 +23,13 @@ Para llevar a cabo la parte de token de usuario, debemos crear un Authorizer con
 
 Para crear el API Key hacemos los siguientes pasos:
 
-1. Con la API abierta, hacemos click en la opción *API Keys* del menú de la izquierda.
+1. Navegamos al servicio *API Gateway* y seleccionamos nuestra API. Hacemos click en la opción *API Keys* del menú de la izquierda.
 2. Pinchamos en *Actions*, y luego en *Create API Key*.
+
+<p align="center">
+  <img src="resources/api_key_create.png">
+</p>
+
 3. En el formulario, ponemos un nombre (p. ej. "identification_XXXX", identificando de manera única nuestra API Key) y damos a *Save*.
 4. Nos aparecerá la información del API Key. Si hacemos click en *Show*, podemos ver la clave. 
    :pushpin: **Guardala, porque la necesitaras más adelante.** 
@@ -39,8 +44,8 @@ Ahora vamos a asociarle un plan de uso al API key:
       * **Rate:** 1
       * **Burst:** 1
       * **Enable quota:** lo dejamos habilitado
-      * **Requests per:** 200 per month
-Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
+      * **Requests per:** 200 per month. 
+ Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
 4. Hacemos click en *Next*.
 Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el *Usage Plan*. En nuestro caso solo tenemos un previamente creado ("prod"). 
 5. Hacemos click en Add Api Stage.
@@ -57,7 +62,8 @@ De esta forma, ya tenemos un plan de uso asociado al stage de nuestra API.
 
 Para poder hacer uso de la autorización a través de Cognito, es necesario crear un Authorizer con el pool de usuarios que hemos creado anteriormente.
 
-1. Entramos en el servicio API Gateway y en el menú de la izquierda, pulsamos sobre Authorizers
+1. Entramos en el servicio API Gateway y en el menú de la izquierda, pulsamos sobre *Authorizers*
+2. Pulsamos *Create new authorizer*
 
 <p align="center">
   <img src="resources/img_1.PNG">
@@ -78,7 +84,7 @@ Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
 3. En la sección de settings:
      * En *Authorization* vamos a seleccionar el authorizer creado.
      
-     > :warning: **Si no aparece, prueba a recargar la página, o a esperar unos minutos.**
+     > :warning: **Si no aparece el authorizer que acabas de crear, prueba a recargar la página, o a esperar unos minutos.**
      
      * En *Authorization* vamos a seleccionar el authorizer creado.
      * En *OAuth Scopes*, dejamos *openid*                                                                                     :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
@@ -136,8 +142,8 @@ Además, necesitamos importar el [entorno](./resources/events.postman_environmen
 Esto nos creará un nuevo entorno en postman llamado events con las siguientes variables:
 
 1. **apiKey**: es la api key creada anteriormente
-2. **apiUrl**: es la url de nuestra api deployada. Se puede obtener dentro de nuestra API, pulsando en stages y seleccionando el deplou que hayamos realizado ("prod" si seguimos las instrucciones).
-3. **eventid**: es el id de algún evento creado en la base de datos
+2. **apiUrl**: es la url de nuestra api deployada. Se puede obtener dentro de nuestra API, pulsando en stages y seleccionando el deploy que hayamos realizado ("prod" si seguimos las instrucciones).
+3. **eventid**: es el identificador de algún evento creado en la base de datos. Para obtener uno puedes dirigirte a DynamoDB, seleccionar la tabla que hayas creado y en la pestaña Items consultar un registro, el campo **id** será el identificador único. 
 4. **userPoolWebClientId**: es el client id de nuestra app en cognito. Para recuperarlo tenemos que acceder al User Pool que hemos creado en Cognito, seleccionar *App Clients* dentro de *General Settings* y allí consultarlo en el campo *App client id*
 5. **cognitoDomain**: es el dominio creado en cognito de nuestra app en el laboratorio 5. Podemos recuperarlo del user pool de Cognito, accediendo a *Domain Name* dentro de *App Integration* y allí recuperar el campo *Domain prefix*.
 
@@ -168,7 +174,7 @@ Para probar cada endpoint:
 3. En la ventana abierta:
    * **Token name**: Events Token
    * **Grant type**: Implicit
-   * **Callback URL: myapp://example
+   * **Callback URL**: myapp://example
    * **AuthURL**: {{cognitoDomain}}/login
    * **Client ID**: {{userPoolWebClientId}}
    * **Scope**: openid
@@ -181,29 +187,30 @@ Para probar cada endpoint:
     <img src="resources/login.png"/>
 </p>
 
-6. Al iniciar sesión, veremos que hemos obtenido un nuevo token.
+6. Al iniciar sesión (es posible que la primera vez os pida establecer una nueva contraseña si así lo establecísteis al crear el *User Pool*), veremos que hemos obtenido el token de seguridad necesario para que Postman pueda realizar peticiones a nuestra API.
 
 <p align="center">
     <img src="resources/login_result.png"/>
 </p>
 
-7. Bajamos el scroll, y hacemos click en use token.
+7. Bajamos el scroll, y hacemos click en ese token.
 
 <p align="center">
     <img src="resources/token_result.png"/>
 </p>
 
-6. Finalmente, hacemos click en send y veremos la respuesta.
+6. Finalmente, hacemos click en *send* y veremos la respuesta.
 
 > :warning: **La api puede tardar un rato en desplegarse en las cuentas de formación. Si en Postman os indican que no hubo respuesta, esperar un poco y volver a probar.**
 
-Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None.
+Finalmente, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo Oauth Request a None y volver a realizar el deploy.
 
 
 ## Resumen
 
-En este laboratorio, hemos completado el resto de nuestra API. Además, la hemos securizado haciendo uso de cognito y de un plan de uso asociado a un api-key para controlar el consumo. 
-El siguiente paso, es integrarla con nuestra aplicación frontend.
+En este laboratorio hemos securizado nuestro primer end-point haciendo uso de **Cognito** y de un plan de uso asociado a un *api-key* para controlar el consumo. Además hemos aprendido como utilizar Postman para realizar una prueba completa.
+
+El siguiente paso, realizaremos el resto de funciones necesarias para completar la API que requiere nuestra App.
 
 [< Lab 05 ](../lab-05)  | [Lab 07 >](../lab-07)
 
