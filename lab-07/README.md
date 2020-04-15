@@ -132,7 +132,19 @@ Para crear el endpoint en nuestro API Gateway:
 
 ### Probar endpoint
 
-Como en el caso de crear eventos, tendriamos que desplegar la API. Después, desde Postman, dentro de la colección events, la que se corresponde con nuestro endpoint.
+Como en el caso de crear eventos, tendriamos que desplegar la API. Después, desde Postman, dentro de la colección events, la que se corresponde con nuestro endpoint. En este caso debemos hacer un paso adicional:
+
+1. Vamos a la pestaña Authorization
+2. Hacemos click en *Get New Access Token*
+3. Validamos que los datos son correctos.
+4. Hacemos el login
+5. En la respuesta recibimos, entre otros:
+    * accessToken: nos da acceso a la API, pero no tememos información del usuario (en este caso el email).
+    * idToken: nos da accesso a la API y ademas tenemos información del usuario, en este caso, el email.
+6. Copiamos el idToken.
+> Postman copia el accessToken, pero este no nos vale, porque en el mapping template del endpoint, necesitamos obtener el email del usuario, que está en el idToken.
+7. Cerramos la ventana y lo pegamos en el campo AccessToken.
+8. Hacemos click en send.
 
 Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación Angular, volvemos al Api Gateway, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde Postman.
 
