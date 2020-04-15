@@ -12,4 +12,4 @@ else:
   response = table.scan()
 ```
 
-[< Volver al Laboratorio 07 ](../../lab-07) 
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-obtener-los-eventos-de-un-usuarioget-eventsme) 
