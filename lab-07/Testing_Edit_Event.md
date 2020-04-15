@@ -28,4 +28,4 @@ Si la ejecución tiene éxito, nos devolverá el evento editado:
     <img src="resources/edit_event_success.png">
 </p>
 
-[< Volver al Laboratorio 07 ](../../lab-07) 
+[< Volver al Laboratorio 07 ](../lab-07#crear-endpoint-3) 
