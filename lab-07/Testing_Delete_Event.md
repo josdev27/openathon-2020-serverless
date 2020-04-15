@@ -14,4 +14,4 @@ donde,
 
 Si es correcto, veremos en el servicio de **DynamoDB** que el evento ha sido borrado.
 
-[< Volver al Laboratorio 07 ](../../lab-07) 
+[< Volver al Laboratorio 07 ](../lab-07#crear-endpoint-4) 
