@@ -10,7 +10,7 @@
 
 ## Descargar y configurar la app
 
-La app ya compilada se encuentra en https://github.com/josdev27/openathon-2020-serverless/tree/master/app. Teneis que descargaros el repositorio e ir a la carpeta app. Dentro ella está la carpeta assets/config. Dentro está el fichero con la configuración de la app, llamado config.json, que debemos editar informandonos con los valores que hemos ido obteniendo al configurar nuestros servicios.
+La app ya compilada se encuentra en este [enlace](../app). Teneis que descargaros el repositorio e ir a la carpeta app. Dentro ella está la carpeta assets/config. Dentro está el fichero con la configuración de la app, llamado config.json, que debemos editar informandonos con los valores que hemos ido obteniendo al configurar nuestros servicios.
 
 ```json
 {
