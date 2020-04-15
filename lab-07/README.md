@@ -255,16 +255,16 @@ Este endpoint nos permitirá borrar un evento.
 
 Para crear el endpoint en nuestro API Gateway:
 
-1. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elejimos DELETE.
+1. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elegimos DELETE.
 2. En la ventana abierta:
  * En **Integration Type**, lo dejamos a Lambda Function.
  * En **Lambda Region**, lo dejamos a la región que estemos usando durante todos los laboratios.
- * En **Lambda Function**, elejimos la función lambda para eliminar eventos.
+ * En **Lambda Function**, elegimos la función lambda para eliminar eventos.
  * Hacemos click en *Save*
 3. Hacemos click en *Method request*.
 4. Hacemos click en method request.
 5. En la sección de settings:
- * En Authorization, elejimos la pool creada.
+ * En Authorization, elegimos la pool creada.
  * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
@@ -275,7 +275,7 @@ Para crear el endpoint en nuestro API Gateway:
    * En el editor que se nos ha abierto ponemos:
    ```json
    {
-   "id": "$input.params('eventid')",
+   "id": "$input.params('eventid')"
    }
    ```
    * Hacemos click en Save
