@@ -134,7 +134,7 @@ Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicació
 
 ## GET /events/{eventsId} endpoint
 
-Este endpoint nos permitirá obtener los eventos del usuario logueado.
+Este endpoint nos permitirá obtener el detalle de un evento por el identificador.
 
 ### Crear función lambda
 
