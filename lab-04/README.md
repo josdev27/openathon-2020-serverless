@@ -13,7 +13,7 @@
 Una vez creada la función lambda deberemos crear un método para hacerla accesible a nuestra aplicación front. Para hacerlo utilizaremos el servicio [API Gateway](https://docs.aws.amazon.com/es_es/apigateway/?id=docs_gateway). Con él podemos crear API RESTful y API WebSocket que permiten aplicaciones de comunicación bidireccional en tiempo real. 
 En este laboratorio crearemos un API Restful para publicar las funciones lambda que vayamos creando. 
 
-Para securizar esta API utilizaremos [Cognito](https://docs.aws.amazon.com/es_es/cognito/?id=docs_gateway) para la autenticación, de forma que la proveeremos de la capa de seguridad necesaria. No obstante para facilitar la comprensión, la seguridad no la acometeremos en este laboratorio, centrando en como hacer accesible nuestra función y dejando para un laboratorio posterior la securización.
+Para securizar esta API utilizaremos [Cognito](https://docs.aws.amazon.com/es_es/cognito/?id=docs_gateway) para la autenticación, de forma que la proveeremos de la capa de seguridad necesaria. No obstante para facilitar la comprensión, la seguridad no la acometeremos en este laboratorio, centrándonos en cómo hacer accesible nuestra función y dejando para un laboratorio posterior la securización.
 
 ## Creando la API
 
