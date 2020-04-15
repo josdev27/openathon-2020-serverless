@@ -22,7 +22,7 @@ def lambda_handler(event, context):
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events_XXXX')
+    table = dynamodb.Table('events')
     
     try:
         response = table.update_item(
@@ -35,11 +35,11 @@ def lambda_handler(event, context):
                 "#location": "location"
             },
             ExpressionAttributeValues= {
-                ":addedBy":item_put["addedBy"],
-                ":date":item_put["date"],
-                ":description":item_put["description"],
-                ":title":item_put["title"],
-                ":location":item_put["location"]
+                ":addedBy":event["addedBy"],
+                ":date":event["date"],
+                ":description":event["description"],
+                ":title":event["title"],
+                ":location":event["location"]
             },
             UpdateExpression =  ("SET #addedBy = :addedBy,"  
                         "#date = :date,"  
