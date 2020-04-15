@@ -77,7 +77,9 @@ Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
 2. Hacemos click en *Method Request*.
 3. En la sección de settings:
      * En *Authorization* vamos a seleccionar el authorizer creado.
+     
      > :warning: **Si no aparece, prueba a recargar la página, o a esperar unos minutos.**
+     
      * En *Authorization* vamos a seleccionar el authorizer creado.
      * En *OAuth Scopes*, dejamos *openid*                                                                                     :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
      * En *Request Validator*, lo dejamos a *None*.
