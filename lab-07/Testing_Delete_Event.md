@@ -12,6 +12,6 @@ donde,
 * **id**: es un id de algún evento creado en la tabla de dynamodb.
 * **addedBy**: es el correo del autor del evento.
 
-Si es correcto, veremos en el servicio de **DynamoDB**, veremos que el evento ha sido borrado.
+Si es correcto, veremos en el servicio de **DynamoDB** que el evento ha sido borrado.
 
 [< Volver al Laboratorio 07 ](../../lab-07) 
