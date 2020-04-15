@@ -24,7 +24,7 @@ La app ya compilada se encuentra en este [enlace](../app). Teneis que descargaro
 
 Para recuperar cada uno de estos valores, podemos consultar los servicios que hemos ido creando:
 
-1. **apiUrl**: es la url de nuestra api deployada. Se puede obtener dentro de nuestra API, pulsando en stages y seleccionando el deplou que hayamos realizado ("prod" si seguimos las instrucciones).
+1. **apiUrl**: es la url de nuestra api deployada. Se puede obtener dentro de nuestra API, pulsando en stages y seleccionando el deplou que hayamos realizado ("prod" si seguimos las instrucciones). Para que funcione correctamente, hay que añadir una "/" al final de la url.
 2. **apiKey**: es la api key que hemos creado en nuestra API, podemos consultarla en API Gateway, en la sección *API Keys*, seleccionando la API Key creada en el laboratorio 6, y pulsando *show*.
 3. **cognitoRegion**: dependerá de la región que hayamos utilizado para crear nuestros servicios. Podemos consultarlo desplegando en el menú la región (en el caso de Irlanda es *eu-west-1*.
 4. **userPoolId**: podemos consultar en *General Settings* del user pool que hemos creado en Cognito.
