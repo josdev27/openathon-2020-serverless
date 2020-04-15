@@ -44,22 +44,22 @@ Será necesario seguir los siguientes pasos:
         * En Projected attributes, ponemos ALL.
         * Finalmente, hacemos click en add index.
    
-<p align="center">
+   <p align="center">
     <img src="resources/Picture5.png"/>
-</p>    
-
-  *  En la sección Read/Write capacity mode, lo dejamos en provisionado.
-  *  En la sección Auto Scaling, quitamos las opciones Read Capacity y Write Capacity.
-  *  En la sección Provisioned capacity, lo dejamos todo en 1.
-  *  En la sección Encryption At Rest, lo dejamos en Default.
+   </p>    
    
+   * En la sección Read/Write capacity mode, lo dejamos en provisionado.
+   * En la sección Auto Scaling, quitamos las opciones Read Capacity y Write Capacity.
+   * En la sección Provisioned capacity, lo dejamos todo en 1.
+   * En la sección Encryption At Rest, lo dejamos en Default.
+      
 <p align="center">
     <img src="resources/Picture6.png"/>
 </p>     
 
 4. Para facilitar la localización de nuestra tabla vamos a añadir dos etiquetas:
-   * key: createdby   value: [enterprise id]
-   * key: training    value: Openathon IV
+   * **key**: createdby   **value**: [enterprise id]
+   * **key**: training    **value**: Openathon IV
 <p align="center">
     <img src="resources/Picture10.png"/>
 </p>            
