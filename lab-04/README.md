@@ -17,19 +17,19 @@ Para securizar esta API utilizaremos [Cognito](https://docs.aws.amazon.com/es_es
 
 ## Creando la API
 
-1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos “API Gateway”.                                 
+1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos *API Gateway*.                                
 
 > :warning: Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región. Para tener más información acerca de las regiones puedes acceder a este [enlace](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/using-regions-availability-zones.html). Para la elaboración de los laboratorios os sugerimos utilizar Irlanda.
 
-2.	Pulsamos “Create API” (esta sección puede no aparecer la primera vez y mostrarse directamente la opción “choose an API type”.
-3.	En la ventana resultado, bajo la sección “Choose an API type”, seleccionamos “Rest API” (no "Rest API private") y pulsamos “Build”.
+2.	Pulsamos *Create API* (esta sección puede no aparecer la primera vez y mostrarse directamente la opción “Choose an API type”.
+3.	En la ventana resultado, bajo la sección “Choose an API type”, seleccionamos “Rest API” (no "Rest API private") y pulsamos *Build*.
 
 <p align="center">
     <img src="resources/api_1.png">
 </p>
 
-4.	En “Create your first API” pulsamos “OK”.
-5.	Debajo de “Create new API” seleccionamos “NEW API”.
+4.	En “Create your first API” pulsamos *OK*.
+5.	Debajo de “Create new API” seleccionamos *NEW API*.
 6.	Introducimos la siguiente información:
     * API name: EventsAP_XXXXXXX
     * Description: EventsAP
