@@ -76,7 +76,7 @@ Será necesario seguir los siguientes pasos:
     <img src="resources/Picture2.png"/>
 </p>
 
-8. A continuación, introduciremos el resto de los datos. Pulsando el “+” adyacente a **addedBy** seleccionaremos “Append” y “String” indicando que queremos introducir en el ítem un dato de tipo cadena. Los ítems en las tablas de DynamoDB no tienen que cumplir una estructura obligatoria más allá de los que forman la primary key. De esta manera incorporaremos:
+8. A continuación, introduciremos el resto de los datos. Pulsando el “+” adyacente a **addedBy** seleccionaremos *Append* y *String*, indicando que queremos introducir en el ítem un dato de tipo cadena. Los ítems en las tablas de DynamoDB no tienen que cumplir una estructura obligatoria más allá de los que forman la primary key. De esta manera incorporaremos:
 
 <p align="center">
     <img src="resources/Picture8.png"/>
