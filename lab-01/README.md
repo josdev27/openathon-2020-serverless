@@ -39,10 +39,10 @@ Será necesario seguir los siguientes pasos:
 
 3. En Table settings, quitamos la opción default settings, y ponemos la siguiente configuración:
    * En la sección Secondary indexes, hacemos click en add index:
-    * En partition key, ponemos addedBy y type String.
-    * En index-name lo dejamos como está.
-    * En Projected attributes, ponemos ALL.
-    * Finalmente, hacemos click en add index.
+        * En partition key, ponemos addedBy y type String.
+        * En index-name lo dejamos como está.
+        * En Projected attributes, ponemos ALL.
+        * Finalmente, hacemos click en add index.
    
 <p align="center">
     <img src="resources/Picture5.png"/>
