@@ -56,4 +56,4 @@ def lambda_handler(event, context):
     	return event
 ```
 
-[< Volver al Laboratorio 07 ](../../lab-07) 
+[< Volver al Laboratorio 07 ](../lab-07#crear-endpoint-para-editar-eventos-put-eventseventsid) 
