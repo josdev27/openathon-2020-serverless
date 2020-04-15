@@ -240,7 +240,7 @@ Este endpoint nos permitirá borrar un evento.
 
 Para crear el endpoint en nuestro API Gateway:
 
-1. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elejimos GET.
+1. Hacemos click en {eventid}. Luego En Actions y en Create Method. Elejimos DELETE.
 2. Hacemos click en method request.
 3. En la sección de settings:
  * En Authorization, elejimos la pool creada.
