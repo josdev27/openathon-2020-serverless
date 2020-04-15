@@ -219,19 +219,6 @@ Para crear el endpoint en nuestro API Gateway:
  * En OAuth Scopes, lo dejamos a openid                                                                                      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En Request Validator, lo dejamos a None.
  * En API Key Required, lo dejamos a True.
-6. Volvemos atrás, y hacemos click en Integration Request:
- * En Mappings Template:
-   * Hacemos click en When there are no templates defined (recommended)
-   * Hacemos click en Add Mapping Template y escribimos application/json
-   * En el editor que se nos ha abierto ponemos:
-   ```json
-   {
-   "body-json" : $input.json('$'),
-   "id": "$input.params('eventid')",
-   "addedBy" : "$context.authorizer.claims.email"
-   }
-   ```
-   * Hacemos click en Save
 
 ### Probar endpoint
 
