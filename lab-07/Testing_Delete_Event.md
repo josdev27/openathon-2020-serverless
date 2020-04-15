@@ -12,10 +12,6 @@ donde,
 * **id**: es un id de algún evento creado en la tabla de dynamodb.
 * **addedBy**: es el correo del autor del evento.
 
-Si el campo addedBy no se corresponde con el autor, se producirá una excepción con el mensaje 'You are not the author of event':
-
-<p align="center">
-    <img src="resources/delete_event_not_author.png">
-</p>
+Si es correcto, veremos en el servicio de **DynamoDB**, veremos que el evento ha sido borrado.
 
 [< Volver al Laboratorio 07 ](../../lab-07) 
