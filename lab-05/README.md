@@ -75,6 +75,15 @@ Y pulsamos *Create app client* (estos pasos son muy importantes ya que no podrá
     * **Pool ARN**: arn:aws:cognito-idp:eu-central-1:128434942847:userpool/eu-central-1_XXXXXXX.
 11.	En el panel de navegación a la izquierda, dentro de **General Settings**, pulsaremos “App Clients” y salvaremos también el **App client id** de la app client “EventAppAngular”. Este id nos permitirá a nuestro usaurios acceder a los servicios de login sin que se solicite autenticación previa.
 
+## Etiquetando el User Pool
+
+Ahora para facilitar la localización de nuestro User Pool, vamos a etiquetarlo.
+
+En detalle del User Pool creado, en el menú de la izquierda, dentro de general settings está la opción *Tags*, donde puedes añadir dos etiquetas que permitan localizar más fácilmente el pool:
+   * **key**: "createdby"   **value**: [vuestro enterprise id]
+   * **key**: "training"    **value**: "Openathon IV"
+
+
 ## Habilitar OAuth2.0
 
 Para poder autenticarnos contra cognito desde postman con una interfaz visual, vamos a crear un dominio para cognito, y habilitar otras propiedades:
