@@ -99,6 +99,29 @@ Nuestro bucket ahora aparecerá como de *Public Access*.
 
 Accedemos al endpoint previamente anotado desde un navegador web, y probamos cada una de las funcionalidades de la misma.
 
+Enhorabuena tienes funcionando **Events**!!
+
+## Eliminando el acceso público
+
+**Por razones de seguridad, es conveniente cuando termines de probar la aplicación que bloqueemos el acceso público al bucket que contiene nuestra aplicación.**
+
+Por ello y como último paso del laboratorio:
+
+1.	Pulsamos la pestaña *Permissions* del bucket que hemos creado para contener la aplicación angular (events-web-xxxx).
+2.	Pulsamos en *Block public Access*.
+3.	Pulsamos *edit* y **seleccionamos** todas las opciones.
+4.	Pulsamos *Save* y confirmamos en cualquier aviso que se muestre.
+
+Una vez hecho comprobamos que ya no podemos acceder a la aplicación.
+
+## Conclusiones
+
+Hemos recorrido los principales servicios de AWS para crear nuestra aplicación, la base de datos con **DynamoDB**, las funciones de negocio con **Lambda**, securizado con **IAM** y **Cognito** y publicado con **API Gateway** Y **S3**. 
+
+Con este primer paso en el mundo serverless esperamos que os hayáis hecho una idea de lo que estas Soluciones pueden aportaros en vuestros proyectos y las oportunidades que pueden ofrecer a vuestra carrera profesional.
+
+Os animamos a continuar formándoos y a poneros en contacto con la Comunidad de AWS, para conocer otras iniciativas y oportunidades.
+
 [< Lab 07](../lab-07)
 
 <p align="center">
