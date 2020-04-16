@@ -20,7 +20,7 @@ Las aplicaciones nativas de la nube, <i>cloud-native applications</i>, son aqué
 
 Es decir: en lugar de montar un servidor en la nube y sobre él instalar un sistema operativo, un servidor web o una base de datos, consumimos un servicio que encontramos en el catálogo de un proveedor y que nos da las capacidades, web, base de datos, las que hagan falta, sin tener que preocuparnos de gestionar máquinas, discos o redes, o cómo se gestionan los accesos, se exponen a Internet o se otorgan permisos. Estableces las necesidades y las políticas, y el proveedor se encarga del resto.
 
-Además, las aplicaciones cloud-native se desarrollan con procesos de delivery que también son cloud-native, con herramientas especialmente adaptadas a este enfoque.
+Además, las aplicaciones cloud-native se desarrollan con procesos de ciclo de vida del desarrollo que también son cloud-native, con herramientas especialmente adaptadas a este enfoque.
 
 Es decir: en lugar de montar un repositorio de código o un servidor de integración continua sobre máquinas en la cloud, contratamos el servicio que el vendedor gestiona y que a partir de ese momento consumimos sin tener que preocuparnos de qué recursos de computación necesita, cuál es la configuración de servidores, ni de mantener al día las versiones y parches necesarios para mantener estable y saludable todo el entorno.
 
@@ -44,9 +44,9 @@ Existen dos modelos de abstracción fundamentales complementando al modelo PaaS:
 
 ### CaaS - Contenedores como servicio
 
-En el modelo CaaS, el proveedor gestiona una plataforma de contenedores que permite la ejecución de múltiples aplicaciones, de tamaños y tecnologías muy variadas, sobre un pool de recursos de computación que se abstraen al usuario de un CaaS. La unidad de abtracción es, obviamente, el contenedor. Gran parte de la <i>outer architecture</i> está abstraida, como pueden ser las capacidades de registro y descubrimiento de servicios, métricas y logs, enrutamiento, seguridad, etc.
+En el modelo CaaS, el proveedor gestiona una plataforma de contenedores que permite la ejecución de múltiples aplicaciones, de tamaños y tecnologías muy variadas, sobre un pool de recursos de computación que se abstraen al usuario de un CaaS. La unidad de abstracción es, obviamente, el contenedor. Gran parte de la <i>outer architecture</i> está abstraida, como pueden ser las capacidades de registro y descubrimiento de servicios, métricas y logs, enrutamiento, seguridad, etc.
 
-Cuando se utiliza un CaaS, como aprendimos en la Openathon V con Docker, construímos las aplicaciones como conjuntos de contenedores que colaboran entre sí, y ejecutamos dichos contenedores con sus reglas de acceso, enrutado o escalado. Cómo consigue la plataforma contar con los recursos de computación necesarios para ejecutar las aplicaciones containerizadas, cómo se encarga de que una petición llegue al lugar esperado y se devuelva una respuesta si la hay, o cómo escala una aplicación para ajustarse a las necesidades del momento, es totalmente transparente a los arquitectos y desarrolladores de la aplicación.
+Cuando se utiliza un CaaS, como aprendimos en la Openathon V con Docker, construimos las aplicaciones como conjuntos de contenedores que colaboran entre sí, y ejecutamos dichos contenedores con sus reglas de acceso, enrutado o escalado. Cómo consigue la plataforma contar con los recursos de computación necesarios para ejecutar las aplicaciones containerizadas, cómo se encarga de que una petición llegue al lugar esperado y se devuelva una respuesta si la hay, o cómo escala una aplicación para ajustarse a las necesidades del momento, es totalmente transparente a los arquitectos y desarrolladores de la aplicación.
 
 El modelo CaaS, como podemos ver, no hace ningún tipo de asunción al respecto del tamaño de las aplicaciones containerizadas. Es decir, CaaS no implica necesariamente microservicios.
 
@@ -60,15 +60,15 @@ A nivel de escala, una aplicación que se descomponga en decenas de microservici
 
 ## Introducción a Serverless
 
-Entonces: ¿qué es serverless? Serverless es un estilo de arquitectura cloud-native en el que todos los componentes del sistema se ejecutan sobre recursos abtraidos, y gestionados completamente por el proveedor cloud, de forma unificada e integrada como si de una nueva plataforma se tratara.
+Entonces: ¿qué es serverless? Serverless es un estilo de arquitectura cloud-native en el que todos los componentes del sistema se ejecutan sobre recursos abstraídos, y gestionados completamente por el proveedor cloud, de forma unificada e integrada como si de una nueva plataforma se tratara.
 
 Serverless incluye FaaS, pero el modelo incluye a muchas otras abstracciones: bases de datos, almacenamiento, APIs, colas de mensajes, servicios de notificación, y muchos otros. Serverless aplica a cualquier componente en la arquitectura de una aplicación.
 
 Existen servidores, por supuesto, y recursos de computación, pero no son visibles al usuario del serverless. Esto simplifica enormemente la definición, aprovisionamiento, despliegue y operaciones de las aplicaciones, como veremos a lo largo de este Openathon.
 
-Además, como la mayor parte de los requerimientos no funcionales y la <i>outer architecture</i> están abstraidos, el código de las aplicaciones es mucho más limpio, enfocado en la lógica de negocio.
+Además, como la mayor parte de los requerimientos no funcionales y la <i>outer architecture</i> están abstraídos, el código de las aplicaciones es mucho más limpio, enfocado en la lógica de negocio.
 
-Son arquitecturas mucho más seguras, ya que tienen un superficie de ataque mucho menor, en la que no se exponen los recursos de la plataforma sobre la que se ejecutan las aplicaciones.
+Son arquitecturas mucho más seguras, ya que tienen una superficie de ataque mucho menor, en la que no se exponen los recursos de la plataforma sobre la que se ejecutan las aplicaciones.
 
 Finalmente, los modelos serverless exprimen al máximo el modelo de pago por uso, con tablas de precios que llegan al grano más fino posible: número de veces que invocas a un API, tiempo en milisegundos que se ejecuta una función, número de veces que ejecutas una query, número de mensajes que publicas a una cola, etc.
 
