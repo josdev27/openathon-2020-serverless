@@ -48,7 +48,15 @@ En este punto seleccionamos como crear muestra función, ya que será distinto s
 
 [ Crear función EventList en Java >](../lambda-functions-java/EventsList)  
 
+## Etiquetando la función
 
+Ahora para facilitar la localizacion de nuestra función, vamos a etiquetarla.
+
+En el servicio **Lambda**, en la opción *Functions* podemos acceder a nuestra función. En el detalle, en el área *Tags* puedes añadir dos etiquetas que permitan localizar más fácilmente la función:
+   * **key**: "createdby"   **value**: [vuestro enterprise id]
+   * **key**: "training"    **value**: "Openathon IV"
+
+Una vez creadas en la ventana de consulta podrá filtrar las funciones utilizando tu enterprise id.
 	
 ## Probando la función
 
