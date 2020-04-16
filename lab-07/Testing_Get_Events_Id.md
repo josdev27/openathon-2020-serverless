@@ -17,4 +17,4 @@ Si se ejecuta correctamente, nos devolverá el evento:
 </p>
 
 
-[< Volver al Laboratorio 07 ](../../lab-07) 
+[< Volver al Laboratorio 07 ](../lab-07#crear-endpoint-2) 

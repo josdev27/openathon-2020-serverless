@@ -1,3 +1,4 @@
+# CreateEvent - Java Version
 
 1. Creamos una nueva clase pulsando con el botón derecho sobre el paquete com.accenture.aws.functions->New ->Class
 2. Le ponemos un nombre significativo, por ejemplo CreateEventItem
@@ -7,7 +8,7 @@
 		
 		import java.util.UUID;
 		
-		import com.accenture.openathoI.lambda.model.Event;
+		import com.accenture.aws.model.Event;
 		import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 		import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 		import com.amazonaws.services.dynamodbv2.document.DynamoDB;
@@ -23,10 +24,10 @@
 		@Override
 		public Event handleRequest(Event event, Context context) {
 		
-			 // Creamos el cliente DynamoDB y
-		 AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
-		 DynamoDB dynamoDB = new DynamoDB(client);
-		     Table table = dynamoDB.getTable("events-xxxx");
+		     // Creamos el cliente DynamoDB y
+		     AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+		     DynamoDB dynamoDB = new DynamoDB(client);
+		     Table table = dynamoDB.getTable("events_XXXX");
 		
 		     // Creamos un id aleatorio
 		     UUID id = UUID.randomUUID();
@@ -42,7 +43,7 @@
 					with("location", event.getLocation()).
 					with("title", event.getTitle()));
 		
-		    System.out.println("PutItem succeeded:\n" + outcome.getPutItemResult());
+		    System.out.println("Add item succeeded:\n" + outcome.getPutItemResult());
 		
 		}
 		catch (Exception e) {
@@ -78,5 +79,5 @@
 
 
 
-[< Volver al Laboratorio 06 ](../../lab-07#crear-endpoint)
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-dar-de-alta-eventos-post-events)
 

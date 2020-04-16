@@ -1,6 +1,7 @@
 # Get Event by id - Python Version
 
-Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente (:warning: recuerda sustituir el nombre de la tabla por el tuyo):
+Primero tenemos que crear la funcion lambda, de la misma forma que en [lab-03](../lambda-functions-python/EventsList), pero el código fuente es el siguiente:
+> :warning: **Recuerda sustituir el nombre de la tabla por el tuyo**
 
 ```python
 # This lambda function is integrated with the following API methods:
@@ -20,19 +21,18 @@ def lambda_handler(event, context):
     print("Received event from API Gateway: " + json.dumps(event, indent=2))
 
     dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('events_XXXX')
+    table = dynamodb.Table('events')
 
     try:
-	response_event = table.get_item(Key={'id': event["id"]})
-	item = response_event["Item"]
+    	response_event = table.get_item(Key={'id': event["id"]})
+    	item = response_event["Item"]
     except ClientError as e:
-	print(e.response['Error']['Message'])
-	print('Check your DynamoDB table...')
+    	print(e.response['Error']['Message'])
+    	print('Check your DynamoDB table...')
     else:
-	print("GetItem succeeded:")
-	print("Received response from DynamoDB: " + json.dumps(response_event, indent=2))
-	# Return only the Items and not the whole response from DynamoDB
-	return item
+    	print("GetItem succeeded:")
+    	print("Received response from DynamoDB: " + json.dumps(response_event, indent=2))
+    	return item
 ```
 
-[< Volver al Laboratorio 07 ](../../lab-07) 
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-recuperar-el-detalle-de-un-eventoget-eventseventid) 

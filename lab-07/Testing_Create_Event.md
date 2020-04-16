@@ -28,4 +28,5 @@ Si la ejecución tiene éxito, nos devolverá el evento editado:
     <img src="resources/create_event_success.png">
 </p>
 
-[< Volver al Laboratorio 07 ](../../lab-07) 
+[< Volver al Laboratorio 07 ](../lab-07#crear-endpoint) 
+

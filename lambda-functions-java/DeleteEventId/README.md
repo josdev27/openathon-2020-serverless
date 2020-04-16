@@ -1,3 +1,4 @@
+# DeleteEvent - Java Version
 
 1. Creamos una nueva clase pulsando con el botón derecho sobre el paquete com.accenture.aws.functions->New ->Class
 2. Le ponemos un nombre significativo, por ejemplo DeleteEventItem
@@ -28,7 +29,7 @@ public class DeleteEventItem implements RequestHandler<Event, Event> {
 		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 
 		DynamoDB dynamoDB = new DynamoDB(client);
-	    Table table = dynamoDB.getTable("events");
+	    Table table = dynamoDB.getTable("events_XXXX");
 
 		// Creamos la query    
 	    DeleteItemSpec deleteItemSpec = new DeleteItemSpec()
@@ -50,11 +51,14 @@ public class DeleteEventItem implements RequestHandler<Event, Event> {
 
 }
 ```
-	
+ >En esta clase, deberemos cambiar el nombre de la tabla "events_XXXX" por el que corresponda con la tabla que hemos creado en DynamoDB.
+ 
+4. Subimos la función a AWS como explicamos en el [laboratorio 03](../EventsList#subir-la-funci%C3%B3n-a-aws)
+5. Probamos la función lambda como explicamos también en el [laboratorio 03](..EventsList#comprobar-la-creaci%C3%B3n-de-la-funci%C3%B3n-en-aws-desde-eclipse), pero en este caso elegimos "Enter de JSON input for your function" y pegamos un json con el siguiente formato:
+```json
+{
+    "id": "aqui poner el id de un evento que hayas creado"
+}
+```
 
-
-
-5. Subimos la función a AWS como explicamos en el [laboratorio 03](../EventsList#subir-la-funci%C3%B3n-a-aws)
-
-
-[< Volver al Laboratorio 06 ](../../lab-06#crear-endpoint-4)
+[< Volver al Laboratorio 07 ](../../lab-07#crear-endpoint-para-eliminar-un-eventodelete-eventseventid)
