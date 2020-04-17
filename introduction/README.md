@@ -2,7 +2,7 @@
     <img src="../resources/header.png">
 </p>
 
-# Introducción a Cloud-native, Serverless y Serverless en AWS & Visión General de la Aplicación
+# Introducción a Cloud-native, Serverless y Serverless en AWS
 
 ## Conceptos básicos
 
