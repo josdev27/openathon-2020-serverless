@@ -51,10 +51,10 @@ Los trabajos los realizaremos sobre la aplicación "Events" que ya iniciamos en 
 Ahora la completaremos con los componentes necesarios para convertirla en una aplicación completa, dotada de seguridad y accesible desde internet.
 
 Vamos por tanto a:
-    - Dotarla de persistencia usando **DynamoDB**.
-    - Dotarla de un backend usando **Lambda** y **API Gateway**.
-    - Dotarla de seguridad con **Cognito** e **IAM**.
-    - Accerla accesible usando **S3**.
+    * Dotarla de persistencia usando **DynamoDB**.
+    * Dotarla de un backend usando **Lambda** y **API Gateway**.
+    * Dotarla de seguridad con **Cognito** e **IAM**.
+    * Accerla accesible usando **S3**.
 
 Pero primero vamos a introduciros a lo que significa el enfoque serverless.
 
