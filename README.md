@@ -4,7 +4,7 @@
 
 # Openathon VI - Serverless with AWS :rocket:
 
-¡¡Bienvenido al Openathon VI!!
+## ¡¡Bienvenido al Openathon VI!!
 
 En esta edición vamos a descubrir las características y funcionamiento de algunos de los servicios web de Amazon y particularmente aquellos que nos permiten desplegar y ejecutar aplicaciones en la nube sin necesidad de reservar o administrar ningún tipo de servidor. Este enfoque se encuadra en las soluciones conocidas como [Serverless](https://aws.amazon.com/es/serverless/), que cada día son más populares y que se están convirtiendo en un alternativa muy atractiva a los enfoques tradicionales, donde es necesario disponer de servidores, ya sea físicos o virtuales, que es necesario adquirir y administrar.
 
@@ -39,6 +39,24 @@ El indice del contenido es el siguiente:
 10. [LAB 8. Publicar la web en S3](/lab-08)
 
 Para la realización de los laboratorios, los participantes dispondrán de un usuario de formación con acceso a los servicios necesarios. Adicionalmente podrán también crearse su propia cuenta y gestionar los usuarios y los recursos necesarios para hacerlo. Las funciones lambda se presentan tanto en java como en python para que cada participante pueda utilizar el que prefiera  
+
+## La aplicación Events
+
+Los trabajos los realizaremos sobre la aplicación "Events" que ya iniciamos en el IV Openathon dedicado a [Angular](https://github.com/Accenture/openathon-2019-angular). Nuestra aplicación nos permite crear y gestionar eventos, después de logarnos podremos crear nuevos eventos, consultar los existentes, filtrar los que hemos generados nosotros... 
+
+
+
+Ahora la completaremos con los componentes necesarios para convertirla en una aplicación completa, dotada de seguridad y accesible desde internet.
+
+Vamos por tanto a:
+    - Dotarla de persistencia usando **DynamoDB**.
+    - Dotarla de un backend usando **Lambda** y **API Gateway**.
+    - Dotarla de seguridad con **Cognito** e **IAM**.
+    - Accerla accesible usando **S3**.
+
+Pero primero vamos a introduciros a lo que significa el enfoque serverless.
+
+[Introduction >](/introduction)
 
 <p align="center">
     <img src="resources/header.png">
