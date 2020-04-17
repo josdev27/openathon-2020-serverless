@@ -27,7 +27,7 @@ Los servicios que utilizaremos serán:
 
 El indice del contenido es el siguiente:
 
-1. [Introduccion Serverless AWS & Visión General de la Aplicación.](/introduction)
+1. [Introducción a Cloud-native, Serverless y Serverless en AWS](/introduction)
 2. [LAB 0. Pasos iniciales](/lab-00)
 3. [LAB 1. DynamoDB](/lab-01)
 4. [LAB 2. Crear rol en IAM (Sólo con cuenta privada)](/lab-02)
@@ -40,11 +40,13 @@ El indice del contenido es el siguiente:
 
 Para la realización de los laboratorios, los participantes dispondrán de un usuario de formación con acceso a los servicios necesarios. Adicionalmente podrán también crearse su propia cuenta y gestionar los usuarios y los recursos necesarios para hacerlo. Las funciones lambda se presentan tanto en java como en python para que cada participante pueda utilizar el que prefiera  
 
-## La aplicación Events
+## Visión General de la Aplicación
 
 Los trabajos los realizaremos sobre la aplicación "Events" que ya iniciamos en el IV Openathon dedicado a [Angular](https://github.com/Accenture/openathon-2019-angular). Nuestra aplicación nos permite crear y gestionar eventos, después de logarnos podremos crear nuevos eventos, consultar los existentes, filtrar los que hemos generados nosotros... 
 
-
+<p align="center">
+    <img src="resources/app.png">
+</p>
 
 Ahora la completaremos con los componentes necesarios para convertirla en una aplicación completa, dotada de seguridad y accesible desde internet.
 
