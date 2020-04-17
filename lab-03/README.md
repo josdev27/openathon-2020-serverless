@@ -22,7 +22,7 @@ Las funciones lambda pueden implementarse en múltiples lenguajes de programaci�
 Si la función lambda la desarrollamos en Java, es necesario disponer de un contenedor que permita subir a AWS las clases que van a implementarla. Este contedor se materializa en un bucket que creamos utilizando el servicio ["Amazon Simple Storage Service"](https://docs.aws.amazon.com/s3/index.html) (S3). Para hacerlo hay que seguir los siguientes pasos:
 
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos *S3*.
-2.	Creamos el *Code bucket* que contendrá las funciones lamdba que despleguemos en AWS. Pulsamos *Create Bucket*, como nombre y en minúsculas estableceremos “events-web-XXXX”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “events-web-XXXX” por el identificador exclusivo que estemos usando, por ejemplo “events-web-ajt”.
+2.	Creamos el *Code bucket* que contendrá las funciones lamdba que despleguemos en AWS. Pulsamos *Create Bucket*, como nombre y en minúsculas estableceremos “events-code-XXXX”. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “events-code-XXXX” por el identificador exclusivo que estemos usando, por ejemplo “events-code-ajt”.
 
 > :warning: Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región. Para tener más información acerca de las regiones puedes acceder a este [enlace](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/using-regions-availability-zones.html). Para la elaboración de los laboratorios os sugerimos utilizar Irlanda.
 
