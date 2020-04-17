@@ -57,7 +57,7 @@ El resto de las opciones las dejaremos por defecto y pulsaremos *next step*.
 <p align="center">
   <img src="resources/img_6.png" width="150px">
 </p>
-Vamos ahora a crear un [User Pool App Client](https://docs.aws.amazon.com/es_es/cognito/latest/developerguide/user-pool-settings-client-apps.html) dentro de nuestro **User pool**. Esta App Client es una entidad dentro de un user pool que tiene permiso para llamar a API sin autenticar (API que no tengan un usuario autenticado), como las API de registro, inicio de sesión y gestión de contraseñas olvidadas, a las que lógicamente el usuario accede sin haber presentado aún creedenciales.
+Vamos ahora a crear un [User Pool App Client](https://docs.aws.amazon.com/es_es/cognito/latest/developerguide/user-pool-settings-client-apps.html) dentro de nuestro User pool. Esta App Client es una entidad dentro de un user pool que tiene permiso para llamar a API sin autenticar (API que no tengan un usuario autenticado), como las API de registro, inicio de sesión y gestión de contraseñas olvidadas, a las que lógicamente el usuario accede sin haber presentado aún creedenciales.
 
 8. En la sección **App clients** pulsamos *Add an app client* y en el formulario resultante establecemos las propiedades del cliente:
     *	Nombre de la aplicación “EventAppAngular_XXXX” (siendo XXXX el identificador único que estes usando).
