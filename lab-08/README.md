@@ -10,7 +10,7 @@
 
 ## Descargar y configurar la app
 
-La app ya compilada se encuentra en este [enlace](../app). Teneis que descargaros el repositorio e ir a la carpeta app. Dentro ella está la carpeta assets/config. Dentro está el fichero con la configuración de la app, llamado config.json, que debemos editar informandonos con los valores que hemos ido obteniendo al configurar nuestros servicios.
+La app ya compilada se encuentra en este [enlace](../app). Teneis que descargaros el repositorio e ir a la carpeta app. Dentro ella está la carpeta **assets/config**. Dentro está el fichero con la configuración de la app, llamado **config.json**, que debemos editar informándonos con los valores que hemos ido obteniendo al configurar nuestros servicios.
 
 ```json
 {
@@ -24,24 +24,25 @@ La app ya compilada se encuentra en este [enlace](../app). Teneis que descargaro
 
 Para recuperar cada uno de estos valores, podemos consultar los servicios que hemos ido creando:
 
-1. **apiUrl**: es la url de nuestra api deployada. Se puede obtener dentro de nuestra API, pulsando en stages y seleccionando el deplou que hayamos realizado ("prod" si seguimos las instrucciones). Para que funcione correctamente, hay que añadir una "/" al final de la url.
-2. **apiKey**: es la api key que hemos creado en nuestra API, podemos consultarla en API Gateway, en la sección *API Keys*, seleccionando la API Key creada en el laboratorio 6, y pulsando *show*.
+1. **apiUrl**: es la url de nuestra api desplegada. Se puede obtener dentro de nuestra API, pulsando en *stages* y seleccionando el deploy que hayamos realizado ("prod" si seguimos las instrucciones). 
+> :warning: Para que funcione correctamente, hay que añadir **una "/" al final de la url.**
+2. **apiKey**: es la api key que hemos creado en nuestra API, podemos consultarla en **API Gateway**, en la sección *API Keys*, seleccionando la API Key creada en el laboratorio 6, y pulsando *show*.
 3. **cognitoRegion**: dependerá de la región que hayamos utilizado para crear nuestros servicios. Podemos consultarlo desplegando en el menú la región (en el caso de Irlanda es *eu-west-1*.
-4. **userPoolId**: podemos consultar en *General Settings* del user pool que hemos creado en Cognito.
-5. **userPoolWebClientId**: es el *client id* de nuestra app en cognito. Para recuperarlo tenemos que acceder al User Pool que hemos creado en Cognito, seleccionar *App Clients* dentro de *General Settings* y allí consultarlo en el campo *App client id*
+4. **userPoolId**: podemos consultarlo en *General Settings* del *user pool* que hemos creado en **Cognito**.
+5. **userPoolWebClientId**: es el *client id* de nuestra app en **Cognito**. Para recuperarlo tenemos que acceder al User Pool que hemos creado en **Cognito**, seleccionar *App Clients* dentro de *General Settings* y allí consultarlo en el campo *App client id*
 
 ## Crear bucket en S3
 
-En esta sección crearemos un bucket para almacenar nuestro front-end angular (website bucket):
+En esta sección crearemos un *bucket* para almacenar nuestro front-end angular (website bucket):
 1.	En la consola de AWS, en el menú Services buscaremos y seleccionaremos **S3**.
 2.	Creamos el *web bucket* que contendrá el front-end. Pulsamos *Create Bucket*, como nombre y en minúsculas estableceremos 
 *events-web-xxxx*. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “xxxx” por un identificador exclusivo, por ejemplo “evento-web-john-smith1234”.
 > :warning: Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
-3.	Pulsamos *create*.
-5.  Vamos a etiquetar nuestro Bucket para facilitar su localización. Para ello seleccionaremos el nuevo bucket creado (podemos filtrar por el nombre que hayamos utilizado). Dentro de la pestaña *Properties* del bucket pulsamos *Tags* en la sección "Advanced Settings*. En el formulario introducimos:
+3.	Pulsamos *Create*.
+5.  Vamos a etiquetar nuestro bucket para facilitar su localización. Para ello seleccionaremos el nuevo bucket creado (podemos filtrar por el nombre que hayamos utilizado). Dentro de la pestaña *Properties* del bucket pulsamos *Tags* en la sección "Advanced Settings*. En el formulario introducimos:
    * **key**: "createdby"   **value**: [vuestro enterprise id]
    * **key**: "training"    **value**: "Openathon IV"
-4.  Finalmente, encriptaremos el bucket. Para ello seleccionaremos el nuevo bucket creado. Sobre la pestaña properties, en la opción Default encryption seleccionaremos **AES-256**.
+4.  Finalmente, encriptaremos el bucket. Para ello seleccionaremos el nuevo bucket creado. Sobre la pestaña *properties*, en la opción *Default encryption* seleccionaremos **AES-256**.
 <p align="center">
     <img src="resources/img_3.png"/>
 </p>
@@ -84,13 +85,13 @@ Ahora vamos a configurar los permisos del bucket, para hacer nuestra app accesib
     ]
 }
 ```
-Nuestro bucket ahora aparecerá como de *Public Access*.
+Nuestro bucket ahora aparecerá como *Public Access*.
 
 <p align="center">
     <img src="resources/img_2.png">
 </p>
 
-7.	Pulsamos en la pestaña de propiedades.
+7.	Pulsamos en la pestaña de *propiedades*.
 8.	Pulsamos *Static website hosting*.
 9.	Activamos el hosting web:
     * Seleccionamos *Use this bucket to host a website*.
