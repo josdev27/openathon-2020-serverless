@@ -38,6 +38,8 @@ El indice del contenido es el siguiente:
 9. [LAB 7. Terminar el API Gateway con lambda](/lab-07)
 10. [LAB 8. Publicar la web en S3](/lab-08)
 
+Para la realización de los laboratorios, los participantes dispondrán de un usuario de formación con acceso a los servicios necesarios. Adicionalmente podrán también crearse su propia cuenta y gestionar los usuarios y los recursos necesarios para hacerlo. Las funciones lambda se presentan tanto en java como en python para que cada participante pueda utilizar el que prefiera  
+
 <p align="center">
     <img src="resources/header.png">
 </p>
