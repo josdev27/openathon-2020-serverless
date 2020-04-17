@@ -8,7 +8,7 @@
 
 En esta edición vamos a descubrir las características y funcionamiento de algunos de los servicios web de Amazon y particularmente aquellos que nos permiten desplegar y ejecutar aplicaciones en la nube sin necesidad de reservar o administrar ningún tipo de servidor. Este enfoque se encuadra en las soluciones conocidas como [Serverless](https://aws.amazon.com/es/serverless/), que cada día son más populares y que se están convirtiendo en un alternativa muy atractiva a los enfoques tradicionales, donde es necesario disponer de servidores, ya sea físicos o virtuales, que es necesario adquirir y administrar.
 
-Los [Amazon Web Services](https://aws.amazon.com/es/what-is-aws/), o de manera abreviada AWS, son una serie de servicios implementados y ofrecidos por Amazon en marco de la cloud computing. AWS Lambda es uno de estos servicios y permite disponer de funciones para atender a diversos tipos de eventos sin tener que provisionar o adminitrar ningún tipo de servidor. El coste de estos servicios depende únicamente del tiempo de proceso que se consuma en su ejecución. En este Openathon, vamos a utilizar este servicio para dotar a nuestra aplicación de eventos de la lógica necesaria para su ejecución.
+[Amazon Web Services](https://aws.amazon.com/es/what-is-aws/), o de manera abreviada **AWS**, son una serie de servicios implementados y ofrecidos por Amazon en marco de la cloud computing. **AWS Lambda** es uno de estos servicios y permite disponer de funciones para atender a diversos tipos de eventos sin tener que provisionar o adminitrar ningún tipo de servidor. El coste de estos servicios depende únicamente del tiempo de proceso que se consuma en su ejecución. En este Openathon, vamos a utilizar este servicio para dotar a nuestra aplicación de eventos de la lógica necesaria para su ejecución.
 
 Al final de es Openathon, tendrás la siguiente arquitectura serveless completamente funcional:
 
@@ -18,12 +18,12 @@ Al final de es Openathon, tendrás la siguiente arquitectura serveless completam
 
 Los servicios que utilizaremos serán:
 
-1. DynamoDB. Servicio de base de datos no sql.
-2. IAM. (Identity and Access Management) Servicio para el control del acceso al resto de servicios.
-3. S3. Servicio de almacenamiento para publicar la aplicación Angular y contener las funciones lambda si las implementas en Java.
-4. Cognito. Servicio de autenticación de usuarios.
-5. Lambda Functions. Funciones de negocio.
-6. API Gateway. Gestiona las API Rest que darán acceso controlado a las funciones Lambda.
+1. **DynamoDB**. Servicio de base de datos no sql.
+2. **IAM (Identity and Access Management)**. Servicio para el control del acceso al resto de servicios.
+3. **S3**. Servicio de almacenamiento para publicar la aplicación Angular y contener las funciones lambda si las implementas en Java.
+4. **Cognito**. Servicio de autenticación de usuarios.
+5. **Lambda Functions**. Funciones de negocio.
+6. **API Gateway**. Gestiona las API REST que darán acceso controlado a las funciones Lambda.
 
 El indice del contenido es el siguiente:
 
