@@ -20,7 +20,7 @@ Los servicios que utilizaremos serán:
 
 1. DynamoDB. Servicio de base de datos no sql.
 2. IAM. (Identity and Access Management) Servicio para el control del acceso al resto de servicios.
-3. S3. Servicio de almacenamiento para publicar la aplicación Angular.
+3. S3. Servicio de almacenamiento para publicar la aplicación Angular y contener las funciones lambda si las implementas en Java.
 4. Cognito. Servicio de autenticación de usuarios.
 5. Lambda Functions. Funciones de negocio.
 6. API Gateway. Gestiona las API Rest que darán acceso controlado a las funciones Lambda.
