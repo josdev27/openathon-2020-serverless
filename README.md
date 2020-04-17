@@ -54,7 +54,7 @@ Vamos por tanto a:
 * Dotarla de persistencia usando **DynamoDB**.
 * Dotarla de un backend usando **Lambda** y **API Gateway**.
 * Dotarla de seguridad con **Cognito** e **IAM**.
-* Accerla accesible usando **S3**.
+* Hacerla accesible usando **S3**.
 
 Pero primero vamos a introduciros a lo que significa el enfoque serverless.
 
