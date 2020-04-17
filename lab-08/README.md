@@ -38,6 +38,9 @@ En esta sección crearemos un bucket para almacenar nuestro front-end angular (w
 *events-web-xxxx*. El nombre del bucket tiene que ser único en todo AWS, así que deberemos sustituir “xxxx” por un identificador exclusivo, por ejemplo “evento-web-john-smith1234”.
 > :warning: Hay que verificar que te encuentras en la región correcta. Cada uno de los servicios que se creen en los laboratorios (Cognito, API Gateway, Lambda y DynamoDB) deben pertenecer a la misma región.
 3.	Pulsamos *create*.
+5.  Vamos a etiquetar nuestro Bucket para facilitar su localización. Para ello seleccionaremos el nuevo bucket creado (podemos filtrar por el nombre que hayamos utilizado). Dentro de la pestaña *Properties* del bucket pulsamos *Tags* en la sección "Advanced Settings*. En el formulario introducimos:
+   * **key**: "createdby"   **value**: [vuestro enterprise id]
+   * **key**: "training"    **value**: "Openathon IV"
 4.  Finalmente, encriptaremos el bucket. Para ello seleccionaremos el nuevo bucket creado. Sobre la pestaña properties, en la opción Default encryption seleccionaremos **AES-256**.
 <p align="center">
     <img src="resources/img_3.png"/>
@@ -111,6 +114,8 @@ Por ello y como último paso del laboratorio:
 2.	Pulsamos en *Block public Access*.
 3.	Pulsamos *edit* y **seleccionamos** todas las opciones.
 4.	Pulsamos *Save* y confirmamos en cualquier aviso que se muestre.
+5.  Pulsamos en *Bucket Policy*.
+6.	Borramos la política, comprobando que en la opción desaparece el indicador *Public*.
 
 Una vez hecho comprobamos que ya no podemos acceder a la aplicación.
 
